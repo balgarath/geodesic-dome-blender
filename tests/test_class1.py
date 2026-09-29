@@ -4,6 +4,7 @@ import os
 from core.icosa import subdivide_class1
 from core.truncate import dome_edges
 from core.classify import group_edges
+from _helpers import nearest_match_pairs
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "geodesic_dome", "core", "data")
@@ -43,29 +44,35 @@ def test_class1_against_domerama():
         # fine grouping (1e-7) matches the oracle's group_lengths
         edge_type, groups = group_edges(edges, mesh.verts, 1e-7)
         counts_ok = all(s.get("count") for s in dome["struts"] if s.get("chord_factor"))
-        used = set()
-        for srow in dome["struts"]:
-            cf = srow.get("chord_factor")
-            if cf is None:
-                continue
+
+        ref_rows = [s for s in dome["struts"] if s.get("chord_factor") is not None]
+        ref_cfs = [s["chord_factor"] for s in ref_rows]
+        computed_cfs = [g["chord_factor"] for g in groups]
+        pairs = nearest_match_pairs(computed_cfs, ref_cfs)
+        matched_ref = {ri for ri, ci, d in pairs}
+        for ri in range(len(ref_rows)):
+            assert ri in matched_ref, "%s %s: CF %.8f has no nearest match at all" % (
+                dome["frequency"], ref_rows[ri]["label"], ref_cfs[ri])
+
+        used_computed = set()
+        for ri, ci, d in pairs:
+            srow = ref_rows[ri]
+            cf = ref_cfs[ri]
             tol = _tol_for(cf)
-            hit = None
-            for gi, g in enumerate(groups):
-                if gi not in used and abs(g["chord_factor"] - cf) <= tol:
-                    hit = gi
-                    break
-            assert hit is not None, "%s %s: no match for CF %.8f" % (
-                dome["frequency"], srow["label"], cf)
-            used.add(hit)
+            if d > tol:
+                # not a direct match; may be one half of a site-merged pair
+                # (7V J, 8V N), checked below via a paired second group.
+                continue
+            used_computed.add(ci)
             if counts_ok and srow.get("count") is not None:
-                c = groups[hit]["count"]
+                c = groups[ci]["count"]
                 if c != srow["count"]:
                     # site sometimes merges two true strut types (7V J, 8V N)
                     merged = False
                     for gj, g2 in enumerate(groups):
-                        if gj not in used and abs(g2["chord_factor"] - cf) < 2e-4 \
+                        if gj not in used_computed and abs(g2["chord_factor"] - cf) < 2e-4 \
                                 and c + g2["count"] == srow["count"]:
-                            used.add(gj)
+                            used_computed.add(gj)
                             merged = True
                             break
                     assert merged, "%s %s: count %d vs ref %d" % (
