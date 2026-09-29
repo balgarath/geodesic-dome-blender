@@ -66,6 +66,28 @@ def _corrected_reference(frequency, k, ref_struts):
     return cfs, counts
 
 
+def test_known_splits_sum_to_site_merged_counts():
+    # The two true-value pairs in _KNOWN_SPLITS must add up to exactly the
+    # count domerama's single merged row shows (J: 70, N: 90), or the
+    # "corrected reference" used above would silently misrepresent what
+    # domerama actually publishes.
+    site_counts = {}
+    for dome in CLASSI_REF["domes"]:
+        if dome["method"] != "Class I Method 1":
+            continue
+        for row in dome["struts"]:
+            if row["label"] in ("J", "N") and row.get("count"):
+                site_counts.setdefault((dome["frequency"], row["label"]), row["count"])
+
+    assert site_counts.get(("7V", "J")) == 70
+    assert site_counts.get(("8V", "N")) == 90
+
+    j_split_sum = sum(c for _cf, c in _KNOWN_SPLITS[(7, 10)]["J"])
+    n_split_sum = sum(c for _cf, c in _KNOWN_SPLITS[(8, 12)]["N"])
+    assert j_split_sum == site_counts[("7V", "J")] == 70
+    assert n_split_sum == site_counts[("8V", "N")] == 90
+
+
 def test_class1_production_defaults_vs_domerama():
     for n, k, freq_label, fraction_label in CLASS_I_CASES:
         ref_struts = None

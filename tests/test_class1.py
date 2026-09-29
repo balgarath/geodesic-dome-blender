@@ -20,6 +20,11 @@ TRUNC = {
     ("6V", "1/2"): 9, ("7V", "10/21"): 10, ("8V", None): 12,
 }
 
+# domerama displays these as one row; the true, physically distinct split
+# is documented and verified separately (test_7v_j_split, test_8v_n_split).
+# A nearest match landing outside tolerance is only acceptable for these.
+_KNOWN_SPLIT_LABELS = {("7V", "J"), ("8V", "N")}
+
 
 def _tol_for(cf):
     s = "%r" % cf
@@ -60,8 +65,17 @@ def test_class1_against_domerama():
             cf = ref_cfs[ri]
             tol = _tol_for(cf)
             if d > tol:
-                # not a direct match; may be one half of a site-merged pair
-                # (7V J, 8V N), checked below via a paired second group.
+                # Not a direct match. This is only acceptable for the two
+                # documented site-merged rows (7V J, 8V N), where the
+                # nearest match is one half of the true split and can sit
+                # up to ~2e-4 away from the merged reference value; any
+                # other row failing to match within tolerance is a real
+                # regression, so assert rather than silently skip it.
+                assert (dome["frequency"], srow["label"]) in _KNOWN_SPLIT_LABELS, (
+                    "%s %s: nearest match distance %.2e exceeds tolerance %.2e "
+                    "(ref CF %.8f, nearest computed %.8f) and is not a known "
+                    "site-merged row" % (
+                        dome["frequency"], srow["label"], d, tol, cf, computed_cfs[ci]))
                 continue
             used_computed.add(ci)
             if counts_ok and srow.get("count") is not None:
