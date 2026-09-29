@@ -37,7 +37,10 @@ def valid_frequencies(method):
 
 
 def _positions_for(method, mesh, frequency):
-    if method == "CLASS_I":
+    if method in ("CLASS_I", "CUSTOM"):
+        # CUSTOM has no standard positions of its own; for level-base /
+        # fraction-listing purposes before a table is solved, use the Class
+        # I topology it defaults to (see class1_defaults and design.md 7).
         return mesh.verts
     if method in ("KRUSCHKE", "KRUSCHKE_DOMERAMA"):
         extended = frequency in (5, 6)
