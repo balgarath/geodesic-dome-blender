@@ -16,11 +16,11 @@ this for my own build planning and figured other dome builders could use it.
 ![A row of Kruschke domes in Blender, with a 4V dome at 4 m radius in front, struts colored by type, and the Geovisual Dome redo panel open](docs/screenshot.png)
 
 Requires Blender 4.2 or newer (tested in Blender 5.2). Current version
-0.2.0. License: GPL-3.0-or-later.
+0.2.1. License: GPL-3.0-or-later.
 
 ## Install
 
-1. Download `geovisual_dome_tools-0.2.0.zip` from the
+1. Download `geovisual_dome_tools-0.2.1.zip` from the
    [Releases](https://github.com/balgarath/geovisual-dome-tools/releases)
    page.
 2. In Blender, go to Edit > Preferences > Get Extensions, open the

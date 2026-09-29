@@ -5,6 +5,7 @@
 Design.md 10.2, 10.3, 10.4.
 """
 import colorsys
+import os
 import dataclasses
 import json
 import math
@@ -19,7 +20,7 @@ from mathutils import Vector
 from .core.build import build_dome, valid_frequencies, valid_fractions
 from .core.custom import parse_table, expected_class_count
 
-PLUGIN_VERSION = "0.2.0"
+PLUGIN_VERSION = "0.2.1"
 
 METHOD_ITEMS = [
     ("KRUSCHKE", "Kruschke", "The 1972 Kruschke flat base construction, 3V and 4V. The report shows domerama's published chord factor next to ours for the fractions domerama documents"),
@@ -445,14 +446,38 @@ def create_strut_object(context, frame_obj, geometry, radius, thickness, colors)
     return strut_obj
 
 
+_icons = None
+
+
+def _load_icons():
+    global _icons
+    import bpy.utils.previews
+    _icons = bpy.utils.previews.new()
+    path = os.path.join(os.path.dirname(__file__), "icons", "dome_tools.png")
+    if os.path.exists(path):
+        _icons.load("dome_tools", path, 'IMAGE')
+
+
+def _free_icons():
+    global _icons
+    if _icons is not None:
+        bpy.utils.previews.remove(_icons)
+        _icons = None
+
+
 def menu_func(self, context):
-    self.layout.operator(MESH_OT_geovisual_dome_add.bl_idname, text="Geovisual Dome", icon='MOD_TRIANGULATE')
+    op = MESH_OT_geovisual_dome_add.bl_idname
+    if _icons is not None and "dome_tools" in _icons:
+        self.layout.operator(op, text="Geovisual Dome", icon_value=_icons["dome_tools"].icon_id)
+    else:
+        self.layout.operator(op, text="Geovisual Dome", icon='MOD_TRIANGULATE')
 
 
 _CLASSES = (MESH_OT_geovisual_dome_add,)
 
 
 def register():
+    _load_icons()
     for cls in _CLASSES:
         bpy.utils.register_class(cls)
     bpy.types.VIEW3D_MT_mesh_add.append(menu_func)
@@ -462,3 +487,4 @@ def unregister():
     bpy.types.VIEW3D_MT_mesh_add.remove(menu_func)
     for cls in reversed(_CLASSES):
         bpy.utils.unregister_class(cls)
+    _free_icons()

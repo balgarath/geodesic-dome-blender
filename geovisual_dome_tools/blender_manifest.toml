@@ -1,6 +1,6 @@
 schema_version = "1.0.0"
 id = "geovisual_dome_tools"
-version = "0.2.0"
+version = "0.2.1"
 name = "Geovisual Dome Tools"
 tagline = "Geodesic dome frames with Class I and Kruschke chord factors"
 maintainer = "Ralph Edge <rledge21@gmail.com>"
