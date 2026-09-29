@@ -64,3 +64,20 @@ def test_merge_tolerance_cannot_chain_past_the_limit():
     # With the fix, this chain must not collapse into a single group: the
     # total span (1.00015 - 1.0 = 1.5e-4) exceeds merge_tolerance (1e-4).
     assert len(groups) == 2
+
+
+def test_level_tolerance_is_relative_to_radius():
+    # Class I 5V 7/15 has a small but genuine, non-zero base spread
+    # (0.006912 on the unit sphere). At a tiny radius (1 cm), a fixed
+    # absolute 0.1 mm physical tolerance would call this "level" (0.069 mm
+    # < 0.1 mm) even though Class I odd frequencies never give a level
+    # base; the radius-relative tolerance must not let that happen.
+    geometry = build_dome("CLASS_I", 5, 7, radius=0.01)
+    assert geometry.report.base_is_level is False
+    assert any("not level" in n for n in geometry.report.notes)
+
+    # The same dome at a normal building radius is, of course, also not
+    # level (Class I odd frequencies never are); the mismatch is just
+    # reported in different physical units.
+    geometry_normal = build_dome("CLASS_I", 5, 7, radius=3.0)
+    assert geometry_normal.report.base_is_level is False

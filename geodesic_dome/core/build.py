@@ -134,12 +134,25 @@ def build_dome(method, frequency, k, merge_tolerance=1e-6, custom_table=None,
     faces = dome_faces(mesh, k)
     base = base_ring(mesh, k, edges)
     # Level check in real length at the chosen radius: a base is level
-    # enough to build when its spread is under 0.1 mm at that radius, not
-    # only when it is exactly 0 on the unit sphere. This matters for e.g. a
-    # Custom dome fed domerama's own rounded Kruschke factors, whose spread
-    # is about 1e-6 on the unit sphere (a few thousandths of a millimeter
-    # at any sane radius) but would fail a strict 1e-9 check.
-    level_tol = (0.0001 / radius) if radius > 0 else 1e-9
+    # enough to build when its spread is under a small tolerance at that
+    # radius, not only when it is exactly 0 on the unit sphere. This
+    # matters for e.g. a Custom dome fed domerama's own rounded Kruschke
+    # factors, whose spread is about 1e-6 on the unit sphere (a few
+    # thousandths of a millimeter at any sane radius) but would fail a
+    # strict 1e-9 check.
+    #
+    # The physical tolerance itself must shrink with radius, not stay a
+    # fixed 0.1 mm: a fixed absolute tolerance is a huge relative slack at
+    # small radii (0.1 mm out of a 14.5 mm radius dome is not "level", it's
+    # most of the model), which let tiny Class I odd-frequency domes
+    # falsely report level. Use the smaller of a 0.1 mm cap and a relative
+    # 1e-5 x radius tolerance, with a tiny absolute floor so radius -> 0
+    # doesn't divide by zero.
+    if radius > 0:
+        threshold_m = max(1e-9 * radius, min(0.0001, 1e-5 * radius))
+        level_tol = threshold_m / radius
+    else:
+        level_tol = 1e-9
     base_level, base_spread = base_level_info(positions, base, tol=level_tol)
 
     edge_type, groups = group_edges(edges, positions, merge_tolerance)
@@ -147,10 +160,21 @@ def build_dome(method, frequency, k, merge_tolerance=1e-6, custom_table=None,
     dcols = domerama_columns(method, frequency, k, ascending_cfs) if method != "CUSTOM" \
         else [(None, None)] * len(ascending_cfs)
 
-    if method == "CUSTOM" and len(groups) != targets_count:
-        notes.append(
-            "Your table is not geometrically consistent for this dome, so "
-            "the mesh has %d strut lengths instead of %d." % (len(groups), targets_count))
+    if method == "CUSTOM":
+        # Count distinct lengths for this warning at a tolerance loose
+        # enough to absorb the solver's own noise, not the (possibly much
+        # tighter) reporting merge_tolerance: otherwise a table that is
+        # genuinely self-consistent (tiny residual) but merges under a
+        # coarse merge_tolerance looks "inconsistent" for the wrong reason,
+        # and a table fed back with sub-1e-4 rounding (e.g. domerama's own
+        # published Kruschke CFs) falsely reports many extra types created
+        # purely by relaxation jitter rather than a bad table.
+        consistency_tol = max(merge_tolerance, 3.0 * residual)
+        _ct_edge_type, consistency_groups = group_edges(edges, positions, consistency_tol)
+        if len(consistency_groups) > targets_count and residual > 1e-4:
+            notes.append(
+                "Your table is not geometrically consistent for this dome, so "
+                "the mesh has %d strut lengths instead of %d." % (len(consistency_groups), targets_count))
 
     strut_types = []
     for i, g in enumerate(groups):
@@ -193,9 +217,10 @@ def build_dome(method, frequency, k, merge_tolerance=1e-6, custom_table=None,
         if method == "CLASS_I" and frequency % 2 == 1:
             notes.append("Class I odd frequencies never give a level base. "
                          "The Kruschke method does.")
-    elif base_spread > 0.0:
+    elif base_spread > 0.0 and len(base) > 1:
         mm = base_spread * 1000.0 * radius
-        notes.append("Base spread: %.4f mm at radius %.3f m, within tolerance." % (mm, radius))
+        if round(mm, 4) > 0.0:
+            notes.append("Base spread: %.4f mm at radius %.3f m, within tolerance." % (mm, radius))
     if method == "KRUSCHKE" and frequency % 2 == 0 and k == denom // 2:
         notes.append("For 1/2 domes at even frequency, Class I already gives "
                      "a level base with fewer strut types.")
