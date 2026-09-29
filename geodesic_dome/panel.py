@@ -68,8 +68,14 @@ class VIEW3D_PT_geodome_report(Panel):
             row.label(text="%.1f mm" % (st["chord_factor"] * radius * 1000.0))
             row.label(text=str(st["count"]))
             row.label(text="%.2f" % st["bend_angle_deg"])
+            if st.get("domerama_label") or st.get("domerama_cf") is not None:
+                row.label(text="Domerama %s: %.6f" % (
+                    st.get("domerama_label") or "", st.get("domerama_cf") or 0.0))
+            else:
+                row.label(text="Domerama:")
             if st.get("sub_spread"):
-                table_box.label(text="  contains sub-types, spread %.2e" % st["sub_spread"])
+                mm = st["sub_spread"] * radius * 1000.0
+                table_box.label(text="  contains sub-types, spread %.3f mm" % mm)
 
         hub_box = layout.box()
         hub_box.label(text="Hubs")
