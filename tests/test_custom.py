@@ -63,11 +63,13 @@ def test_perturbed_class1_converges():
     positions, residual = solve_custom(mesh, mesh.verts, 4, perturbed)
     assert residual < 1e-3
     edges = dome_edges(mesh, 4)
-    # Classify at the production default merge_tolerance (1e-4): the
-    # relaxation converges close to, but not exactly onto, the symmetric
-    # fixed point (residual ~5e-4), so grouping at the fine 1e-7 tolerance
-    # used elsewhere would see near-duplicate lengths as distinct types.
-    _edge_type, groups = group_edges(edges, positions, 1e-4)
+    # The relaxation converges close to, but not exactly onto, the
+    # symmetric fixed point (residual ~5e-4), so grouping needs a tolerance
+    # comfortably above that residual to see the topology's true 3 classes;
+    # the no-chaining fix (classify.py) means the tolerance must now cover
+    # each class's full observed spread, not just adjacent gaps, so 1e-4
+    # (which worked before that fix) is no longer enough.
+    _edge_type, groups = group_edges(edges, positions, 1e-3)
     assert len(groups) == 3
 
 

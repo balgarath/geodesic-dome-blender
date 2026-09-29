@@ -94,7 +94,12 @@ def group_edges(edges, positions, merge_tolerance):
 
     final_groups = []
     for g in fine_groups:
-        if final_groups and g["mean"] - final_groups[-1]["fine"][-1]["mean"] < merge_tolerance:
+        # Compare against the group's minimum (first-added) fine-group mean,
+        # not the running/last mean: comparing to the last mean lets a chain
+        # of small gaps drift the whole group's spread past merge_tolerance
+        # (each step under tolerance, but the sum over the chain is not).
+        # Comparing to the min guarantees max - min stays under tolerance.
+        if final_groups and g["mean"] - final_groups[-1]["fine"][0]["mean"] < merge_tolerance:
             final_groups[-1]["fine"].append(g)
         else:
             final_groups.append({"fine": [g]})

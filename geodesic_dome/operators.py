@@ -156,11 +156,13 @@ class MESH_OT_geodesic_dome_add(Operator):
     )
     merge_tolerance: FloatProperty(
         name="Merge Tolerance",
-        default=1e-4,
+        default=1e-6,
         min=0.0,
-        max=1e-2,
-        precision=6,
-        description="Strut lengths this close are reported as one type",
+        max=1e-3,
+        precision=7,
+        description="Strut lengths this close are reported as one cut length. "
+                     "Raising this merges near-identical struts into one cut "
+                     "length, which is convenient to build but less exact",
     )
     add_base_face: BoolProperty(
         name="Add Base Face",
@@ -255,11 +257,13 @@ class MESH_OT_geodesic_dome_add(Operator):
                     merge_tolerance=self.merge_tolerance,
                     custom_table=custom_table,
                     custom_base=self.custom_base,
+                    radius=self.radius,
                 )
             else:
                 geometry = build_dome(
                     self.method, frequency, k,
                     merge_tolerance=self.merge_tolerance,
+                    radius=self.radius,
                 )
         except ValueError as exc:
             self.report({'ERROR'}, str(exc))
@@ -292,23 +296,48 @@ class MESH_OT_geodesic_dome_add(Operator):
         mesh.validate()
         mesh.update()
 
-        strut_type_attr = mesh.attributes.new("strut_type", 'INT', 'EDGE')
-        strut_type_attr.data.foreach_set("value", geometry.edge_type)
+        # Blender can reorder edges and faces inside from_pydata (observed:
+        # only 1/310 edges kept their input index for Kruschke 4V 7/12 in
+        # Blender 4.0.1), so attributes must be looked up by vertex-index
+        # pair / vertex-index set, never by the original list position.
+        edge_type_by_pair = {
+            (min(u, v), max(u, v)): t
+            for (u, v), t in zip(geometry.edges, geometry.edge_type)
+        }
+        face_type_by_verts = {
+            tuple(sorted(f)): t
+            for f, t in zip(geometry.faces, geometry.face_type)
+        }
 
         n_types = len(geometry.report.strut_types)
         colors = [_hsv_color(i) for i in range(n_types)]
+
+        mesh_edge_type = []
+        for e in mesh.edges:
+            u, v = e.vertices[0], e.vertices[1]
+            mesh_edge_type.append(edge_type_by_pair.get((min(u, v), max(u, v)), -1))
+
+        strut_type_attr = mesh.attributes.new("strut_type", 'INT', 'EDGE')
+        strut_type_attr.data.foreach_set("value", mesh_edge_type)
+
         color_attr = mesh.attributes.new("strut_color", 'FLOAT_COLOR', 'EDGE')
         flat_colors = []
-        for t in geometry.edge_type:
-            flat_colors.extend(colors[t] if t < len(colors) else (1.0, 1.0, 1.0, 1.0))
+        for t in mesh_edge_type:
+            flat_colors.extend(colors[t] if 0 <= t < len(colors) else (1.0, 1.0, 1.0, 1.0))
         color_attr.data.foreach_set("color", flat_colors)
 
-        panel_attr = mesh.attributes.new("panel_type", 'INT', 'FACE')
-        face_type = list(geometry.face_type)
-        if len(faces) > len(geometry.face_type):
-            face_type = face_type + [-1] * (len(faces) - len(geometry.face_type))
-        panel_attr.data.foreach_set("value", face_type[:len(faces)])
+        mesh_face_type = []
+        for poly in mesh.polygons:
+            key = tuple(sorted(poly.vertices))
+            mesh_face_type.append(face_type_by_verts.get(key, -1))
 
+        panel_attr = mesh.attributes.new("panel_type", 'INT', 'FACE')
+        panel_attr.data.foreach_set("value", mesh_face_type)
+
+        # Vertex order is not reindexed by from_pydata (only edges/faces
+        # are), but look it up defensively too: geometry.verts is already
+        # aligned 1:1 with the vertex list passed in, and Blender preserves
+        # that order, so a direct index assignment is safe here.
         row_attr = mesh.attributes.new("row", 'INT', 'POINT')
         row_attr.data.foreach_set("value", geometry.vert_row)
 

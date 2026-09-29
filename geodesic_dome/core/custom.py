@@ -44,6 +44,21 @@ def expected_class_count(frequency, k, custom_base="CLASS_I"):
     return len(groups)
 
 
+def base_defaults(frequency, k, custom_base="CLASS_I", merge_tolerance=1e-7):
+    """Ascending chord factors of the chosen base layout, classified at the
+    same tolerance solve_custom uses internally (1e-7 by default). This is
+    the correct source for a table the user hasn't supplied yet: it always
+    matches the base topology (Class I or Kruschke) and the class count
+    solve_custom will actually require, unlike a Class-I-only, differently
+    -tolerant helper such as build.class1_defaults.
+    """
+    mesh = subdivide_class1(frequency)
+    base_positions = _base_positions(mesh, frequency, custom_base)
+    edges = dome_edges(mesh, k)
+    _edge_type, groups = group_edges(edges, base_positions, merge_tolerance)
+    return [g["chord_factor"] for g in groups]
+
+
 def solve_custom(mesh, base_positions, k, targets, merge_tolerance=1e-7,
                  iters=400, tol=1e-9):
     """Constrained relaxation solve for a custom chord table.

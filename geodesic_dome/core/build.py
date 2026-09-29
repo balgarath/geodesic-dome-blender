@@ -68,7 +68,7 @@ def expected_custom_count(frequency, k):
     return expected_class_count(frequency, k)
 
 
-def class1_defaults(frequency, k, merge_tolerance=1e-4):
+def class1_defaults(frequency, k, merge_tolerance=1e-6):
     mesh = subdivide_class1(frequency)
     edges = dome_edges(mesh, k)
     _edge_type, groups = group_edges(edges, mesh.verts, merge_tolerance)
@@ -85,8 +85,8 @@ def _remap(mesh, positions, edges, faces):
     return new_verts, new_rows, new_edges, new_faces, old_to_new
 
 
-def build_dome(method, frequency, k, merge_tolerance=1e-4, custom_table=None,
-               custom_base="CLASS_I"):
+def build_dome(method, frequency, k, merge_tolerance=1e-6, custom_table=None,
+               custom_base="CLASS_I", radius=1.0):
     """Build a DomeGeometry for the given method/frequency/truncation.
 
     method: 'CLASS_I' | 'KRUSCHKE' | 'CUSTOM'
@@ -97,7 +97,7 @@ def build_dome(method, frequency, k, merge_tolerance=1e-4, custom_table=None,
     custom_residual = None
 
     if method == "CUSTOM":
-        from .custom import solve_custom
+        from .custom import solve_custom, base_defaults
         if frequency not in valid_frequencies(custom_base if custom_base != "CUSTOM" else "CLASS_I"):
             raise ValueError("Frequency %s not valid for custom base %s" % (frequency, custom_base))
         mesh = subdivide_class1(frequency)
@@ -105,15 +105,22 @@ def build_dome(method, frequency, k, merge_tolerance=1e-4, custom_table=None,
         denom = 3 * frequency
         if k < 1 or k > denom:
             raise ValueError("k must be between 1 and %d" % denom)
-        targets = custom_table if custom_table is not None else class1_defaults(frequency, k)
+        # Defaults must be classified at the same tolerance and the same
+        # base topology solve_custom itself uses internally, or the count
+        # solve_custom expects can mismatch the count these defaults
+        # produce (e.g. 7V/8V with custom_base='KRUSCHKE') and raise
+        # ValueError even though no table was supplied.
+        targets = custom_table if custom_table is not None else \
+            base_defaults(frequency, k, custom_base, merge_tolerance=1e-7)
+        targets_count = len(targets)
         positions, residual = solve_custom(mesh, base_positions, k, targets,
                                             merge_tolerance=1e-7)
         custom_residual = residual
         if residual > 1e-4:
-            mm = residual * 1000.0
+            mm = residual * 1000.0 * radius
             notes.append(
                 "Chord table is not self-consistent on a sphere. "
-                "Worst strut error: %.3f mm at radius %.3f m." % (mm, 1.0))
+                "Worst strut error: %.3f mm at radius %.3f m." % (mm, radius))
     else:
         if frequency not in valid_frequencies(method):
             raise ValueError("Frequency %s not valid for method %s" % (frequency, method))
@@ -126,12 +133,24 @@ def build_dome(method, frequency, k, merge_tolerance=1e-4, custom_table=None,
     edges = dome_edges(mesh, k)
     faces = dome_faces(mesh, k)
     base = base_ring(mesh, k, edges)
-    base_level, base_spread = base_level_info(positions, base)
+    # Level check in real length at the chosen radius: a base is level
+    # enough to build when its spread is under 0.1 mm at that radius, not
+    # only when it is exactly 0 on the unit sphere. This matters for e.g. a
+    # Custom dome fed domerama's own rounded Kruschke factors, whose spread
+    # is about 1e-6 on the unit sphere (a few thousandths of a millimeter
+    # at any sane radius) but would fail a strict 1e-9 check.
+    level_tol = (0.0001 / radius) if radius > 0 else 1e-9
+    base_level, base_spread = base_level_info(positions, base, tol=level_tol)
 
     edge_type, groups = group_edges(edges, positions, merge_tolerance)
     ascending_cfs = [g["chord_factor"] for g in groups]
     dcols = domerama_columns(method, frequency, k, ascending_cfs) if method != "CUSTOM" \
         else [(None, None)] * len(ascending_cfs)
+
+    if method == "CUSTOM" and len(groups) != targets_count:
+        notes.append(
+            "Your table is not geometrically consistent for this dome, so "
+            "the mesh has %d strut lengths instead of %d." % (len(groups), targets_count))
 
     strut_types = []
     for i, g in enumerate(groups):
@@ -167,19 +186,30 @@ def build_dome(method, frequency, k, merge_tolerance=1e-4, custom_table=None,
     fraction_label = "Full sphere" if k == denom else "%d/%d" % (k, denom)
 
     if not base_level:
-        mm = base_spread * 1000.0
+        mm = base_spread * 1000.0 * radius
         notes.append(
             "Base is not level for this method and fraction. "
-            "Max height mismatch: %.3f mm at radius %.3f m." % (mm, 1.0))
+            "Max height mismatch: %.3f mm at radius %.3f m." % (mm, radius))
         if method == "CLASS_I" and frequency % 2 == 1:
             notes.append("Class I odd frequencies never give a level base. "
                          "The Kruschke method does.")
+    elif base_spread > 0.0:
+        mm = base_spread * 1000.0 * radius
+        notes.append("Base spread: %.4f mm at radius %.3f m, within tolerance." % (mm, radius))
     if method == "KRUSCHKE" and frequency % 2 == 0 and k == denom // 2:
         notes.append("For 1/2 domes at even frequency, Class I already gives "
                      "a level base with fewer strut types.")
     if method == "KRUSCHKE" and frequency in (5, 6):
         notes.append("5V and 6V Kruschke are an extension of the 1972 method. "
                      "See the manual.")
+
+    for st in strut_types:
+        if st.sub_spread > 0:
+            mm = st.sub_spread * 1000.0 * radius
+            if mm > 0.5:
+                notes.append(
+                    "Strut %s merges sub-types with spread %.3f mm at radius %.3f m. "
+                    "Lower the merge tolerance for a precise cut list." % (st.label, mm, radius))
 
     report = DomeReport(
         method=method,

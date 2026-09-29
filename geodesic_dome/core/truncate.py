@@ -59,13 +59,18 @@ def fraction_alias(k, denom):
     return None
 
 
-def base_level_info(mesh_positions, base_verts):
+def base_level_info(mesh_positions, base_verts, tol=1e-9):
     """(level, z_spread) for the given base vertex positions.
 
-    level = True iff z spread < 1e-9.
+    level = True iff z spread < tol. Default tol (1e-9) is the strict
+    mathematical check, used for enumerating which fractions are exactly
+    level (valid_fractions). Callers that know the actual build radius
+    should pass a tolerance in real units (see build_dome), so a base whose
+    spread is a fraction of a millimeter at the chosen radius is reported
+    level rather than failing on the raw unit-sphere value.
     """
     if not base_verts:
         return True, 0.0
     zs = [mesh_positions[i][2] for i in base_verts]
     spread = max(zs) - min(zs)
-    return spread < 1e-9, spread
+    return spread < tol, spread
