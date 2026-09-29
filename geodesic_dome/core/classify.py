@@ -179,7 +179,7 @@ def domerama_columns(method, frequency, k, ascending_cfs):
                 if all(s.get("chord_factor") is not None for s in dome["struts"]):
                     ref_struts = dome["struts"]
                     break
-    elif method in ("KRUSCHKE", "KRUSCHKE_DOMERAMA"):
+    elif method == "KRUSCHKE":
         data = _load_json("domerama_kruschke_chord_factors.json")
         for dome in data["domes"]:
             n = dome["frequency"]

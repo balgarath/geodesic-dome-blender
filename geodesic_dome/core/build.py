@@ -13,9 +13,6 @@ from .classify import (
     label, group_edges, hub_valences, face_types, domerama_columns,
 )
 
-_KRUSCHKE_DOMERAMA_COMBOS = {(3, 4), (3, 5), (4, 5), (4, 7)}
-
-
 @dataclass
 class FractionInfo:
     k: int
@@ -31,8 +28,6 @@ def valid_frequencies(method):
         return list(range(1, 9))
     if method == "KRUSCHKE":
         return [3, 4, 5, 6]
-    if method == "KRUSCHKE_DOMERAMA":
-        return [3, 4]
     raise ValueError("Unknown method: %s" % method)
 
 
@@ -42,7 +37,7 @@ def _positions_for(method, mesh, frequency):
         # fraction-listing purposes before a table is solved, use the Class
         # I topology it defaults to (see class1_defaults and design.md 7).
         return mesh.verts
-    if method in ("KRUSCHKE", "KRUSCHKE_DOMERAMA"):
+    if method == "KRUSCHKE":
         extended = frequency in (5, 6)
         pos, _m = kruschke_positions(mesh, frequency, extended=extended)
         return pos
@@ -54,10 +49,7 @@ def valid_fractions(method, frequency):
         raise ValueError("Frequency %s not valid for method %s" % (frequency, method))
     mesh = subdivide_class1(frequency)
     denom = 3 * frequency
-    if method == "KRUSCHKE_DOMERAMA":
-        ks = sorted(k for (n, k) in _KRUSCHKE_DOMERAMA_COMBOS if n == frequency)
-    else:
-        ks = list(range(1, denom + 1))
+    ks = list(range(1, denom + 1))
     positions = _positions_for(method, mesh, frequency)
     out = []
     for k in ks:
@@ -97,7 +89,7 @@ def build_dome(method, frequency, k, merge_tolerance=1e-4, custom_table=None,
                custom_base="CLASS_I"):
     """Build a DomeGeometry for the given method/frequency/truncation.
 
-    method: 'CLASS_I' | 'KRUSCHKE' | 'KRUSCHKE_DOMERAMA' | 'CUSTOM'
+    method: 'CLASS_I' | 'KRUSCHKE' | 'CUSTOM'
     frequency: subdivision frequency n
     k: triangle rows kept, 1..3n (3n = full sphere)
     """
@@ -125,11 +117,6 @@ def build_dome(method, frequency, k, merge_tolerance=1e-4, custom_table=None,
     else:
         if frequency not in valid_frequencies(method):
             raise ValueError("Frequency %s not valid for method %s" % (frequency, method))
-        if method == "KRUSCHKE_DOMERAMA" and (frequency, k) not in _KRUSCHKE_DOMERAMA_COMBOS:
-            raise ValueError(
-                "Domerama publishes Kruschke tables for 3V 4/9, 3V 5/9, "
-                "4V 5/12 and 4V 7/12 only. Use Kruschke (traditional) for other sizes."
-            )
         denom = 3 * frequency
         if k < 1 or k > denom:
             raise ValueError("k must be between 1 and %d" % denom)
@@ -190,7 +177,7 @@ def build_dome(method, frequency, k, merge_tolerance=1e-4, custom_table=None,
     if method == "KRUSCHKE" and frequency % 2 == 0 and k == denom // 2:
         notes.append("For 1/2 domes at even frequency, Class I already gives "
                      "a level base with fewer strut types.")
-    if method in ("KRUSCHKE", "KRUSCHKE_DOMERAMA") and frequency in (5, 6):
+    if method == "KRUSCHKE" and frequency in (5, 6):
         notes.append("5V and 6V Kruschke are an extension of the 1972 method. "
                      "See the manual.")
 

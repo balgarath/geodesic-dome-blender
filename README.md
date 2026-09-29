@@ -23,8 +23,7 @@ numerical oracle every value is checked against.
 
 | Name in the UI | Frequencies | What it is |
 |---|---|---|
-| Kruschke (Traditional) | 3V, 4V | The 1972 Kruschke flat base construction |
-| Kruschke (Domerama) | 3V, 4V (four specific fractions) | Same geometry, restricted to the domes domerama.com publishes, with their published values shown next to ours |
+| Kruschke | 3V, 4V, level-base fractions only | The 1972 Kruschke flat base construction. The report shows domerama.com's published chord factor next to ours for the four fractions domerama documents (3V 4/9, 3V 5/9, 4V 5/12, 4V 7/12); blank for the rest |
 | Icosa Class I Method 1 | 1V to 8V | Standard equal chord subdivision projected to the sphere |
 | Custom chord table | 1V to 8V (or 3V to 6V on the Kruschke base) | Builds a dome from chord factors you supply |
 
@@ -33,7 +32,7 @@ Python core (with its own tests) but is not reachable from the Blender UI.
 There is no published 5V/6V Kruschke reference to check it against; see
 `docs/design.md` section 5.4 and 14 for the reasoning.
 
-Defaults: Kruschke (Traditional), 3V, fraction 5/9, radius 3 m.
+Defaults: Kruschke, 3V, fraction 5/9, radius 3 m.
 
 ## Running the tests
 
@@ -64,15 +63,15 @@ Manual checklist (needs Blender 4.2+; see docs/todos.md for automating
 this):
 
 1. Install the zip in Blender 4.2+.
-2. Add > Mesh > Geodesic Dome. Default creates Kruschke (Traditional) 3V
-   5/9, radius 3 m, with colored strut prisms.
+2. Add > Mesh > Geodesic Dome. Default creates Kruschke 3V 5/9, radius 3 m,
+   with colored strut prisms.
 3. In the redo panel, switch method to Icosa Class I Method 1, frequency
    5V, fraction 7/15: a not-level-base warning note appears and the mesh
    rebuilds.
 4. The N-panel Geodome tab shows 9 strut rows for Class I 5V 7/15. Export
    CSV writes a file that opens cleanly in a spreadsheet.
-5. Kruschke (Domerama) 4V 5/12 shows the domerama column values next to
-   ours.
+5. Kruschke, 4V, fraction 5/12 shows domerama's published column values
+   next to ours in the report.
 6. Custom chord table: 3V k=4 with table "0.36 0.41 0.42" builds and
    reports a residual; feeding two values instead of three errors cleanly.
 

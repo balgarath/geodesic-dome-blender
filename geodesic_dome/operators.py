@@ -20,8 +20,7 @@ from .core.custom import parse_table, expected_class_count
 PLUGIN_VERSION = "0.1.0"
 
 METHOD_ITEMS = [
-    ("KRUSCHKE", "Kruschke (Traditional)", "The 1972 Kruschke flat base construction, 3V and 4V"),
-    ("KRUSCHKE_DOMERAMA", "Kruschke (Domerama)", "Kruschke geometry restricted to the four domes domerama.com publishes"),
+    ("KRUSCHKE", "Kruschke", "The 1972 Kruschke flat base construction, 3V and 4V. The report shows domerama's published chord factor next to ours for the fractions domerama documents"),
     ("CLASS_I", "Icosa Class I Method 1", "Standard equal chord subdivision projected to the sphere, 1V to 8V"),
     ("CUSTOM", "Custom chord table", "Build from a user supplied chord factor table"),
 ]
@@ -62,6 +61,10 @@ def _fraction_items(self, context):
         infos = valid_fractions(method, frequency)
     except ValueError:
         infos = []
+    if method == "KRUSCHKE":
+        # Kruschke is a flat-base construction: only level-base fractions
+        # are offered (this includes domerama's 4/9, 5/9, 5/12, 7/12).
+        infos = [info for info in infos if info.base_is_level]
     items = []
     for info in infos:
         text = info.label
@@ -77,14 +80,31 @@ def _fraction_items(self, context):
     return _FRACTION_ITEMS_CACHE[cache_key]
 
 
+# Ralph's usual Kruschke builds: the larger of the two domerama-documented
+# level fractions at each frequency (3V 5/9, 4V 7/12), not just "the first
+# level item" (which would be a tiny, impractical dome like 3V 1/9).
+_KRUSCHKE_PREFERRED_FRACTION = {3: (5, 9), 4: (7, 12)}
+
+
 def _default_fraction_key(method, frequency):
-    """Level-base item nearest to a Ralph-typical build, else the first item."""
+    """Ralph-typical build for Kruschke; else the first level-base item."""
     try:
         infos = valid_fractions(method, frequency)
     except ValueError:
         return "NONE"
     if not infos:
         return "NONE"
+    if method == "KRUSCHKE":
+        infos = [info for info in infos if info.base_is_level]
+        if not infos:
+            return "NONE"
+        preferred = _KRUSCHKE_PREFERRED_FRACTION.get(frequency)
+        if preferred:
+            for info in infos:
+                if (info.k, info.denom) == preferred:
+                    return "%d_%d" % (info.k, info.denom)
+        chosen = max(infos, key=lambda info: info.k)
+        return "%d_%d" % (chosen.k, chosen.denom)
     level = [info for info in infos if info.base_is_level]
     chosen = level[0] if level else infos[0]
     return "%d_%d" % (chosen.k, chosen.denom)
@@ -190,13 +210,18 @@ class MESH_OT_geodesic_dome_add(Operator):
             layout.prop(self, "custom_base")
             layout.prop(self, "custom_table")
 
-    def invoke(self, context, event):
-        if not self.fraction or self.fraction == "NONE":
-            self.frequency = str(_method_frequencies(self.method)[0])
-            self.fraction = _default_fraction_key(self.method, int(self.frequency))
-        return self.execute(context)
-
     def execute(self, context):
+        # Dynamic EnumProperty items pick their first item as an implicit
+        # default, which is not Ralph's usual build (see
+        # _default_fraction_key). Apply the real default whenever the
+        # caller did not explicitly set frequency/fraction, regardless of
+        # whether Blender routed this call through invoke() or straight to
+        # execute() (both happen depending on how the operator is run).
+        if not self.properties.is_property_set("frequency"):
+            self.frequency = str(_method_frequencies(self.method)[0])
+        if not self.properties.is_property_set("fraction") or not self.fraction:
+            self.fraction = _default_fraction_key(self.method, int(self.frequency))
+
         try:
             frequency = int(self.frequency)
         except (ValueError, TypeError):

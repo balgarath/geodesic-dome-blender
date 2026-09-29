@@ -2,8 +2,7 @@
 
 _METHOD_NAMES = {
     "CLASS_I": "Icosa Class I Method 1",
-    "KRUSCHKE": "Kruschke (Traditional)",
-    "KRUSCHKE_DOMERAMA": "Kruschke (Domerama)",
+    "KRUSCHKE": "Kruschke",
     "CUSTOM": "Custom chord table",
 }
 

@@ -21,24 +21,30 @@ so strut types are visually distinct.
 
 ## 2. Methods (the core decision)
 
-Four methods in the enum. Rationale and provenance below.
+Three methods in the enum. Rationale and provenance below.
 
 | id | UI name | Frequencies | What it is |
 |---|---|---|---|
 | `CLASS_I` | Icosa Class I Method 1 | 1V to 8V | Standard equal-chord subdivision, projected to the sphere. Matches domerama.com chord charts. |
-| `KRUSCHKE_DOMERAMA` | Kruschke (Domerama tables) | 3V 4/9, 3V 5/9, 4V 5/12, 4V 7/12 only | Same geometry as `KRUSCHKE`, but restricted to the four domes domerama publishes, with domerama's exact published chord factors and labels shown in the report next to our full-precision values. |
-| `KRUSCHKE` | Kruschke (traditional) | 3V, 4V exact; 5V, 6V extended | The 1972 Kruschke flat-base construction (exact algorithm below). For 5V and 6V, our documented extension of it (see 5.4); UI labels these "extended". |
+| `KRUSCHKE` | Kruschke | 3V, 4V; UI offers level-base fractions only | The 1972 Kruschke flat-base construction (exact algorithm below). The report shows domerama.com's published chord factor next to ours whenever the built dome matches one of the four domes domerama publishes (3V 4/9, 3V 5/9, 4V 5/12, 4V 7/12); the column is blank otherwise. |
 | `CUSTOM` | Custom chord table | 1V to 8V | User supplies one chord factor per strut class of the chosen Class I topology; geometry is produced by an edge-length relaxation solve (see 7). |
 
-Why two Kruschke entries when the geometry is identical: Ralph asked for a
-category that reproduces domerama's published numbers verbatim, and a
-category that is the method itself at any supported frequency. Verified
-result: the exact construction reproduces every domerama Kruschke chord
-factor to within 2.7e-6 (their own rounding), every count, every height
-factor. So `KRUSCHKE_DOMERAMA` is a restricted view of `KRUSCHKE` whose
-report additionally prints domerama's published (rounded) values and the
-deviation column. The mesh built is the exact geometry in both cases (you
-cannot assemble a consistent mesh from independently rounded lengths).
+**Revision (2026-09-28):** the original design shipped two Kruschke enum
+entries, `KRUSCHKE` and `KRUSCHKE_DOMERAMA`, on the theory that Ralph wanted
+one category that reproduces domerama's published numbers verbatim and a
+separate category that is the method itself at any supported frequency.
+Ralph corrected this mid-build: the geometry is identical at 3V/4V, so two
+menu entries is redundant. There is now a single `KRUSCHKE` method; the
+domerama cross-check lives in the strut report as a "domerama" column that
+is populated whenever the generated dome matches a published domerama
+variant (by chord factor, within the 2e-4 match threshold in 4.4) and blank
+otherwise. The UI's fraction dropdown for Kruschke is filtered to
+level-base fractions only, since a flat-base method with a non-level base
+is not useful to build from; this still includes domerama's 4/9, 5/9, 5/12
+and 7/12 alongside the other level fractions (e.g. 3V 1/9, 8/9) the
+construction supports. Verified result behind the cross-check: the exact
+construction reproduces every domerama Kruschke chord factor to within
+2.7e-6 (their own rounding), every count, every height factor.
 
 ### Rejected alternatives
 
@@ -50,11 +56,14 @@ cannot assemble a consistent mesh from independently rounded lengths).
   points and slide edge points" and several other candidate rules: each was
   tested against the measured chord factors and failed by 0.5 to 3 percent.
   The hub-slide construction (5.3) matches to full precision.
-- Building `KRUSCHKE_DOMERAMA` meshes from the published rounded lengths:
-  rejected; rounded lengths are not mutually consistent to better than 1e-6
-  and do not define vertex positions. Report shows them instead.
+- Building the domerama-documented variants directly from the published
+  rounded lengths: rejected; rounded lengths are not mutually consistent to
+  better than 1e-6 and do not define vertex positions. Report shows them
+  instead, next to our full-precision values.
 - A separate "Leveled Class I" method (slide only the base row): dropped
   from v1 scope; noted in docs/todos.md as a future idea.
+- Two separate Kruschke enum entries (`KRUSCHKE` / `KRUSCHKE_DOMERAMA`):
+  shipped initially, then merged into one per Ralph's correction above.
 
 ## 3. Provenance of the Kruschke algorithm
 
@@ -256,12 +265,16 @@ F 0.32941885 (0.32942). Counts 5/12: 30/30/50/40/20/20;
 7/12: 30/35/80/80/45/40. (D and E are shared with plain Class I 4V, as
 expected: those struts touch no moved vertex.)
 
-### 5.3 KRUSCHKE_DOMERAMA
+### 5.3 Domerama cross-check (report feature, not a separate method)
 
-Same geometry as 5.2, offered only for (3V, 4/9), (3V, 5/9), (4V, 5/12),
-(4V, 7/12). The report table adds columns: domerama chord factor (published,
-from bundled JSON) and deviation (ours minus published; max 2.7e-6). Labels
-are domerama's (identical to ascending order for these four domes).
+For the single `KRUSCHKE` method, the report table adds domerama columns
+(domerama chord factor, published, from bundled JSON) whenever the built
+dome matches one of the four domes domerama publishes: (3V, 4/9), (3V,
+5/9), (4V, 5/12), (4V, 7/12). Matching is by nearest chord factor within
+the 2e-4 threshold from 4.4 (`domerama_columns` in `core/classify.py`);
+labels agree with ascending order for these four domes. For every other
+Kruschke fraction the column is blank. Max deviation observed: 2.7e-6
+(domerama's own rounding).
 
 ### 5.4 KRUSCHKE extended (5V and 6V) - our documented extension
 
@@ -418,7 +431,7 @@ class DomeGeometry:
     report: DomeReport
 
 # core/build.py
-def build_dome(method: str,            # 'CLASS_I'|'KRUSCHKE'|'KRUSCHKE_DOMERAMA'|'CUSTOM'
+def build_dome(method: str,            # 'CLASS_I'|'KRUSCHKE'|'CUSTOM'
                frequency: int,
                k: int,                 # triangle rows kept, 1..3n (3n = sphere)
                merge_tolerance: float = 1e-4,
@@ -460,12 +473,15 @@ icon 'MESH_ICOSPHERE'. Redo-panel properties (order as listed):
 
 - `method`: EnumProperty, default `'KRUSCHKE'`.
 - `frequency`: EnumProperty built per method (Class I/Custom: 1-8;
-  Kruschke: 3-6; Domerama: 3-4). Enum, not Int, so invalid values cannot be
-  set. Default 3.
+  Kruschke UI: 3-4 only; the pure core also supports Kruschke 5-6, extended,
+  but no operator path reaches them, per 14). Enum, not Int, so invalid
+  values cannot be set. Default 3.
 - `fraction`: EnumProperty, items callback from `valid_fractions(method,
-  frequency)`; item name e.g. `"5/9 (a.k.a. 5/8), level base"` or
-  `"7/15 (a.k.a. 3/8), base not level"` plus `"Full sphere"`. Default: the
-  level 5/9-style item for Kruschke 3V (Ralph's usual build).
+  frequency)`; for Kruschke the callback filters to level-base fractions
+  only (a flat-base method with a non-level base is not buildable); item
+  name e.g. `"5/9 (a.k.a. 5/8), level base"` or `"7/15 (a.k.a. 3/8), base
+  not level"` plus `"Full sphere"`. Default: 5/9 for Kruschke 3V, 7/12 for
+  Kruschke 4V (Ralph's usual builds), else the first level item.
 - `radius`: FloatProperty, default 3.0, unit LENGTH, min 0.01.
 - `orientation`: Enum: `BASE_ORIGIN` (base plane sits at Z=0; for non-level
   bases the lowest base vertex sits at Z=0) default, `CENTER_ORIGIN`
@@ -599,10 +615,22 @@ Grounded and direct tone; no filler intensifiers. Icon: the stock Blender
 
 1. 5V/6V Kruschke is our extension (5.4): level base and regular hubs, but
    22-30 strut types before merging. OK as shipped, or should 5V/6V be
-   hidden until you have build-table confidence? (Default: shipped, labeled
-   "extended".)
+   hidden until you have build-table confidence?
+   **Decided (2026-09-28): hidden from the UI entirely.** The Kruschke
+   frequency dropdown offers only 3V and 4V; there is no Blender operator
+   path that can reach `build_dome('KRUSCHKE', 5, ...)` or `(..., 6, ...)`.
+   The extended construction stays in the pure core (`core/kruschke.py`,
+   `extended=True`) with its own tests (`tests/test_extended.py`) because
+   it is a documented, numerically verified result (see 5.4 and 6); it is
+   simply not exposed to Ralph until there is build-table confidence in it.
+   **Follow-up decided the same day:** the two Kruschke UI entries were
+   further merged into one `KRUSCHKE` method (see section 2's revision
+   note); the domerama cross-check is now a report column, not a second
+   menu entry.
 2. Default radius 3.0 m and default method Kruschke 3V 5/9: match your
    usual builds?
+   **Decided (2026-09-28): confirmed.** Default method is Kruschke,
+   frequency 3V, fraction 5/9, radius 3 m.
 3. Strut prisms are triangular cross-section. Want a hub-sphere/connector
    visualization too? (Not in v1.)
 4. CSV: single file per dome as specced, or also a cut-list variant (one row
