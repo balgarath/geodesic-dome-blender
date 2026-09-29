@@ -6,6 +6,8 @@ events under [Geovisual Creations](https://geovisual.net), and a lot of that wor
 geodesic domes. One of my main installations is a projection dome. I wrote
 this for my own build planning and figured other dome builders could use it.
 
+![A row of Kruschke domes in Blender, with a 4V dome at 4 m radius in front, struts colored by type, and the Geodesic Dome redo panel open](docs/screenshot.png)
+
 Requires Blender 4.2 or newer (tested in Blender 5.2). Current version
 0.1.3. License: GPL-3.0-or-later.
 
