@@ -884,7 +884,7 @@
         "4-way": 17,
         "3-way": 4
       },
-      "notes": "NOT a Kruschke dome -- a separate, distinct alternate method. Site: The so-called Mexican Method is named after the work of Mexican mathematician Hector Alfredo Hernandez Hernandez. With this system of triangle subdivision, strut lengths are equalized along each set of three paths followed by the struts. As a result, the number of unique strut lengths equals the dome's frequency (5 types for 5V). The method can be applied to geodesic domes based on either the octahedron or icosahedron, but the equal-length feature begins to break down at frequency 6. Base polyhedron here is OCTAHEDRON, not icosahedron. No chord factor decimals published, angle only. 160 struts total."
+      "notes": "Not a Kruschke dome; a separate triangle-subdivision method attributed on the site to Hector Alfredo Hernandez Hernandez. Base polyhedron is the octahedron, not the icosahedron. Strut lengths are equalized along each central path, giving one unique strut length per path (5 for this 5V dome); the site notes the equal-length property breaks down above frequency 6. No chord factor decimals published, angle only. 160 struts total."
     }
   ],
   "missing": [

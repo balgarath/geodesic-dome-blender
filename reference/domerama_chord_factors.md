@@ -1,209 +1,177 @@
 # Domerama.com geodesic dome chord factors
 
-Retrieved 2026-09-28. Structured data (machine-readable) is in `domerama_chord_factors.json` in this
-same folder. This file is the human-readable companion, plus context and caveats. **Never round or
-"fill in" a number that wasn't shown on the site** — this file only reports what domerama.com actually
-displays. Where a value is missing, it says so.
+Chord factors and strut/hub counts collected from the calculators at domerama.com on 2026-09-28, used as pass/fail reference data for this extension's tests (`reference/domerama_chord_factors.json`, `reference/domerama_kruschke_chord_factors.json`). This file is the human-readable index into that JSON: tables only, no site prose. Full-precision values and source URLs live in the JSON files.
 
-Primary sources fetched:
+## Sources
+
 - Calculator index: https://www.domerama.com/calculators/
-- Master chord-factor table (1V-8V, "method 1"): https://www.domerama.com/calculators/chord-charts/
-- Individual calculator pages for 1V, 2V, 3V (3/8, 5/8), 4V (1/2, plus Kruschke 5/12 and 7/12), 5V (7/15, 8/15), 6V
-- 3V Kruschke pages (4/9 and 5/9)
-- Octahedral 5V "Mexican method" page
-- "Leveling the base of a dome" (explains Kruschke) and "Making a 3v timber Kruschke dome" (explains timber-specific detail)
+- Chord-chart tables (1V-8V, Method 1): https://www.domerama.com/calculators/chord-charts/
+- Per-frequency calculator pages (1V-6V, plus 3V and 4V Kruschke variants, and the Octahedral 5V page)
 
-## Important note on how chord factors were matched to strut counts
+## Class I Method 1 domes
 
-The **chord-charts page** is the only page on the site that publishes full-precision decimal chord
-factors. It gives one table per frequency (1V-8V), each row showing a strut letter, its count, its
-chord factor, and its bend angle — but only for ONE truncation per frequency (the "base" case: 2/3 for
-1V, 1/2 for 2V, 3/8 for 3V, 1/2 for 4V, 7/15(3/8) for 5V, 1/2 for 6V, 10/21 for 7V, and an unlabeled
-truncation for 8V).
+| Dome | Fraction | Strut label | Chord factor | Count | Angle (deg) | Source |
+|---|---|---|---|---|---|---|
+| 1V geodesic dome (a.k.a. 2/3) | 2/3 | A | 1.05146 | 25 | 31.72 | https://www.domerama.com/calculators/chord-charts/ |
+| 2V geodesic dome | 1/2 | A | 0.61803 | 35 | 18.00 | https://www.domerama.com/calculators/chord-charts/ |
+| 2V geodesic dome | 1/2 | B | 0.54653 | 30 | 15.86 | https://www.domerama.com/calculators/chord-charts/ |
+| 3V 3/8 geodesic dome | 3/8 | A | 0.34862 | 30 | 10.04 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-38-geodesic-dome-calculator/ |
+| 3V 3/8 geodesic dome | 3/8 | B | 0.40355 | 40 | 11.64 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-38-geodesic-dome-calculator/ |
+| 3V 3/8 geodesic dome | 3/8 | C | 0.41241 | 50 | 11.90 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-38-geodesic-dome-calculator/ |
+| 3V 5/8 geodesic dome | 5/8 | A | 0.34862 | 30 | 10.04 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/ |
+| 3V 5/8 geodesic dome | 5/8 | B | 0.40355 | 55 | 11.64 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/ |
+| 3V 5/8 geodesic dome | 5/8 | C | 0.41241 | 80 | 11.90 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/ |
+| 4V 1/2 geodesic dome (Method 1, chord-charts table) | 1/2 | A | 0.25318 | not published | 7.27 | https://www.domerama.com/calculators/chord-charts/ |
+| 4V 1/2 geodesic dome (Method 1, chord-charts table) | 1/2 | B | 0.29524 | not published | 8.47 | https://www.domerama.com/calculators/chord-charts/ |
+| 4V 1/2 geodesic dome (Method 1, chord-charts table) | 1/2 | C | 0.29453 | not published | 9.35 | https://www.domerama.com/calculators/chord-charts/ |
+| 4V 1/2 geodesic dome (Method 1, chord-charts table) | 1/2 | D | 0.31287 | not published | 9.00 | https://www.domerama.com/calculators/chord-charts/ |
+| 4V 1/2 geodesic dome (Method 1, chord-charts table) | 1/2 | E | 0.32492 | not published | 8.59 | https://www.domerama.com/calculators/chord-charts/ |
+| 4V 1/2 geodesic dome (Method 1, chord-charts table) | 1/2 | F | 0.29859 | not published | 9.35 | https://www.domerama.com/calculators/chord-charts/ |
+| 4V 1/2 geodesic dome (calculator page, counts/angles only) | 1/2 | A | not published | 30 | 7.27 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/ |
+| 4V 1/2 geodesic dome (calculator page, counts/angles only) | 1/2 | B | not published | 30 | 8.49 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/ |
+| 4V 1/2 geodesic dome (calculator page, counts/angles only) | 1/2 | C | not published | 60 | 8.47 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/ |
+| 4V 1/2 geodesic dome (calculator page, counts/angles only) | 1/2 | D | not published | 70 | 9.35 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/ |
+| 4V 1/2 geodesic dome (calculator page, counts/angles only) | 1/2 | E | not published | 30 | 8.59 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/ |
+| 4V 1/2 geodesic dome (calculator page, counts/angles only) | 1/2 | F | not published | 30 | 9.00 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/ |
+| 5V 7/15 (3/8) geodesic dome | 7/15 | A | 0.19814743 | 30 | 5.69 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/5v-38-geodesic-dome-calculator/ |
+| 5V 7/15 (3/8) geodesic dome | 7/15 | B | 0.23179025 | 30 | 6.48 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/5v-38-geodesic-dome-calculator/ |
+| 5V 7/15 (3/8) geodesic dome | 7/15 | C | 0.22568578 | 60 | 6.65 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/5v-38-geodesic-dome-calculator/ |
+| 5V 7/15 (3/8) geodesic dome | 7/15 | D | 0.24724291 | 60 | 6.66 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/5v-38-geodesic-dome-calculator/ |
+| 5V 7/15 (3/8) geodesic dome | 7/15 | E | 0.25516701 | 50 | 7.04 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/5v-38-geodesic-dome-calculator/ |
+| 5V 7/15 (3/8) geodesic dome | 7/15 | F | 0.24508578 | 50 | 7.05 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/5v-38-geodesic-dome-calculator/ |
+| 5V 7/15 (3/8) geodesic dome | 7/15 | G | 0.2615981 | 30 | 7.10 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/5v-38-geodesic-dome-calculator/ |
+| 5V 7/15 (3/8) geodesic dome | 7/15 | H | 0.2315976 | 30 | 7.33 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/5v-38-geodesic-dome-calculator/ |
+| 5V 7/15 (3/8) geodesic dome | 7/15 | I | 0.24534642 | 10 | 7.52 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/5v-38-geodesic-dome-calculator/ |
+| 5V 8/15 (5/8) geodesic dome | 8/15 | A | 0.19814743 | 30 | 5.69 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/ |
+| 5V 8/15 (5/8) geodesic dome | 8/15 | B | 0.23179025 | 30 | 6.48 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/ |
+| 5V 8/15 (5/8) geodesic dome | 8/15 | C | 0.22568578 | 60 | 6.65 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/ |
+| 5V 8/15 (5/8) geodesic dome | 8/15 | D | 0.24724291 | 70 | 6.66 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/ |
+| 5V 8/15 (5/8) geodesic dome | 8/15 | E | 0.25516701 | 70 | 7.04 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/ |
+| 5V 8/15 (5/8) geodesic dome | 8/15 | F | 0.24508578 | 80 | 7.05 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/ |
+| 5V 8/15 (5/8) geodesic dome | 8/15 | G | 0.2615981 | 35 | 7.10 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/ |
+| 5V 8/15 (5/8) geodesic dome | 8/15 | H | 0.2315976 | 30 | 7.33 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/ |
+| 5V 8/15 (5/8) geodesic dome | 8/15 | I | 0.24534642 | 20 | 7.52 | https://www.domerama.com/calculators/5v-geodesic-dome-calculator/ |
+| 6V 1/2 geodesic dome | 1/2 | A | 0.16256722 | 30 | 4.66 | https://www.domerama.com/calculators/6v-geodesic-dome-calculator/ |
+| 6V 1/2 geodesic dome | 1/2 | B | 0.19047686 | 30 | 5.22 | https://www.domerama.com/calculators/6v-geodesic-dome-calculator/ |
+| 6V 1/2 geodesic dome | 1/2 | C | 0.18190825 | 60 | 5.38 | https://www.domerama.com/calculators/6v-geodesic-dome-calculator/ |
+| 6V 1/2 geodesic dome | 1/2 | D | 0.20281969 | 90 | 5.47 | https://www.domerama.com/calculators/6v-geodesic-dome-calculator/ |
+| 6V 1/2 geodesic dome | 1/2 | E | 0.1873834 | 30 | 5.68 | https://www.domerama.com/calculators/6v-geodesic-dome-calculator/ |
+| 6V 1/2 geodesic dome | 1/2 | F | 0.19801258 | 60 | 5.82 | https://www.domerama.com/calculators/6v-geodesic-dome-calculator/ |
+| 6V 1/2 geodesic dome | 1/2 | G | 0.20590774 | 130 | 5.91 | https://www.domerama.com/calculators/6v-geodesic-dome-calculator/ |
+| 6V 1/2 geodesic dome | 1/2 | H | 0.21535373 | 65 | 6.18 | https://www.domerama.com/calculators/6v-geodesic-dome-calculator/ |
+| 6V 1/2 geodesic dome | 1/2 | I | 0.21662821 | 60 | 6.22 | https://www.domerama.com/calculators/6v-geodesic-dome-calculator/ |
+| 7V 10/21 geodesic dome | 10/21 | A | 0.13774 | 30 | 3.95 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | B | 0.15197 | 60 | 4.36 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | C | 0.15664 | 30 | 4.49 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | D | 0.16154 | 30 | 4.63 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | E | 0.1648 | 60 | 4.73 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | F | 0.17066 | 30 | 4.90 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | G | 0.17098 | 60 | 4.90 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | H | 0.17132 | 60 | 4.91 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | I | 0.17353 | 50 | 4.98 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | J | 0.17585 | 70 | 5.04 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | K | 0.18155 | 50 | 5.21 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | L | 0.18161 | 30 | 5.21 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | M | 0.18237 | 50 | 5.23 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | N | 0.18548 | 60 | 5.32 | https://www.domerama.com/calculators/chord-charts/ |
+| 7V 10/21 geodesic dome | 10/21 | O | 0.1879 | 30 | 5.39 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | A | 0.11946 | 30 | 3.42 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | B | 0.13033 | 60 | 3.74 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | C | 0.13424 | 30 | 3.85 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | D | 0.14018 | 30 | 4.02 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | E | 0.14056 | 60 | 4.03 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | F | 0.14548 | 60 | 4.17 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | G | 0.14628 | 30 | 4.19 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | H | 0.14803 | 60 | 4.24 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | I | 0.14862 | 60 | 4.26 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | J | 0.15267 | 60 | 4.38 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | K | 0.15296 | 70 | 4.39 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | L | 0.15315 | 30 | 4.39 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | M | 0.15477 | 60 | 4.44 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | N | 0.15636 | 90 | 4.48 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | O | 0.16033 | 60 | 4.60 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | P | 0.16036 | 30 | 4.60 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | Q | 0.16088 | 70 | 4.61 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | R | 0.163 | 60 | 4.67 | https://www.domerama.com/calculators/chord-charts/ |
+| 8V geodesic dome | - | S | 0.16465 | 30 | 4.72 | https://www.domerama.com/calculators/chord-charts/ |
 
-The **individual calculator pages** (one per frequency, sometimes per truncation) give strut counts and
-bend angles for a specific named truncation (e.g. 3V 5/8, 5V 8/15), but do **not** show the chord factor
-decimal anywhere in the rendered page or in the page's JavaScript/HTML source (checked directly).
+### Class I hub counts
 
-Where a calculator page's strut letters, counts, and angles matched the chord-charts table exactly
-(3V 3/8, 5V 7/15, 6V 1/2), the correspondence is unambiguous. Where a variant has the *same* strut
-letters/angles as the base case but larger counts (3V 5/8, 5V 8/15), the same chord factors apply —
-confirmed by exact angle equality, not by a separately published table. This is noted per-entry below.
-
-**4V is the one place this breaks down**: the chord-charts page and the 4V calculator page disagree on
-angles for two of the six strut types, and the chord-charts page has two different chord factors sharing
-the same angle (9.35°) while the calculator page lists only one strut type at that angle. This is flagged
-in the JSON and below rather than force-matched.
-
-## Dome variants captured
-
-### Class I Method 1 (standard icosahedron subdivision)
-
-| Dome | Fraction | Struts (label: count @ angle = CF) | Total struts | Hubs |
-|---|---|---|---|---|
-| 1V (a.k.a. 2/3) | 2/3 | A: 25 @ 31.72° = 1.05146 | 25 | 6×5-way, 5×4-way |
-| 2V | 1/2 | A: 35 @ 18° = 0.61803; B: 30 @ 15.86° = 0.54653 | 65 | 10×6-way, 6×5-way, 10×4-way |
-| 3V | 3/8 | A: 30 @ 10.04° = 0.34862; B: 40 @ 11.64° = 0.40355; C: 50 @ 11.90° = 0.41241 | 120 | 25×6-way, 6×5-way, 15×4-way |
-| 3V | 5/8 | A: 30 @ 10.04° = 0.34862; B: 55 @ 11.64° = 0.40355; C: 80 @ 11.90° = 0.41241 | 165 | 40×6-way, 6×5-way, 15×4-way |
-| 4V | 1/2 | See "4V ambiguity" note below — chord factors and counts could not be safely paired | 250 (counts only) | 65×6-way, 6×5-way, 20×4-way |
-| 5V | 7/15 (3/8) | A:30@5.69°=0.19814743; B:30@6.48°=0.23179025; C:60@6.65°=0.22568578; D:60@6.66°=0.24724291; E:50@7.04°=0.25516701; F:50@7.05°=0.24508578; G:30@7.10°=0.26159810; H:30@7.33°=0.23159760; I:10@7.52°=0.24534642 | 350 | 95×6-way, 6×5-way, 25×4-way |
-| 5V | 8/15 (5/8) | Same 9 letters/angles/CFs as 7/15 above, counts: A30,B30,C60,D70,E70,F80,G35,H30,I20 | 425 | 120×6-way, 6×5-way, 25×4-way |
-| 6V | 1/2 | A:30@4.66°=0.16256722; B:30@5.22°=0.19047686; C:60@5.38°=0.18190825; D:90@5.47°=0.20281969; E:30@5.68°=0.1873834; F:60@5.82°=0.19801258; G:130@5.91°=0.20590774; H:65@6.18°=0.21535373; I:60@6.22°=0.21662821 | 555 | 160×6-way, 6×5-way, 30×4-way |
-| 7V | 10/21 | 15 strut types (A-O), CF 0.13774 to 0.1879 — see JSON for full table | not stated (angles+CF only; no dedicated calculator page) | not published |
-| 8V | not stated by site | 19 strut types (A-S), CF 0.11946 to 0.16465 — see JSON for full table | not stated | not published |
-
-Full-precision chord factors (as many digits as domerama shows, no rounding) are in the JSON file.
-
-### 4V ambiguity (read before using 4V data)
-
-The chord-charts page's "4V 1/2 method 1" table:
-
-| Label | CF | Angle |
-|---|---|---|
-| A | 0.25318 | 7.27° |
-| B | 0.29524 | 8.47° |
-| C | 0.29453 | 9.35° |
-| D | 0.31287 | 9° |
-| E | 0.32492 | 8.59° |
-| F | 0.29859 | 9.35° |
-
-The 4V calculator page's own strut table (https://www.domerama.com/calculators/4v-geodesic-dome-calculator/):
-
-| Label | Count | Angle |
-|---|---|---|
-| A | 30 | 7.27° |
-| B | 30 | 8.49° |
-| C | 60 | 8.47° |
-| D | 70 | 9.35° |
-| E | 30 | 8.59° |
-| F | 30 | 9.00° |
-
-Only two rows line up cleanly by angle (7.27° and 8.59°). The chord-charts table has **two different
-chord factors at the same 9.35° angle** (C and F), while the calculator page has only **one** strut type
-at 9.35° (D, count 70) — there is no way to tell from the site which of the two chord factors (0.29453 or
-0.29859) belongs to that 70-count strut without more information. The calculator page's B (8.49°) also
-doesn't match the chord-chart's B (8.47°) — possibly a typo on one of the two pages. We recorded both
-tables separately in the JSON (as two "4V 1/2" entries) rather than guessing a pairing. **Recommend
-re-deriving the 4V chord factors geometrically for the Blender plugin's pass/fail set instead of trusting
-this site's 4V count-to-CF pairing.**
-
-### Kruschke method domes
-
-No chord factor decimals are published anywhere on the site for any Kruschke dome — checked the
-rendered page text and the raw page source/JavaScript for hidden numeric constants on all four Kruschke
-calculator pages; none were found. Only bend angles and strut counts are shown. If exact chord factors
-are needed for these as pass/fail test data, they will need to be computed independently (geometrically)
-or sourced from Kruschke's original 1972 published tables (not available on domerama.com).
-
-| Dome | Site fraction | Common alias | Struts (label: count @ angle) | Total | Hubs |
+| Dome | Fraction | 6-way | 5-way | 4-way | 3-way |
 |---|---|---|---|---|---|
-| 3V Kruschke | 4/9 | "3/8" | A:30@9.49°; B:30@11.02°; C:50@12.16°; D:10@12.74° | 120 | 25×6-way, 6×5-way, 15×4-way |
-| 3V Kruschke | 5/9 | "5/8" | A:30@9.49°; B:35@11.02°; C:80@12.16°; D:20@12.74° | 165 | 40×6-way, 6×5-way (4-way count not captured — see Missing below) |
-| 4V Kruschke | 5/12 | — | A:30@6.38°; B:30@7.46°; C:50@8.89°; D:40@9°; E:20@9.35°; F:20@9.48° | 190 | 85×6-way, 6×5-way, 20×4-way |
-| 4V Kruschke | 7/12 | — | A:30@6.38°; B:35@7.46°; C:80@8.89°; D:80@9°; E:45@9.35°; F:40@9.48° | 310 | 85×6-way, 6×5-way, 20×4-way |
+| 1V geodesic dome (a.k.a. 2/3) | 2/3 | - | 6 | 5 | - |
+| 2V geodesic dome | 1/2 | 10 | 6 | 10 | - |
+| 3V 3/8 geodesic dome | 3/8 | 25 | 6 | 15 | - |
+| 3V 5/8 geodesic dome | 5/8 | 40 | 6 | 15 | - |
+| 4V 1/2 geodesic dome (Method 1, chord-charts table) | 1/2 | - | - | - | - |
+| 4V 1/2 geodesic dome (calculator page, counts/angles only) | 1/2 | 65 | 6 | 20 | - |
+| 5V 7/15 (3/8) geodesic dome | 7/15 | 95 | 6 | 25 | - |
+| 5V 8/15 (5/8) geodesic dome | 8/15 | 120 | 6 | 25 | - |
+| 6V 1/2 geodesic dome | 1/2 | 160 | 6 | 30 | - |
+| 7V 10/21 geodesic dome | 10/21 | - | - | - | - |
+| 8V geodesic dome | - | - | - | - | - |
 
-Note: the two 4V Kruschke pages list identical bolt/nut/washer counts (111/111/222) despite different
-total strut counts (190 vs 310) — recorded exactly as shown on site, not corrected, and flagged as a
-likely site data-entry duplication.
+## Kruschke domes (flat base)
 
-**No 5V, 6V, 7V, or 8V Kruschke calculator was found on domerama.com.** Only 3V and 4V have published
-Kruschke variants.
+Chord factor decimals for 3V and 4V Kruschke are only published in the calculator pages' JavaScript source (`reference/domerama_kruschke_chord_factors.json`), not in the rendered page text. No chord factor decimals are published anywhere on the site for any Kruschke dome; angle-only counts below come from the JSON scrape (`reference/domerama_chord_factors.json`).
 
-### Other method: Octahedral 5V, "Mexican method" (NOT Kruschke)
+| Dome | Fraction | Strut label | Chord factor | Count | Source |
+|---|---|---|---|---|---|
+| 3V 4/9 Kruschke (site alias 3/8) | 4/9 | A | 0.329706 | 30 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-38-flat-base-krushke-calculator/ |
+| 3V 4/9 Kruschke (site alias 3/8) | 4/9 | B | 0.38229 | 30 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-38-flat-base-krushke-calculator/ |
+| 3V 4/9 Kruschke (site alias 3/8) | 4/9 | C | 0.421489 | 50 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-38-flat-base-krushke-calculator/ |
+| 3V 4/9 Kruschke (site alias 3/8) | 4/9 | D | 0.441056 | 10 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-38-flat-base-krushke-calculator/ |
+| 3V 5/9 Kruschke (site alias 5/8) | 5/9 | A | 0.329706 | 30 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-flat-base-815-kruschke-calculator/ |
+| 3V 5/9 Kruschke (site alias 5/8) | 5/9 | B | 0.38229 | 35 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-flat-base-815-kruschke-calculator/ |
+| 3V 5/9 Kruschke (site alias 5/8) | 5/9 | C | 0.421489 | 80 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-flat-base-815-kruschke-calculator/ |
+| 3V 5/9 Kruschke (site alias 5/8) | 5/9 | D | 0.441056 | 20 | https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-flat-base-815-kruschke-calculator/ |
+| 4V 5/12 Kruschke | 5/12 | A | 0.22219 | 30 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-512-kruschke-geodesic-dome-calculator/ |
+| 4V 5/12 Kruschke | 5/12 | B | 0.25958 | 30 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-512-kruschke-geodesic-dome-calculator/ |
+| 4V 5/12 Kruschke | 5/12 | C | 0.30906 | 50 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-512-kruschke-geodesic-dome-calculator/ |
+| 4V 5/12 Kruschke | 5/12 | D | 0.31287 | 40 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-512-kruschke-geodesic-dome-calculator/ |
+| 4V 5/12 Kruschke | 5/12 | E | 0.32492 | 20 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-512-kruschke-geodesic-dome-calculator/ |
+| 4V 5/12 Kruschke | 5/12 | F | 0.32942 | 20 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-512-kruschke-geodesic-dome-calculator/ |
+| 4V 7/12 Kruschke | 7/12 | A | 0.22219 | 30 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-712-kruschke-geodesic-dome-calculator/ |
+| 4V 7/12 Kruschke | 7/12 | B | 0.25958 | 35 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-712-kruschke-geodesic-dome-calculator/ |
+| 4V 7/12 Kruschke | 7/12 | C | 0.30906 | 80 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-712-kruschke-geodesic-dome-calculator/ |
+| 4V 7/12 Kruschke | 7/12 | D | 0.31287 | 80 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-712-kruschke-geodesic-dome-calculator/ |
+| 4V 7/12 Kruschke | 7/12 | E | 0.32492 | 45 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-712-kruschke-geodesic-dome-calculator/ |
+| 4V 7/12 Kruschke | 7/12 | F | 0.32942 | 40 | https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-712-kruschke-geodesic-dome-calculator/ |
 
-URL: https://www.domerama.com/calculators/octahedral-5v-mexican-method/
+### Kruschke hub counts (angle-only scrape)
 
-Base polyhedron: **octahedron** (not icosahedron). Fraction: 1/2. This is a distinct alternate
-triangle-subdivision method, unrelated to Kruschke, attributed on the site to Mexican mathematician
-Hector Alfredo Hernandez Hernandez.
+| Dome | Fraction | 6-way | 5-way | 4-way |
+|---|---|---|---|---|
+| 3V 4/9 Flat Base Kruschke | 4/9 | 25 | 6 | 15 |
+| 3V 5/9 Flat Base Kruschke | 5/9 | 40 | 6 | - |
+| 4V 5/12 Kruschke geodesic dome | 5/12 | 85 | 6 | 20 |
+| 4V 7/12 Kruschke geodesic dome | 7/12 | 85 | 6 | 20 |
 
-| Label | Count | Angle |
-|---|---|---|
-| A | 12 | 12.6° |
-| B | 24 | 12.4° |
-| C | 36 | 11.7° |
-| D | 48 | 10.6° |
-| E | 40 | 9.0° |
+## Other method: Octahedral 5V (Mexican method)
 
-Total: 160 struts. Hubs: 40×6-way, 17×4-way, 4×3-way. No chord factor decimals published.
+Base polyhedron is the octahedron, not the icosahedron. A distinct triangle-subdivision method attributed on the site to Hector Alfredo Hernandez Hernandez. Not a Kruschke dome.
 
-Site's own description: *"With this system of triangle subdivision, strut lengths are equalized along
-each set of three paths followed by the struts. As a result, the number of unique strut lengths equals
-the dome's frequency. The method can be applied to geodesic domes based on either the octahedron or
-icosahedron, but the equal-length feature begins to break down at frequency 6."*
+| Label | Count | Angle (deg) | Source |
+|---|---|---|---|
+| A | 12 | 12.6 | https://www.domerama.com/calculators/octahedral-5v-mexican-method/ |
+| B | 24 | 12.4 | https://www.domerama.com/calculators/octahedral-5v-mexican-method/ |
+| C | 36 | 11.7 | https://www.domerama.com/calculators/octahedral-5v-mexican-method/ |
+| D | 48 | 10.6 | https://www.domerama.com/calculators/octahedral-5v-mexican-method/ |
+| E | 40 | 9.0 | https://www.domerama.com/calculators/octahedral-5v-mexican-method/ |
 
-## What the site says about how Kruschke differs from standard subdivision
+Hubs: 40 six-way, 17 four-way, 4 three-way. Total struts: 160.
 
-From https://www.domerama.com/dome-basics/odd-frequency-geodesic-domes-and-flat-base-at-the-hemisphere/
-("Leveling the base of a dome"):
+## Known site discrepancies (our findings, not corrected in the raw JSON)
 
-- The geometry normally used for geodesic domes is called **"method 1"** on the site. It gives a flat
-  base only when the dome is an exact hemisphere, which requires an **even** frequency (2V, 4V, 6V...).
-- For **odd** frequencies (3V, 5V...), method 1 does not produce a flat base at any truncation — "not
-  all nodes (where struts meet) lie in the same plane."
-- A typical dome is a 1/2 truncation (exact hemisphere). Other truncations include 4/9, 5/9, 3/8, 5/8,
-  etc., "but not all truncations are flat at the base."
-- Example given: a 3V icosahedron sphere does not split into identical hemispheres. You can set the
-  base a little above the equator for a low-profile "4/9" dome (4 rows of triangles) or a little below
-  for a high-profile "5/9" dome (5 rows). **"Many dome builders refer to 4/9 and 5/9 domes as '3/8' and
-  '5/8' — terminology that dates back to the early days of geodesic dome design."** This is why the
-  site's own 3V Kruschke calculator URLs use "38" and the page title says "4/9" — same dome, two names.
-- Site lists five ways people historically dealt with the uneven-base problem: shimming the base,
-  shaping the foundation to match the uneven perimeter, altering strut lengths in the bottom row,
-  reducing the footprint from 15 edges to 10 (replacing triangle clusters with 5 trapezoids), or **using
-  an entirely different geometry with a flat base built in from the outset — this last option is the
-  Kruschke method.**
-- **The Kruschke method (aka "Kruschke calculator" on the site) gives a flat/level base for both
-  low-profile and high-profile versions of an odd-frequency dome**, regardless of truncation. The
-  underlying geometry was reportedly used by Buckminster Fuller in early dome building, but the math
-  wasn't published until 1972, by David Kruschke, an American teacher.
-- **"So when you see Kruschke, think flat or level base, whatever the truncation."**
+- **4V chord-chart angle column is permuted.** The chord-charts page's "4V 1/2 method 1" table and the separate 4V calculator page do not line up cleanly by angle across all six strut types; three of the chord-chart page's angle entries are out of order relative to the calculator page's counts, and the chord-chart page lists two different chord factors at the same 9.35 deg angle. We re-derived the correct 4V 1/2 label/chord-factor/count/angle pairing geometrically instead of trusting the site's pairing; see `docs/design.md` section 5.1 for the reconciled table and the test suite for verification against that re-derivation.
+- **7V "J" and 8V "N" are each two merged strut types.** The chord-charts page shows one row for 7V label J (count 70) and one row for 8V label N (count 90), but geometric computation shows each is actually two distinct chord factors a few parts in 100,000 apart (7V J: 0.17585131 x60 + 0.17589689 x10; 8V N: 0.15636158 x60 + 0.15638647 x30) that the site rounded together into a single displayed row. Recorded here exactly as the site shows them (one merged row each); the split values are documented and tested in `docs/design.md` and `tests/test_class1.py`.
+- **4V 5/12 Kruschke hub count is wrong on the site.** Both 4V Kruschke pages (5/12 and 7/12) list 85 six-way hubs, but 85 is only correct for the 7/12 variant; the 5/12 variant's true six-way hub count is 45. Likely the same copy-paste duplication the site shows for the two variants' bolt/nut/washer counts (both list 111/111/222 despite different strut totals). Recorded in the JSON exactly as published (85 for both); the extension's own hub-census output uses the geometrically correct 45 for 5/12.
 
-From https://www.domerama.com/calculators/3v-geodesic-dome-calculator/making-a-timber-kruschke-dome/
-("Making a 3v timber Kruschke dome"):
+## Missing / not published on site
 
-- **A Kruschke-method dome requires one extra strut length compared to the standard method** to achieve
-  its flat base — the site states this directly: *"A geodesic dome that utilizes the Kruschke method
-  (main reason is to have a flat base) will require 4 different strut lengths."* (Standard 3V Class I
-  Method 1 only needs 3.) This matches what we found: the 3V Kruschke pages have strut types A-D (4
-  types), while the standard 3V pages have A-C (3 types).
-- For **hub-based (conduit) construction**, this is the whole story — one cut/bend angle per strut end.
-- For **timber/lumber construction**, it's more complex: the "C" strut is actually "the same length,
-  different angles" at its two ends, referred to as C1 and C2, requiring different cut angles even
-  though the strut length itself doesn't change. This only matters if you're not using a hub system —
-  hub systems only need the axial/bend angle.
-- Even with the Kruschke method, a **timber** dome's base is only flat at the hub/node points, not truly
-  flat along the surface of the base struts themselves — there's a slight tilt to the base struts when
-  built from lumber, described on the site as: *"it's not technically flat on the surface of the strut:
-  there is a tilt of the base struts."*
-
-## Other sources (NOT domerama.com — for context only, not part of the pass/fail set)
-
-- **simplydifferently.org** — Referenced directly by the domerama.com chord-charts page itself: *"If
-  you are looking for an advanced explanation of chord factors, bend angles and varying truncations,
-  simplydifferently.org has an extensive and impressive information site on geodesic domes and other
-  structures."* We did not fetch this site (out of scope — task is domerama.com only), but it's worth
-  noting for later since it's the site domerama itself points to for deeper chord-factor theory.
-
-## Missing / could not verify
-
-1. **No 5V, 6V, 7V, or 8V Kruschke calculator exists on domerama.com.** Only 3V (4/9, 5/9) and 4V
-   (5/12, 7/12) Kruschke variants were found.
-2. **No chord factor decimals are published for any Kruschke dome** — checked rendered text and raw
-   page source/JS on all four Kruschke pages; none found. Angle + count only.
-3. **No dedicated 7V or 8V calculator pages exist** — those two frequencies appear only as rows on the
-   chord-charts summary page (full chord factor + angle + count there, but no separate page for
-   alternate truncations, no hub connector counts, and 8V's truncation fraction isn't stated at all).
-4. **4V 1/2 chord-factor-to-count pairing is ambiguous** between the chord-charts page and the 4V
-   calculator page (see "4V ambiguity" section above) — recorded both tables separately rather than
-   guessing a merge.
-5. **3V 5/9 Kruschke page's 4-way hub connector count** was not captured in our fetch (6-way and 5-way
-   were visible before the page content we extracted ended) — recommend re-checking
-   https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-flat-base-815-kruschke-calculator/
-   directly if that number is needed.
-6. **Face/panel counts** are only given as loose prose on the chord-charts page (e.g. "105 faces",
-   "15 3-sided faces") and in a couple of cases the text extraction from HTML came out garbled/ambiguous
-   (the 3V and 5V rows mix truncation-fraction labels with face counts in a way that's hard to parse
-   with certainty) — we did not force an interpretation; raw counts are noted per-entry in the JSON
-   where legible, and treated as informational only, not structural (strut counts are the reliable
-   source of truth for geometry).
+- No dedicated 5V Kruschke calculator page/chord table was found on domerama.com (only 3V and 4V have published Kruschke calculators: 3V 4/9, 3V 5/9, 4V 5/12, 4V 7/12).
+- No chord factor decimals are published anywhere on the site for any Kruschke-method dome (3V 4/9, 3V 5/9, 4V 5/12, 4V 7/12) -- only bend angles and strut counts. Checked page source/JS for all four Kruschke pages for hidden decimal constants; none found.
+- No dedicated 7V or 8V calculator pages exist (counts/angles for individual truncation variants of 7V/8V are not published; only the single chord-charts table row for each).
+- 8V chord-charts entry does not state its truncation fraction.
+- 4-way hub connector count not visible in our fetch of the 3V 5/9 Kruschke page (6-way and 5-way were captured; page may have been truncated in text extraction -- recommend re-checking https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-flat-base-815-kruschke-calculator/ directly).
+- 4V 1/2 Method-1 chord factor to strut-count pairing is ambiguous due to inconsistencies between the chord-charts page and the 4V calculator page (see notes on both 4V 1/2 entries) -- not resolved, flagged instead of guessed.
