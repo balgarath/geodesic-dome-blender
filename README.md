@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/logo/logo.svg" width="180" alt="Geodesic Dome Builder logo: a 3V Kruschke dome with struts colored by type"></p>
+
 # Geodesic Dome Builder
 
 A Blender extension that generates geodesic dome frames with the chord
