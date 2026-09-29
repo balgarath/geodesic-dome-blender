@@ -1,0 +1,898 @@
+{
+  "source": "domerama.com",
+  "retrieved": "2026-09-28",
+  "domes": [
+    {
+      "name": "1V geodesic dome (a.k.a. 2/3)",
+      "url": "https://www.domerama.com/calculators/chord-charts/",
+      "frequency": "1V",
+      "fraction": "2/3",
+      "method": "Class I Method 1",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": 1.05146,
+          "count": 25,
+          "angle_deg": 31.72
+        }
+      ],
+      "hubs": {
+        "5-way": 6,
+        "4-way": 5
+      },
+      "notes": "1V calculator page (https://www.domerama.com/calculators/1v-geodesic-dome-calculator/) labels this dome '1V (a.k.a 2/3)' and gives the same strut count (25 x A) and angle (31.72 deg) but does not show the chord factor decimal; chord factor 1.05146 comes only from the chord-charts page. 15 3-sided faces per chord-charts page."
+    },
+    {
+      "name": "2V geodesic dome",
+      "url": "https://www.domerama.com/calculators/chord-charts/",
+      "frequency": "2V",
+      "fraction": "1/2",
+      "method": "Class I Method 1",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": 0.61803,
+          "count": 35,
+          "angle_deg": 18.0
+        },
+        {
+          "label": "B",
+          "chord_factor": 0.54653,
+          "count": 30,
+          "angle_deg": 15.86
+        }
+      ],
+      "hubs": {
+        "6-way": 10,
+        "5-way": 6,
+        "4-way": 10
+      },
+      "notes": "LETTER MISMATCH BETWEEN PAGES: the 2V calculator page (https://www.domerama.com/calculators/2v-geodesic-dome-calculator/) lists '30 X A' at 15.86 deg and '35 X B' at 18 deg -- i.e. its A/B labels are swapped relative to the chord-charts page. Struts above are matched to chord factors by angle (18deg->CF .61803 count 35; 15.86deg->CF .54653 count 30), using chord-charts' own lettering. Verify against the live site before treating letters as authoritative. 40 3-sided faces per chord-charts page. Hub counts (10x6-way,6x5-way,10x4-way) and bolt counts (26 bolts/26 nuts/52 washers) are from the calculator page."
+    },
+    {
+      "name": "3V 3/8 geodesic dome",
+      "url": "https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-38-geodesic-dome-calculator/",
+      "frequency": "3V",
+      "fraction": "3/8",
+      "method": "Class I Method 1",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": 0.34862,
+          "count": 30,
+          "angle_deg": 10.04
+        },
+        {
+          "label": "B",
+          "chord_factor": 0.40355,
+          "count": 40,
+          "angle_deg": 11.64
+        },
+        {
+          "label": "C",
+          "chord_factor": 0.41241,
+          "count": 50,
+          "angle_deg": 11.9
+        }
+      ],
+      "hubs": {
+        "6-way": 25,
+        "5-way": 6,
+        "4-way": 15
+      },
+      "notes": "Strut counts/angles/letters match the dedicated 3V 3/8 calculator page exactly (120 struts total). Chord factors from chord-charts page (https://www.domerama.com/calculators/chord-charts/), whose single '3V' table (30A/40B/50C) is this 3/8 truncation. Bolted assembly: 46 bolts/46 nuts/92 washers. Base is NOT flat (odd-frequency Class I dome); see Kruschke variant for flat-base version."
+    },
+    {
+      "name": "3V 5/8 geodesic dome",
+      "url": "https://www.domerama.com/calculators/3v-geodesic-dome-calculator/",
+      "frequency": "3V",
+      "fraction": "5/8",
+      "method": "Class I Method 1",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": 0.34862,
+          "count": 30,
+          "angle_deg": 10.04
+        },
+        {
+          "label": "B",
+          "chord_factor": 0.40355,
+          "count": 55,
+          "angle_deg": 11.64
+        },
+        {
+          "label": "C",
+          "chord_factor": 0.41241,
+          "count": 80,
+          "angle_deg": 11.9
+        }
+      ],
+      "hubs": {
+        "6-way": 40,
+        "5-way": 6,
+        "4-way": 15
+      },
+      "notes": "This is the default/main 3V calculator page on the site. Strut letters and angles (A@10.04, B@11.64, C@11.90) are identical to the 3/8 variant, only counts differ (165 struts total), so the same 3 chord factors from the chord-charts page apply -- confirmed by exact angle match, not independently published as a separate '5/8' chord factor table on site. Bolted assembly: 61 bolts/61 nuts/122 washers. Base is NOT flat (odd-frequency Class I dome)."
+    },
+    {
+      "name": "3V 4/9 Flat Base Kruschke",
+      "url": "https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-38-flat-base-krushke-calculator/",
+      "frequency": "3V",
+      "fraction": "4/9",
+      "method": "Kruschke",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": null,
+          "count": 30,
+          "angle_deg": 9.49
+        },
+        {
+          "label": "B",
+          "chord_factor": null,
+          "count": 30,
+          "angle_deg": 11.02
+        },
+        {
+          "label": "C",
+          "chord_factor": null,
+          "count": 50,
+          "angle_deg": 12.16
+        },
+        {
+          "label": "D",
+          "chord_factor": null,
+          "count": 10,
+          "angle_deg": 12.74
+        }
+      ],
+      "hubs": {
+        "6-way": 25,
+        "5-way": 6,
+        "4-way": 15
+      },
+      "notes": "URL slug and page title call this '3V 3/8' / '3v-38', but the on-page truncation label is '4/9'. Per the site's own 'Leveling the base of a dome' page, builders commonly call the Kruschke 4/9 dome '3/8' and the Kruschke 5/9 dome '5/8' -- legacy terminology, not the same fraction as the non-Kruschke Method-1 3/8 and 5/8 domes above. No chord factor decimals are shown anywhere on this page or in its page source/JS -- only bend angles. 4 strut types (A-D), 120 struts total, vs 3 strut types for the standard (non-Kruschke) 3/8 dome -- this matches the site's explicit statement that Kruschke domes need one extra strut length to achieve a flat base. Bolted assembly: 46 bolts/46 nuts/92 washers."
+    },
+    {
+      "name": "3V 5/9 Flat Base Kruschke",
+      "url": "https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-flat-base-815-kruschke-calculator/",
+      "frequency": "3V",
+      "fraction": "5/9",
+      "method": "Kruschke",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": null,
+          "count": 30,
+          "angle_deg": 9.49
+        },
+        {
+          "label": "B",
+          "chord_factor": null,
+          "count": 35,
+          "angle_deg": 11.02
+        },
+        {
+          "label": "C",
+          "chord_factor": null,
+          "count": 80,
+          "angle_deg": 12.16
+        },
+        {
+          "label": "D",
+          "chord_factor": null,
+          "count": 20,
+          "angle_deg": 12.74
+        }
+      ],
+      "hubs": {
+        "6-way": 40,
+        "5-way": 6
+      },
+      "notes": "URL slug is '3v-flat-base-815-kruschke-calculator' (815 = 8/15, an alternate fraction notation) and page title says '5/9'. Commonly called '5/8' by builders per site's own terminology note. Same 4 strut letters/angles as the 4/9 Kruschke dome, larger counts (165 struts total). No chord factor decimals published on site -- angle only. 4-way hub count not shown on this page (only 6-way and 5-way listed before page content was truncated in our fetch; recheck live page if 4-way count is needed)."
+    },
+    {
+      "name": "4V 1/2 geodesic dome (Method 1, chord-charts table)",
+      "url": "https://www.domerama.com/calculators/chord-charts/",
+      "frequency": "4V",
+      "fraction": "1/2",
+      "method": "Class I Method 1",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": 0.25318,
+          "count": null,
+          "angle_deg": 7.27
+        },
+        {
+          "label": "B",
+          "chord_factor": 0.29524,
+          "count": null,
+          "angle_deg": 8.47
+        },
+        {
+          "label": "C",
+          "chord_factor": 0.29453,
+          "count": null,
+          "angle_deg": 9.35
+        },
+        {
+          "label": "D",
+          "chord_factor": 0.31287,
+          "count": null,
+          "angle_deg": 9.0
+        },
+        {
+          "label": "E",
+          "chord_factor": 0.32492,
+          "count": null,
+          "angle_deg": 8.59
+        },
+        {
+          "label": "F",
+          "chord_factor": 0.29859,
+          "count": null,
+          "angle_deg": 9.35
+        }
+      ],
+      "hubs": null,
+      "notes": "AMBIGUOUS -- counts NOT reliably assignable. The chord-charts page (https://www.domerama.com/calculators/chord-charts/) gives 6 chord factors for '4V 1/2 method 1' but its own strut listing does not give per-letter counts, only '160 3-sided faces' for the whole table. The separate 4V calculator page (https://www.domerama.com/calculators/4v-geodesic-dome-calculator/) gives counts (30A@7.27,30B@8.49,60C@8.47,70D@9.35,30E@8.59,30F@9.00 = 250 struts) but its angles do not line up cleanly with the chord-charts angles: chord-charts has TWO different chord factors sharing angle 9.35 deg (C=.29453 and F=.29859) while the calculator page has only ONE strut type at 9.35 deg (D, count 70); the calculator page's B is 8.49 deg vs chord-charts' B at 8.47 deg (likely a typo on one page, cause unknown). We deliberately did NOT force a letter-for-letter or count assignment here since that would be inventing data. See the next entry for the calculator page's own raw counts. Recommend independently re-deriving these 6 chord factors geometrically for the Blender plugin's pass/fail set rather than trusting the site's count-to-CF pairing for 4V."
+    },
+    {
+      "name": "4V 1/2 geodesic dome (calculator page, counts/angles only)",
+      "url": "https://www.domerama.com/calculators/4v-geodesic-dome-calculator/",
+      "frequency": "4V",
+      "fraction": "1/2",
+      "method": "Class I Method 1",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": null,
+          "count": 30,
+          "angle_deg": 7.27
+        },
+        {
+          "label": "B",
+          "chord_factor": null,
+          "count": 30,
+          "angle_deg": 8.49
+        },
+        {
+          "label": "C",
+          "chord_factor": null,
+          "count": 60,
+          "angle_deg": 8.47
+        },
+        {
+          "label": "D",
+          "chord_factor": null,
+          "count": 70,
+          "angle_deg": 9.35
+        },
+        {
+          "label": "E",
+          "chord_factor": null,
+          "count": 30,
+          "angle_deg": 8.59
+        },
+        {
+          "label": "F",
+          "chord_factor": null,
+          "count": 30,
+          "angle_deg": 9.0
+        }
+      ],
+      "hubs": {
+        "6-way": 65,
+        "5-way": 6,
+        "4-way": 20
+      },
+      "notes": "Raw counts/letters/angles exactly as shown on the calculator page (250 struts total). See previous entry for why these letters cannot be safely paired with the chord-charts page's chord factor decimals. Bolted assembly: 91 bolts/91 nuts/182 washers."
+    },
+    {
+      "name": "4V 5/12 Kruschke geodesic dome",
+      "url": "https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-512-kruschke-geodesic-dome-calculator/",
+      "frequency": "4V",
+      "fraction": "5/12",
+      "method": "Kruschke",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": null,
+          "count": 30,
+          "angle_deg": 6.38
+        },
+        {
+          "label": "B",
+          "chord_factor": null,
+          "count": 30,
+          "angle_deg": 7.46
+        },
+        {
+          "label": "C",
+          "chord_factor": null,
+          "count": 50,
+          "angle_deg": 8.89
+        },
+        {
+          "label": "D",
+          "chord_factor": null,
+          "count": 40,
+          "angle_deg": 9.0
+        },
+        {
+          "label": "E",
+          "chord_factor": null,
+          "count": 20,
+          "angle_deg": 9.35
+        },
+        {
+          "label": "F",
+          "chord_factor": null,
+          "count": 20,
+          "angle_deg": 9.48
+        }
+      ],
+      "hubs": {
+        "6-way": 85,
+        "5-way": 6,
+        "4-way": 20
+      },
+      "notes": "Page states 'Click on images below to view any of the 4V geodesic dome calculators. These all generate a flat base.' No chord factor decimals published, angle only. 190 struts total. Bolted assembly: 111 bolts/111 nuts/222 washers (note: identical bolt/nut/washer totals listed for both 4V Kruschke variants on site -- possibly a copy-paste artifact on the site since 5/12 and 7/12 have different strut totals; recorded as shown, not corrected)."
+    },
+    {
+      "name": "4V 7/12 Kruschke geodesic dome",
+      "url": "https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-712-kruschke-geodesic-dome-calculator/",
+      "frequency": "4V",
+      "fraction": "7/12",
+      "method": "Kruschke",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": null,
+          "count": 30,
+          "angle_deg": 6.38
+        },
+        {
+          "label": "B",
+          "chord_factor": null,
+          "count": 35,
+          "angle_deg": 7.46
+        },
+        {
+          "label": "C",
+          "chord_factor": null,
+          "count": 80,
+          "angle_deg": 8.89
+        },
+        {
+          "label": "D",
+          "chord_factor": null,
+          "count": 80,
+          "angle_deg": 9.0
+        },
+        {
+          "label": "E",
+          "chord_factor": null,
+          "count": 45,
+          "angle_deg": 9.35
+        },
+        {
+          "label": "F",
+          "chord_factor": null,
+          "count": 40,
+          "angle_deg": 9.48
+        }
+      ],
+      "hubs": {
+        "6-way": 85,
+        "5-way": 6,
+        "4-way": 20
+      },
+      "notes": "Same 6 strut letters/angles as the 5/12 Kruschke dome, larger counts (310 struts total). No chord factor decimals published on site. Bolted assembly listed as 111 bolts/111 nuts/222 washers -- same figures as the 5/12 page despite different strut totals; recorded as shown (possible site data-entry duplication, not corrected by us)."
+    },
+    {
+      "name": "5V 7/15 (3/8) geodesic dome",
+      "url": "https://www.domerama.com/calculators/5v-geodesic-dome-calculator/5v-38-geodesic-dome-calculator/",
+      "frequency": "5V",
+      "fraction": "7/15",
+      "method": "Class I Method 1",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": 0.19814743,
+          "count": 30,
+          "angle_deg": 5.69
+        },
+        {
+          "label": "B",
+          "chord_factor": 0.23179025,
+          "count": 30,
+          "angle_deg": 6.48
+        },
+        {
+          "label": "C",
+          "chord_factor": 0.22568578,
+          "count": 60,
+          "angle_deg": 6.65
+        },
+        {
+          "label": "D",
+          "chord_factor": 0.24724291,
+          "count": 60,
+          "angle_deg": 6.66
+        },
+        {
+          "label": "E",
+          "chord_factor": 0.25516701,
+          "count": 50,
+          "angle_deg": 7.04
+        },
+        {
+          "label": "F",
+          "chord_factor": 0.24508578,
+          "count": 50,
+          "angle_deg": 7.05
+        },
+        {
+          "label": "G",
+          "chord_factor": 0.2615981,
+          "count": 30,
+          "angle_deg": 7.1
+        },
+        {
+          "label": "H",
+          "chord_factor": 0.2315976,
+          "count": 30,
+          "angle_deg": 7.33
+        },
+        {
+          "label": "I",
+          "chord_factor": 0.24534642,
+          "count": 10,
+          "angle_deg": 7.52
+        }
+      ],
+      "hubs": {
+        "6-way": 95,
+        "5-way": 6,
+        "4-way": 25
+      },
+      "notes": "Site labels this dome '5V 7/15 (3/8)'. Counts/letters/angles match the chord-charts page's '5V' table exactly (350 struts total, 9 strut types) -- clean 1:1 match, no ambiguity. Base is NOT flat (odd-frequency Class I dome)."
+    },
+    {
+      "name": "5V 8/15 (5/8) geodesic dome",
+      "url": "https://www.domerama.com/calculators/5v-geodesic-dome-calculator/",
+      "frequency": "5V",
+      "fraction": "8/15",
+      "method": "Class I Method 1",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": 0.19814743,
+          "count": 30,
+          "angle_deg": 5.69
+        },
+        {
+          "label": "B",
+          "chord_factor": 0.23179025,
+          "count": 30,
+          "angle_deg": 6.48
+        },
+        {
+          "label": "C",
+          "chord_factor": 0.22568578,
+          "count": 60,
+          "angle_deg": 6.65
+        },
+        {
+          "label": "D",
+          "chord_factor": 0.24724291,
+          "count": 70,
+          "angle_deg": 6.66
+        },
+        {
+          "label": "E",
+          "chord_factor": 0.25516701,
+          "count": 70,
+          "angle_deg": 7.04
+        },
+        {
+          "label": "F",
+          "chord_factor": 0.24508578,
+          "count": 80,
+          "angle_deg": 7.05
+        },
+        {
+          "label": "G",
+          "chord_factor": 0.2615981,
+          "count": 35,
+          "angle_deg": 7.1
+        },
+        {
+          "label": "H",
+          "chord_factor": 0.2315976,
+          "count": 30,
+          "angle_deg": 7.33
+        },
+        {
+          "label": "I",
+          "chord_factor": 0.24534642,
+          "count": 20,
+          "angle_deg": 7.52
+        }
+      ],
+      "hubs": {
+        "6-way": 120,
+        "5-way": 6,
+        "4-way": 25
+      },
+      "notes": "Site labels this dome '5V 8/15 (a.k.a. 5/8)'. This is the default/main 5V calculator page. Same 9 strut letters/angles as the 7/15(3/8) dome, larger counts (425 struts total); chord factors matched by exact angle equality (clean 1:1 match, no ambiguity). Bolted assembly: 151 bolts/151 nuts/302 washers. Base is NOT flat (odd-frequency Class I dome)."
+    },
+    {
+      "name": "6V 1/2 geodesic dome",
+      "url": "https://www.domerama.com/calculators/6v-geodesic-dome-calculator/",
+      "frequency": "6V",
+      "fraction": "1/2",
+      "method": "Class I Method 1",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": 0.16256722,
+          "count": 30,
+          "angle_deg": 4.66
+        },
+        {
+          "label": "B",
+          "chord_factor": 0.19047686,
+          "count": 30,
+          "angle_deg": 5.22
+        },
+        {
+          "label": "C",
+          "chord_factor": 0.18190825,
+          "count": 60,
+          "angle_deg": 5.38
+        },
+        {
+          "label": "D",
+          "chord_factor": 0.20281969,
+          "count": 90,
+          "angle_deg": 5.47
+        },
+        {
+          "label": "E",
+          "chord_factor": 0.1873834,
+          "count": 30,
+          "angle_deg": 5.68
+        },
+        {
+          "label": "F",
+          "chord_factor": 0.19801258,
+          "count": 60,
+          "angle_deg": 5.82
+        },
+        {
+          "label": "G",
+          "chord_factor": 0.20590774,
+          "count": 130,
+          "angle_deg": 5.91
+        },
+        {
+          "label": "H",
+          "chord_factor": 0.21535373,
+          "count": 65,
+          "angle_deg": 6.18
+        },
+        {
+          "label": "I",
+          "chord_factor": 0.21662821,
+          "count": 60,
+          "angle_deg": 6.22
+        }
+      ],
+      "hubs": {
+        "6-way": 160,
+        "5-way": 6,
+        "4-way": 30
+      },
+      "notes": "Called '6V 1/2 flat base' on the calculator page (even frequency, so the hemisphere is naturally flat without needing the Kruschke method). Counts/letters/angles match the chord-charts page's '6V' table exactly, clean 1:1 match, 555 struts total. Bolted assembly: 195 bolts/195 nuts/390 washers. Note the CF for E, 0.1873834, has one fewer decimal digit shown on the source page than the other 8V values (7 vs 8 digits) -- recorded exactly as displayed, not padded or rounded."
+    },
+    {
+      "name": "7V 10/21 geodesic dome",
+      "url": "https://www.domerama.com/calculators/chord-charts/",
+      "frequency": "7V",
+      "fraction": "10/21",
+      "method": "Class I Method 1",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": 0.13774,
+          "count": 30,
+          "angle_deg": 3.95
+        },
+        {
+          "label": "B",
+          "chord_factor": 0.15197,
+          "count": 60,
+          "angle_deg": 4.36
+        },
+        {
+          "label": "C",
+          "chord_factor": 0.15664,
+          "count": 30,
+          "angle_deg": 4.49
+        },
+        {
+          "label": "D",
+          "chord_factor": 0.16154,
+          "count": 30,
+          "angle_deg": 4.63
+        },
+        {
+          "label": "E",
+          "chord_factor": 0.1648,
+          "count": 60,
+          "angle_deg": 4.73
+        },
+        {
+          "label": "F",
+          "chord_factor": 0.17066,
+          "count": 30,
+          "angle_deg": 4.9
+        },
+        {
+          "label": "G",
+          "chord_factor": 0.17098,
+          "count": 60,
+          "angle_deg": 4.9
+        },
+        {
+          "label": "H",
+          "chord_factor": 0.17132,
+          "count": 60,
+          "angle_deg": 4.91
+        },
+        {
+          "label": "I",
+          "chord_factor": 0.17353,
+          "count": 50,
+          "angle_deg": 4.98
+        },
+        {
+          "label": "J",
+          "chord_factor": 0.17585,
+          "count": 70,
+          "angle_deg": 5.04
+        },
+        {
+          "label": "K",
+          "chord_factor": 0.18155,
+          "count": 50,
+          "angle_deg": 5.21
+        },
+        {
+          "label": "L",
+          "chord_factor": 0.18161,
+          "count": 30,
+          "angle_deg": 5.21
+        },
+        {
+          "label": "M",
+          "chord_factor": 0.18237,
+          "count": 50,
+          "angle_deg": 5.23
+        },
+        {
+          "label": "N",
+          "chord_factor": 0.18548,
+          "count": 60,
+          "angle_deg": 5.32
+        },
+        {
+          "label": "O",
+          "chord_factor": 0.1879,
+          "count": 30,
+          "angle_deg": 5.39
+        }
+      ],
+      "hubs": null,
+      "notes": "Only found on the chord-charts summary page; no dedicated 7V calculator page exists on the site (only 1V-6V have individual calculator pages, plus the Octahedral 5V page). 455 3-sided faces per chord-charts page. Hub connector counts not published for 7V. No Kruschke 7V variant found."
+    },
+    {
+      "name": "8V geodesic dome",
+      "url": "https://www.domerama.com/calculators/chord-charts/",
+      "frequency": "8V",
+      "fraction": null,
+      "method": "Class I Method 1",
+      "polyhedron": "icosahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": 0.11946,
+          "count": 30,
+          "angle_deg": 3.42
+        },
+        {
+          "label": "B",
+          "chord_factor": 0.13033,
+          "count": 60,
+          "angle_deg": 3.74
+        },
+        {
+          "label": "C",
+          "chord_factor": 0.13424,
+          "count": 30,
+          "angle_deg": 3.85
+        },
+        {
+          "label": "D",
+          "chord_factor": 0.14018,
+          "count": 30,
+          "angle_deg": 4.02
+        },
+        {
+          "label": "E",
+          "chord_factor": 0.14056,
+          "count": 60,
+          "angle_deg": 4.03
+        },
+        {
+          "label": "F",
+          "chord_factor": 0.14548,
+          "count": 60,
+          "angle_deg": 4.17
+        },
+        {
+          "label": "G",
+          "chord_factor": 0.14628,
+          "count": 30,
+          "angle_deg": 4.19
+        },
+        {
+          "label": "H",
+          "chord_factor": 0.14803,
+          "count": 60,
+          "angle_deg": 4.24
+        },
+        {
+          "label": "I",
+          "chord_factor": 0.14862,
+          "count": 60,
+          "angle_deg": 4.26
+        },
+        {
+          "label": "J",
+          "chord_factor": 0.15267,
+          "count": 60,
+          "angle_deg": 4.38
+        },
+        {
+          "label": "K",
+          "chord_factor": 0.15296,
+          "count": 70,
+          "angle_deg": 4.39
+        },
+        {
+          "label": "L",
+          "chord_factor": 0.15315,
+          "count": 30,
+          "angle_deg": 4.39
+        },
+        {
+          "label": "M",
+          "chord_factor": 0.15477,
+          "count": 60,
+          "angle_deg": 4.44
+        },
+        {
+          "label": "N",
+          "chord_factor": 0.15636,
+          "count": 90,
+          "angle_deg": 4.48
+        },
+        {
+          "label": "O",
+          "chord_factor": 0.16033,
+          "count": 60,
+          "angle_deg": 4.6
+        },
+        {
+          "label": "P",
+          "chord_factor": 0.16036,
+          "count": 30,
+          "angle_deg": 4.6
+        },
+        {
+          "label": "Q",
+          "chord_factor": 0.16088,
+          "count": 70,
+          "angle_deg": 4.61
+        },
+        {
+          "label": "R",
+          "chord_factor": 0.163,
+          "count": 60,
+          "angle_deg": 4.67
+        },
+        {
+          "label": "S",
+          "chord_factor": 0.16465,
+          "count": 30,
+          "angle_deg": 4.72
+        }
+      ],
+      "hubs": null,
+      "notes": "Only found on the chord-charts summary page; no dedicated 8V calculator page exists on the site. Site does not state a truncation fraction for this entry (heading is simply '8V geodesic dome chord factors'), unlike every other row on the same page. 640 3-sided faces per chord-charts page. Hub connector counts not published for 8V."
+    },
+    {
+      "name": "Octahedral 5V, Mexican method (1/2)",
+      "url": "https://www.domerama.com/calculators/octahedral-5v-mexican-method/",
+      "frequency": "5V",
+      "fraction": "1/2",
+      "method": "Mexican method (equal-central-path triangulation, Hector Alfredo Hernandez Hernandez)",
+      "polyhedron": "octahedron",
+      "struts": [
+        {
+          "label": "A",
+          "chord_factor": null,
+          "count": 12,
+          "angle_deg": 12.6
+        },
+        {
+          "label": "B",
+          "chord_factor": null,
+          "count": 24,
+          "angle_deg": 12.4
+        },
+        {
+          "label": "C",
+          "chord_factor": null,
+          "count": 36,
+          "angle_deg": 11.7
+        },
+        {
+          "label": "D",
+          "chord_factor": null,
+          "count": 48,
+          "angle_deg": 10.6
+        },
+        {
+          "label": "E",
+          "chord_factor": null,
+          "count": 40,
+          "angle_deg": 9.0
+        }
+      ],
+      "hubs": {
+        "6-way": 40,
+        "4-way": 17,
+        "3-way": 4
+      },
+      "notes": "NOT a Kruschke dome -- a separate, distinct alternate method. Site: The so-called Mexican Method is named after the work of Mexican mathematician Hector Alfredo Hernandez Hernandez. With this system of triangle subdivision, strut lengths are equalized along each set of three paths followed by the struts. As a result, the number of unique strut lengths equals the dome's frequency (5 types for 5V). The method can be applied to geodesic domes based on either the octahedron or icosahedron, but the equal-length feature begins to break down at frequency 6. Base polyhedron here is OCTAHEDRON, not icosahedron. No chord factor decimals published, angle only. 160 struts total."
+    }
+  ],
+  "missing": [
+    "No dedicated 5V Kruschke calculator page/chord table was found on domerama.com (only 3V and 4V have published Kruschke calculators: 3V 4/9, 3V 5/9, 4V 5/12, 4V 7/12).",
+    "No chord factor decimals are published anywhere on the site for any Kruschke-method dome (3V 4/9, 3V 5/9, 4V 5/12, 4V 7/12) -- only bend angles and strut counts. Checked page source/JS for all four Kruschke pages for hidden decimal constants; none found.",
+    "No dedicated 7V or 8V calculator pages exist (counts/angles for individual truncation variants of 7V/8V are not published; only the single chord-charts table row for each).",
+    "8V chord-charts entry does not state its truncation fraction.",
+    "4-way hub connector count not visible in our fetch of the 3V 5/9 Kruschke page (6-way and 5-way were captured; page may have been truncated in text extraction -- recommend re-checking https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-flat-base-815-kruschke-calculator/ directly).",
+    "4V 1/2 Method-1 chord factor to strut-count pairing is ambiguous due to inconsistencies between the chord-charts page and the 4V calculator page (see notes on both 4V 1/2 entries) -- not resolved, flagged instead of guessed."
+  ]
+}

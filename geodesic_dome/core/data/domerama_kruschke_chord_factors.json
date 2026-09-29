@@ -1,0 +1,63 @@
+{
+  "source": "domerama.com calculator JavaScript (function circle(form)), extracted from the live pages",
+  "retrieved": "2026-09-28",
+  "notes": "Chord factors are the multipliers in `strutX = radius * CF`. Counts are from the `ff = ...` total-length line. height_factor is `height = radius * H`. Domerama gives 6 decimals for 3V and 5 for 4V.",
+  "domes": [
+    {
+      "name": "3V 4/9 Kruschke (site alias 3/8)",
+      "url": "https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-38-flat-base-krushke-calculator/",
+      "frequency": 3, "fraction": "4/9", "method": "kruschke",
+      "struts": [
+        {"label": "A", "chord_factor": 0.329706, "count": 30},
+        {"label": "B", "chord_factor": 0.382290, "count": 30},
+        {"label": "C", "chord_factor": 0.421489, "count": 50},
+        {"label": "D", "chord_factor": 0.441056, "count": 10}
+      ],
+      "height_factor": 0.81241,
+      "floor_area_factor": 2.9426
+    },
+    {
+      "name": "3V 5/9 Kruschke (site alias 5/8)",
+      "url": "https://www.domerama.com/calculators/3v-geodesic-dome-calculator/3v-flat-base-815-kruschke-calculator/",
+      "frequency": 3, "fraction": "5/9", "method": "kruschke",
+      "struts": [
+        {"label": "A", "chord_factor": 0.329706, "count": 30},
+        {"label": "B", "chord_factor": 0.382290, "count": 35},
+        {"label": "C", "chord_factor": 0.421489, "count": 80},
+        {"label": "D", "chord_factor": 0.441056, "count": 20}
+      ],
+      "height_factor": 1.187592,
+      "floor_area_factor": 2.9426
+    },
+    {
+      "name": "4V 5/12 Kruschke",
+      "url": "https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-512-kruschke-geodesic-dome-calculator/",
+      "frequency": 4, "fraction": "5/12", "method": "kruschke",
+      "struts": [
+        {"label": "A", "chord_factor": 0.22219, "count": 30},
+        {"label": "B", "chord_factor": 0.25958, "count": 30},
+        {"label": "C", "chord_factor": 0.30906, "count": 50},
+        {"label": "D", "chord_factor": 0.31287, "count": 40},
+        {"label": "E", "chord_factor": 0.32492, "count": 20},
+        {"label": "F", "chord_factor": 0.32942, "count": 20}
+      ],
+      "height_factor": 0.72361,
+      "floor_area_factor": 2.85317
+    },
+    {
+      "name": "4V 7/12 Kruschke",
+      "url": "https://www.domerama.com/calculators/4v-geodesic-dome-calculator/4v-712-kruschke-geodesic-dome-calculator/",
+      "frequency": 4, "fraction": "7/12", "method": "kruschke",
+      "struts": [
+        {"label": "A", "chord_factor": 0.22219, "count": 30},
+        {"label": "B", "chord_factor": 0.25958, "count": 35},
+        {"label": "C", "chord_factor": 0.30906, "count": 80},
+        {"label": "D", "chord_factor": 0.31287, "count": 80},
+        {"label": "E", "chord_factor": 0.32492, "count": 45},
+        {"label": "F", "chord_factor": 0.32942, "count": 40}
+      ],
+      "height_factor": 1.27639,
+      "floor_area_factor": 2.85317
+    }
+  ]
+}

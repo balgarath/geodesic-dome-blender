@@ -1,0 +1,1208 @@
+{
+ "source": "verify_geometry.py (extended Kruschke construction)",
+ "notes": "Our documented 5V/6V generalization; no external reference exists. m = hub slide ratio; tables are golden regression values.",
+ "domes": [
+  {
+   "frequency": 5,
+   "fraction": "6/15",
+   "m": 0.8034029137970465,
+   "height_factor": 0.6734514927584345,
+   "hubs": {
+    "4": 25,
+    "5": 6,
+    "6": 70
+   },
+   "struts": [
+    {
+     "label": "A",
+     "chord_factor": 0.1594096457,
+     "count": 30
+    },
+    {
+     "label": "B",
+     "chord_factor": 0.186801075,
+     "count": 30
+    },
+    {
+     "label": "C",
+     "chord_factor": 0.241125591,
+     "count": 10
+    },
+    {
+     "label": "D",
+     "chord_factor": 0.2437777085,
+     "count": 10
+    },
+    {
+     "label": "E",
+     "chord_factor": 0.2438323256,
+     "count": 10
+    },
+    {
+     "label": "F",
+     "chord_factor": 0.2439680995,
+     "count": 30
+    },
+    {
+     "label": "G",
+     "chord_factor": 0.2450857832,
+     "count": 30
+    },
+    {
+     "label": "H",
+     "chord_factor": 0.2453464206,
+     "count": 10
+    },
+    {
+     "label": "I",
+     "chord_factor": 0.2472429098,
+     "count": 30
+    },
+    {
+     "label": "J",
+     "chord_factor": 0.2516906483,
+     "count": 10
+    },
+    {
+     "label": "K",
+     "chord_factor": 0.2550821576,
+     "count": 10
+    },
+    {
+     "label": "L",
+     "chord_factor": 0.2551670123,
+     "count": 30
+    },
+    {
+     "label": "M",
+     "chord_factor": 0.2615980975,
+     "count": 15
+    },
+    {
+     "label": "N",
+     "chord_factor": 0.2701838281,
+     "count": 20
+    }
+   ]
+  },
+  {
+   "frequency": 5,
+   "fraction": "7/15",
+   "m": 0.8034029137970465,
+   "height_factor": 0.892225028119009,
+   "hubs": {
+    "4": 25,
+    "5": 6,
+    "6": 95
+   },
+   "struts": [
+    {
+     "label": "A",
+     "chord_factor": 0.1594096457,
+     "count": 30
+    },
+    {
+     "label": "B",
+     "chord_factor": 0.186801075,
+     "count": 30
+    },
+    {
+     "label": "C",
+     "chord_factor": 0.241125591,
+     "count": 10
+    },
+    {
+     "label": "D",
+     "chord_factor": 0.2437777085,
+     "count": 10
+    },
+    {
+     "label": "E",
+     "chord_factor": 0.2438323256,
+     "count": 10
+    },
+    {
+     "label": "F",
+     "chord_factor": 0.2438457138,
+     "count": 10
+    },
+    {
+     "label": "G",
+     "chord_factor": 0.2439680995,
+     "count": 30
+    },
+    {
+     "label": "H",
+     "chord_factor": 0.2450462711,
+     "count": 10
+    },
+    {
+     "label": "I",
+     "chord_factor": 0.2450857832,
+     "count": 30
+    },
+    {
+     "label": "J",
+     "chord_factor": 0.2453464206,
+     "count": 10
+    },
+    {
+     "label": "K",
+     "chord_factor": 0.2471168798,
+     "count": 10
+    },
+    {
+     "label": "L",
+     "chord_factor": 0.2472429098,
+     "count": 30
+    },
+    {
+     "label": "M",
+     "chord_factor": 0.2484463149,
+     "count": 10
+    },
+    {
+     "label": "N",
+     "chord_factor": 0.2516906483,
+     "count": 10
+    },
+    {
+     "label": "O",
+     "chord_factor": 0.2550821576,
+     "count": 10
+    },
+    {
+     "label": "P",
+     "chord_factor": 0.2551670123,
+     "count": 30
+    },
+    {
+     "label": "Q",
+     "chord_factor": 0.2580916758,
+     "count": 10
+    },
+    {
+     "label": "R",
+     "chord_factor": 0.2613645056,
+     "count": 10
+    },
+    {
+     "label": "S",
+     "chord_factor": 0.2615980975,
+     "count": 15
+    },
+    {
+     "label": "T",
+     "chord_factor": 0.2616993012,
+     "count": 5
+    },
+    {
+     "label": "U",
+     "chord_factor": 0.2661649336,
+     "count": 10
+    },
+    {
+     "label": "V",
+     "chord_factor": 0.2701838281,
+     "count": 20
+    }
+   ]
+  },
+  {
+   "frequency": 5,
+   "fraction": "8/15",
+   "m": 0.8034029137970465,
+   "height_factor": 1.1077749718809913,
+   "hubs": {
+    "4": 25,
+    "5": 6,
+    "6": 120
+   },
+   "struts": [
+    {
+     "label": "A",
+     "chord_factor": 0.1594096457,
+     "count": 30
+    },
+    {
+     "label": "B",
+     "chord_factor": 0.186801075,
+     "count": 30
+    },
+    {
+     "label": "C",
+     "chord_factor": 0.241125591,
+     "count": 10
+    },
+    {
+     "label": "D",
+     "chord_factor": 0.2437777085,
+     "count": 10
+    },
+    {
+     "label": "E",
+     "chord_factor": 0.2438323256,
+     "count": 10
+    },
+    {
+     "label": "F",
+     "chord_factor": 0.2438457138,
+     "count": 10
+    },
+    {
+     "label": "G",
+     "chord_factor": 0.2439680995,
+     "count": 30
+    },
+    {
+     "label": "H",
+     "chord_factor": 0.2440162693,
+     "count": 20
+    },
+    {
+     "label": "I",
+     "chord_factor": 0.2450462711,
+     "count": 20
+    },
+    {
+     "label": "J",
+     "chord_factor": 0.2450857832,
+     "count": 30
+    },
+    {
+     "label": "K",
+     "chord_factor": 0.2453464206,
+     "count": 10
+    },
+    {
+     "label": "L",
+     "chord_factor": 0.2471168798,
+     "count": 20
+    },
+    {
+     "label": "M",
+     "chord_factor": 0.2472429098,
+     "count": 30
+    },
+    {
+     "label": "N",
+     "chord_factor": 0.2484463149,
+     "count": 10
+    },
+    {
+     "label": "O",
+     "chord_factor": 0.2516906483,
+     "count": 10
+    },
+    {
+     "label": "P",
+     "chord_factor": 0.2523057816,
+     "count": 20
+    },
+    {
+     "label": "Q",
+     "chord_factor": 0.2533941562,
+     "count": 10
+    },
+    {
+     "label": "R",
+     "chord_factor": 0.2550821576,
+     "count": 10
+    },
+    {
+     "label": "S",
+     "chord_factor": 0.2551670123,
+     "count": 30
+    },
+    {
+     "label": "T",
+     "chord_factor": 0.2580916758,
+     "count": 10
+    },
+    {
+     "label": "U",
+     "chord_factor": 0.2613645056,
+     "count": 10
+    },
+    {
+     "label": "V",
+     "chord_factor": 0.2615980975,
+     "count": 15
+    },
+    {
+     "label": "W",
+     "chord_factor": 0.2616993012,
+     "count": 10
+    },
+    {
+     "label": "X",
+     "chord_factor": 0.2661649336,
+     "count": 10
+    },
+    {
+     "label": "Y",
+     "chord_factor": 0.2701838281,
+     "count": 20
+    }
+   ]
+  },
+  {
+   "frequency": 5,
+   "fraction": "9/15",
+   "m": 0.8034029137970465,
+   "height_factor": 1.3265485072415655,
+   "hubs": {
+    "4": 25,
+    "5": 6,
+    "6": 145
+   },
+   "struts": [
+    {
+     "label": "A",
+     "chord_factor": 0.1594096457,
+     "count": 30
+    },
+    {
+     "label": "B",
+     "chord_factor": 0.186801075,
+     "count": 35
+    },
+    {
+     "label": "C",
+     "chord_factor": 0.241125591,
+     "count": 10
+    },
+    {
+     "label": "D",
+     "chord_factor": 0.2437777085,
+     "count": 20
+    },
+    {
+     "label": "E",
+     "chord_factor": 0.2438323256,
+     "count": 10
+    },
+    {
+     "label": "F",
+     "chord_factor": 0.2438457138,
+     "count": 20
+    },
+    {
+     "label": "G",
+     "chord_factor": 0.2439680995,
+     "count": 30
+    },
+    {
+     "label": "H",
+     "chord_factor": 0.2440162693,
+     "count": 20
+    },
+    {
+     "label": "I",
+     "chord_factor": 0.2450462711,
+     "count": 20
+    },
+    {
+     "label": "J",
+     "chord_factor": 0.2450857832,
+     "count": 30
+    },
+    {
+     "label": "K",
+     "chord_factor": 0.2453464206,
+     "count": 10
+    },
+    {
+     "label": "L",
+     "chord_factor": 0.2471168798,
+     "count": 20
+    },
+    {
+     "label": "M",
+     "chord_factor": 0.2472429098,
+     "count": 30
+    },
+    {
+     "label": "N",
+     "chord_factor": 0.2484463149,
+     "count": 20
+    },
+    {
+     "label": "O",
+     "chord_factor": 0.2516906483,
+     "count": 10
+    },
+    {
+     "label": "P",
+     "chord_factor": 0.2523057816,
+     "count": 20
+    },
+    {
+     "label": "Q",
+     "chord_factor": 0.2533941562,
+     "count": 10
+    },
+    {
+     "label": "R",
+     "chord_factor": 0.2550821576,
+     "count": 20
+    },
+    {
+     "label": "S",
+     "chord_factor": 0.2551670123,
+     "count": 30
+    },
+    {
+     "label": "T",
+     "chord_factor": 0.2580916758,
+     "count": 20
+    },
+    {
+     "label": "U",
+     "chord_factor": 0.2613645056,
+     "count": 20
+    },
+    {
+     "label": "V",
+     "chord_factor": 0.2615980975,
+     "count": 15
+    },
+    {
+     "label": "W",
+     "chord_factor": 0.2616993012,
+     "count": 10
+    },
+    {
+     "label": "X",
+     "chord_factor": 0.2661649336,
+     "count": 20
+    },
+    {
+     "label": "Y",
+     "chord_factor": 0.2701838281,
+     "count": 20
+    }
+   ]
+  },
+  {
+   "frequency": 6,
+   "fraction": "7/18",
+   "m": 0.7284893920901039,
+   "height_factor": 0.6415654713599575,
+   "hubs": {
+    "4": 30,
+    "5": 6,
+    "6": 100
+   },
+   "struts": [
+    {
+     "label": "A",
+     "chord_factor": 0.1185548164,
+     "count": 30
+    },
+    {
+     "label": "B",
+     "chord_factor": 0.1391244707,
+     "count": 30
+    },
+    {
+     "label": "C",
+     "chord_factor": 0.1951704195,
+     "count": 10
+    },
+    {
+     "label": "D",
+     "chord_factor": 0.1972674194,
+     "count": 10
+    },
+    {
+     "label": "E",
+     "chord_factor": 0.1980125742,
+     "count": 30
+    },
+    {
+     "label": "F",
+     "chord_factor": 0.2026383562,
+     "count": 10
+    },
+    {
+     "label": "G",
+     "chord_factor": 0.2028196959,
+     "count": 50
+    },
+    {
+     "label": "H",
+     "chord_factor": 0.2031429143,
+     "count": 30
+    },
+    {
+     "label": "I",
+     "chord_factor": 0.2052122705,
+     "count": 10
+    },
+    {
+     "label": "J",
+     "chord_factor": 0.2052663024,
+     "count": 10
+    },
+    {
+     "label": "K",
+     "chord_factor": 0.2059077349,
+     "count": 60
+    },
+    {
+     "label": "L",
+     "chord_factor": 0.21338239,
+     "count": 10
+    },
+    {
+     "label": "M",
+     "chord_factor": 0.2153537301,
+     "count": 30
+    },
+    {
+     "label": "N",
+     "chord_factor": 0.2160689503,
+     "count": 5
+    },
+    {
+     "label": "O",
+     "chord_factor": 0.2166282144,
+     "count": 30
+    },
+    {
+     "label": "P",
+     "chord_factor": 0.2312625778,
+     "count": 20
+    }
+   ]
+  },
+  {
+   "frequency": 6,
+   "fraction": "8/18",
+   "m": 0.7284893920901039,
+   "height_factor": 0.8212505932737649,
+   "hubs": {
+    "4": 30,
+    "5": 6,
+    "6": 130
+   },
+   "struts": [
+    {
+     "label": "A",
+     "chord_factor": 0.1185548164,
+     "count": 30
+    },
+    {
+     "label": "B",
+     "chord_factor": 0.1391244707,
+     "count": 30
+    },
+    {
+     "label": "C",
+     "chord_factor": 0.1951704195,
+     "count": 10
+    },
+    {
+     "label": "D",
+     "chord_factor": 0.1972674194,
+     "count": 10
+    },
+    {
+     "label": "E",
+     "chord_factor": 0.1980125742,
+     "count": 30
+    },
+    {
+     "label": "F",
+     "chord_factor": 0.1980570236,
+     "count": 10
+    },
+    {
+     "label": "G",
+     "chord_factor": 0.1998193308,
+     "count": 10
+    },
+    {
+     "label": "H",
+     "chord_factor": 0.2021540932,
+     "count": 10
+    },
+    {
+     "label": "I",
+     "chord_factor": 0.2026383562,
+     "count": 10
+    },
+    {
+     "label": "J",
+     "chord_factor": 0.2028196959,
+     "count": 50
+    },
+    {
+     "label": "K",
+     "chord_factor": 0.2031429143,
+     "count": 30
+    },
+    {
+     "label": "L",
+     "chord_factor": 0.2052122705,
+     "count": 10
+    },
+    {
+     "label": "M",
+     "chord_factor": 0.2052663024,
+     "count": 10
+    },
+    {
+     "label": "N",
+     "chord_factor": 0.2057357904,
+     "count": 10
+    },
+    {
+     "label": "O",
+     "chord_factor": 0.2059077349,
+     "count": 60
+    },
+    {
+     "label": "P",
+     "chord_factor": 0.2119265197,
+     "count": 10
+    },
+    {
+     "label": "Q",
+     "chord_factor": 0.21338239,
+     "count": 10
+    },
+    {
+     "label": "R",
+     "chord_factor": 0.2153537301,
+     "count": 30
+    },
+    {
+     "label": "S",
+     "chord_factor": 0.2160689503,
+     "count": 5
+    },
+    {
+     "label": "T",
+     "chord_factor": 0.2166282144,
+     "count": 30
+    },
+    {
+     "label": "U",
+     "chord_factor": 0.2168535599,
+     "count": 10
+    },
+    {
+     "label": "V",
+     "chord_factor": 0.2168830687,
+     "count": 10
+    },
+    {
+     "label": "W",
+     "chord_factor": 0.2171706695,
+     "count": 10
+    },
+    {
+     "label": "X",
+     "chord_factor": 0.2227762211,
+     "count": 10
+    },
+    {
+     "label": "Y",
+     "chord_factor": 0.2312625778,
+     "count": 20
+    }
+   ]
+  },
+  {
+   "frequency": 6,
+   "fraction": "9/18",
+   "m": 0.7284893920901039,
+   "height_factor": 1.0,
+   "hubs": {
+    "4": 30,
+    "5": 6,
+    "6": 160
+   },
+   "struts": [
+    {
+     "label": "A",
+     "chord_factor": 0.1185548164,
+     "count": 30
+    },
+    {
+     "label": "B",
+     "chord_factor": 0.1391244707,
+     "count": 30
+    },
+    {
+     "label": "C",
+     "chord_factor": 0.1951704195,
+     "count": 10
+    },
+    {
+     "label": "D",
+     "chord_factor": 0.1972674194,
+     "count": 10
+    },
+    {
+     "label": "E",
+     "chord_factor": 0.1980125742,
+     "count": 30
+    },
+    {
+     "label": "F",
+     "chord_factor": 0.1980570236,
+     "count": 10
+    },
+    {
+     "label": "G",
+     "chord_factor": 0.1998193308,
+     "count": 10
+    },
+    {
+     "label": "H",
+     "chord_factor": 0.201917273,
+     "count": 10
+    },
+    {
+     "label": "I",
+     "chord_factor": 0.202120574,
+     "count": 10
+    },
+    {
+     "label": "J",
+     "chord_factor": 0.2021540932,
+     "count": 10
+    },
+    {
+     "label": "K",
+     "chord_factor": 0.2026383562,
+     "count": 10
+    },
+    {
+     "label": "L",
+     "chord_factor": 0.2028196959,
+     "count": 50
+    },
+    {
+     "label": "M",
+     "chord_factor": 0.2031429143,
+     "count": 30
+    },
+    {
+     "label": "N",
+     "chord_factor": 0.2052122705,
+     "count": 10
+    },
+    {
+     "label": "O",
+     "chord_factor": 0.2052663024,
+     "count": 10
+    },
+    {
+     "label": "P",
+     "chord_factor": 0.2057357904,
+     "count": 10
+    },
+    {
+     "label": "Q",
+     "chord_factor": 0.2059077349,
+     "count": 80
+    },
+    {
+     "label": "R",
+     "chord_factor": 0.2089295785,
+     "count": 20
+    },
+    {
+     "label": "S",
+     "chord_factor": 0.2113153549,
+     "count": 10
+    },
+    {
+     "label": "T",
+     "chord_factor": 0.2115493488,
+     "count": 10
+    },
+    {
+     "label": "U",
+     "chord_factor": 0.2119265197,
+     "count": 10
+    },
+    {
+     "label": "V",
+     "chord_factor": 0.21338239,
+     "count": 10
+    },
+    {
+     "label": "W",
+     "chord_factor": 0.2153537301,
+     "count": 40
+    },
+    {
+     "label": "X",
+     "chord_factor": 0.2160689503,
+     "count": 5
+    },
+    {
+     "label": "Y",
+     "chord_factor": 0.2166282144,
+     "count": 30
+    },
+    {
+     "label": "Z",
+     "chord_factor": 0.2168535599,
+     "count": 10
+    },
+    {
+     "label": "AA",
+     "chord_factor": 0.2168830687,
+     "count": 10
+    },
+    {
+     "label": "AB",
+     "chord_factor": 0.2171706695,
+     "count": 10
+    },
+    {
+     "label": "AC",
+     "chord_factor": 0.2227762211,
+     "count": 10
+    },
+    {
+     "label": "AD",
+     "chord_factor": 0.2312625778,
+     "count": 20
+    }
+   ]
+  },
+  {
+   "frequency": 6,
+   "fraction": "10/18",
+   "m": 0.7284893920901039,
+   "height_factor": 1.1787494067262352,
+   "hubs": {
+    "4": 30,
+    "5": 6,
+    "6": 190
+   },
+   "struts": [
+    {
+     "label": "A",
+     "chord_factor": 0.1185548164,
+     "count": 30
+    },
+    {
+     "label": "B",
+     "chord_factor": 0.1391244707,
+     "count": 30
+    },
+    {
+     "label": "C",
+     "chord_factor": 0.1951704195,
+     "count": 10
+    },
+    {
+     "label": "D",
+     "chord_factor": 0.1972674194,
+     "count": 10
+    },
+    {
+     "label": "E",
+     "chord_factor": 0.1980125742,
+     "count": 30
+    },
+    {
+     "label": "F",
+     "chord_factor": 0.1980570236,
+     "count": 20
+    },
+    {
+     "label": "G",
+     "chord_factor": 0.1998193308,
+     "count": 10
+    },
+    {
+     "label": "H",
+     "chord_factor": 0.201917273,
+     "count": 20
+    },
+    {
+     "label": "I",
+     "chord_factor": 0.202120574,
+     "count": 20
+    },
+    {
+     "label": "J",
+     "chord_factor": 0.2021540932,
+     "count": 20
+    },
+    {
+     "label": "K",
+     "chord_factor": 0.2026383562,
+     "count": 10
+    },
+    {
+     "label": "L",
+     "chord_factor": 0.2028196959,
+     "count": 50
+    },
+    {
+     "label": "M",
+     "chord_factor": 0.2031429143,
+     "count": 30
+    },
+    {
+     "label": "N",
+     "chord_factor": 0.2052122705,
+     "count": 10
+    },
+    {
+     "label": "O",
+     "chord_factor": 0.2052663024,
+     "count": 10
+    },
+    {
+     "label": "P",
+     "chord_factor": 0.2057357904,
+     "count": 10
+    },
+    {
+     "label": "Q",
+     "chord_factor": 0.2059077349,
+     "count": 80
+    },
+    {
+     "label": "R",
+     "chord_factor": 0.2089295785,
+     "count": 40
+    },
+    {
+     "label": "S",
+     "chord_factor": 0.2113153549,
+     "count": 20
+    },
+    {
+     "label": "T",
+     "chord_factor": 0.2115493488,
+     "count": 20
+    },
+    {
+     "label": "U",
+     "chord_factor": 0.2119265197,
+     "count": 10
+    },
+    {
+     "label": "V",
+     "chord_factor": 0.21338239,
+     "count": 10
+    },
+    {
+     "label": "W",
+     "chord_factor": 0.2153537301,
+     "count": 40
+    },
+    {
+     "label": "X",
+     "chord_factor": 0.2160689503,
+     "count": 5
+    },
+    {
+     "label": "Y",
+     "chord_factor": 0.2166282144,
+     "count": 30
+    },
+    {
+     "label": "Z",
+     "chord_factor": 0.2168535599,
+     "count": 20
+    },
+    {
+     "label": "AA",
+     "chord_factor": 0.2168830687,
+     "count": 10
+    },
+    {
+     "label": "AB",
+     "chord_factor": 0.2171706695,
+     "count": 10
+    },
+    {
+     "label": "AC",
+     "chord_factor": 0.2227762211,
+     "count": 10
+    },
+    {
+     "label": "AD",
+     "chord_factor": 0.2312625778,
+     "count": 20
+    }
+   ]
+  },
+  {
+   "frequency": 6,
+   "fraction": "11/18",
+   "m": 0.7284893920901039,
+   "height_factor": 1.3584345286400428,
+   "hubs": {
+    "4": 30,
+    "5": 6,
+    "6": 220
+   },
+   "struts": [
+    {
+     "label": "A",
+     "chord_factor": 0.1185548164,
+     "count": 30
+    },
+    {
+     "label": "B",
+     "chord_factor": 0.1391244707,
+     "count": 35
+    },
+    {
+     "label": "C",
+     "chord_factor": 0.1951704195,
+     "count": 10
+    },
+    {
+     "label": "D",
+     "chord_factor": 0.1972674194,
+     "count": 10
+    },
+    {
+     "label": "E",
+     "chord_factor": 0.1980125742,
+     "count": 30
+    },
+    {
+     "label": "F",
+     "chord_factor": 0.1980570236,
+     "count": 20
+    },
+    {
+     "label": "G",
+     "chord_factor": 0.1998193308,
+     "count": 20
+    },
+    {
+     "label": "H",
+     "chord_factor": 0.201917273,
+     "count": 20
+    },
+    {
+     "label": "I",
+     "chord_factor": 0.202120574,
+     "count": 20
+    },
+    {
+     "label": "J",
+     "chord_factor": 0.2021540932,
+     "count": 20
+    },
+    {
+     "label": "K",
+     "chord_factor": 0.2026383562,
+     "count": 20
+    },
+    {
+     "label": "L",
+     "chord_factor": 0.2028196959,
+     "count": 50
+    },
+    {
+     "label": "M",
+     "chord_factor": 0.2031429143,
+     "count": 30
+    },
+    {
+     "label": "N",
+     "chord_factor": 0.2052122705,
+     "count": 20
+    },
+    {
+     "label": "O",
+     "chord_factor": 0.2052663024,
+     "count": 10
+    },
+    {
+     "label": "P",
+     "chord_factor": 0.2057357904,
+     "count": 20
+    },
+    {
+     "label": "Q",
+     "chord_factor": 0.2059077349,
+     "count": 80
+    },
+    {
+     "label": "R",
+     "chord_factor": 0.2089295785,
+     "count": 40
+    },
+    {
+     "label": "S",
+     "chord_factor": 0.2113153549,
+     "count": 20
+    },
+    {
+     "label": "T",
+     "chord_factor": 0.2115493488,
+     "count": 20
+    },
+    {
+     "label": "U",
+     "chord_factor": 0.2119265197,
+     "count": 20
+    },
+    {
+     "label": "V",
+     "chord_factor": 0.21338239,
+     "count": 10
+    },
+    {
+     "label": "W",
+     "chord_factor": 0.2153537301,
+     "count": 40
+    },
+    {
+     "label": "X",
+     "chord_factor": 0.2160689503,
+     "count": 10
+    },
+    {
+     "label": "Y",
+     "chord_factor": 0.2166282144,
+     "count": 30
+    },
+    {
+     "label": "Z",
+     "chord_factor": 0.2168535599,
+     "count": 20
+    },
+    {
+     "label": "AA",
+     "chord_factor": 0.2168830687,
+     "count": 20
+    },
+    {
+     "label": "AB",
+     "chord_factor": 0.2171706695,
+     "count": 20
+    },
+    {
+     "label": "AC",
+     "chord_factor": 0.2227762211,
+     "count": 20
+    },
+    {
+     "label": "AD",
+     "chord_factor": 0.2312625778,
+     "count": 20
+    }
+   ]
+  }
+ ]
+}

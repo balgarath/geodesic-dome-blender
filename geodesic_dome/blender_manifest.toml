@@ -1,0 +1,11 @@
+schema_version = "1.0.0"
+id = "geodesic_dome_builder"
+version = "0.1.0"
+name = "Geodesic Dome Builder"
+tagline = "Geodesic dome frames with Class I and Kruschke chord factors"
+maintainer = "Ralph Ledge <rledge21@gmail.com>"
+type = "add-on"
+website = "https://geovisualcreations.com"
+tags = ["Add Mesh"]
+blender_version_min = "4.2.0"
+license = ["SPDX:GPL-3.0-or-later"]

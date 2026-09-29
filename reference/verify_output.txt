@@ -1,0 +1,421 @@
+========================================================================
+CLASS I METHOD 1 vs domerama
+========================================================================
+-- 1V 2/3: 25 struts, 1 types, min type gap inf
+  [PASS] 1V 2/3 A: CF 1.05146222 ~ 1.05146000 (diff 2.2e-06), count 25 vs ref 25
+  [PASS] 1V 2/3 hubs: got {4: 5, 5: 6} vs ref {4: 5, 5: 6}
+-- 2V 1/2: 65 struts, 2 types, min type gap 7.15e-02
+  [PASS] 2V 1/2 A: CF 0.61803399 ~ 0.61803000 (diff 4.0e-06), count 35 vs ref 35
+  [PASS] 2V 1/2 B: CF 0.54653306 ~ 0.54653000 (diff 3.1e-06), count 30 vs ref 30
+  [PASS] 2V 1/2 hubs: got {4: 10, 5: 6, 6: 10} vs ref {4: 10, 5: 6, 6: 10}
+-- 3V 3/8: 120 struts, 3 types, min type gap 8.86e-03
+  [PASS] 3V 3/8 A: CF 0.34861549 ~ 0.34862000 (diff -4.5e-06), count 30 vs ref 30
+  [PASS] 3V 3/8 B: CF 0.40354821 ~ 0.40355000 (diff -1.8e-06), count 40 vs ref 40
+  [PASS] 3V 3/8 C: CF 0.41241149 ~ 0.41241000 (diff 1.5e-06), count 50 vs ref 50
+  [PASS] 3V 3/8 hubs: got {4: 15, 5: 6, 6: 25} vs ref {4: 15, 5: 6, 6: 25}
+-- 3V 5/8: 165 struts, 3 types, min type gap 8.86e-03
+  [PASS] 3V 5/8 A: CF 0.34861549 ~ 0.34862000 (diff -4.5e-06), count 30 vs ref 30
+  [PASS] 3V 5/8 B: CF 0.40354821 ~ 0.40355000 (diff -1.8e-06), count 55 vs ref 55
+  [PASS] 3V 5/8 C: CF 0.41241149 ~ 0.41241000 (diff 1.5e-06), count 80 vs ref 80
+  [PASS] 3V 5/8 hubs: got {4: 15, 5: 6, 6: 40} vs ref {4: 15, 5: 6, 6: 40}
+-- 4V 1/2: 250 struts, 6 types, min type gap 7.11e-04
+  [PASS] 4V 1/2 A: CF 0.25318460 ~ 0.25318000 (diff 4.6e-06)
+  [PASS] 4V 1/2 B: CF 0.29524181 ~ 0.29524000 (diff 1.8e-06)
+  [PASS] 4V 1/2 C: CF 0.29453083 ~ 0.29453000 (diff 8.3e-07)
+  [PASS] 4V 1/2 D: CF 0.31286893 ~ 0.31287000 (diff -1.1e-06)
+  [PASS] 4V 1/2 E: CF 0.32491970 ~ 0.32492000 (diff -3.0e-07)
+  [PASS] 4V 1/2 F: CF 0.29858813 ~ 0.29859000 (diff -1.9e-06)
+-- 4V 1/2: 250 struts, 6 types, min type gap 7.11e-04
+  [PASS] 4V 1/2 hubs: got {4: 20, 5: 6, 6: 65} vs ref {4: 20, 5: 6, 6: 65}
+-- 5V 7/15: 350 struts, 9 types, min type gap 1.93e-04
+  [PASS] 5V 7/15 A: CF 0.19814743 ~ 0.19814743 (diff 8.0e-10), count 30 vs ref 30
+  [PASS] 5V 7/15 B: CF 0.23179025 ~ 0.23179025 (diff 1.3e-09), count 30 vs ref 30
+  [PASS] 5V 7/15 C: CF 0.22568579 ~ 0.22568578 (diff 6.6e-09), count 60 vs ref 60
+  [PASS] 5V 7/15 D: CF 0.24724291 ~ 0.24724291 (diff -1.5e-10), count 60 vs ref 60
+  [PASS] 5V 7/15 E: CF 0.25516701 ~ 0.25516701 (diff 2.3e-09), count 50 vs ref 50
+  [PASS] 5V 7/15 F: CF 0.24508578 ~ 0.24508578 (diff 3.2e-09), count 50 vs ref 50
+  [PASS] 5V 7/15 G: CF 0.26159810 ~ 0.26159810 (diff -2.5e-09), count 30 vs ref 30
+  [PASS] 5V 7/15 H: CF 0.23159760 ~ 0.23159760 (diff -4.4e-09), count 30 vs ref 30
+  [PASS] 5V 7/15 I: CF 0.24534642 ~ 0.24534642 (diff 5.7e-10), count 10 vs ref 10
+  [PASS] 5V 7/15 hubs: got {4: 25, 5: 6, 6: 95} vs ref {4: 25, 5: 6, 6: 95}
+-- 5V 8/15: 425 struts, 9 types, min type gap 1.93e-04
+  [PASS] 5V 8/15 A: CF 0.19814743 ~ 0.19814743 (diff 8.0e-10), count 30 vs ref 30
+  [PASS] 5V 8/15 B: CF 0.23179025 ~ 0.23179025 (diff 1.3e-09), count 30 vs ref 30
+  [PASS] 5V 8/15 C: CF 0.22568579 ~ 0.22568578 (diff 6.6e-09), count 60 vs ref 60
+  [PASS] 5V 8/15 D: CF 0.24724291 ~ 0.24724291 (diff -1.5e-10), count 70 vs ref 70
+  [PASS] 5V 8/15 E: CF 0.25516701 ~ 0.25516701 (diff 2.3e-09), count 70 vs ref 70
+  [PASS] 5V 8/15 F: CF 0.24508578 ~ 0.24508578 (diff 3.2e-09), count 80 vs ref 80
+  [PASS] 5V 8/15 G: CF 0.26159810 ~ 0.26159810 (diff -2.5e-09), count 35 vs ref 35
+  [PASS] 5V 8/15 H: CF 0.23159760 ~ 0.23159760 (diff -4.4e-09), count 30 vs ref 30
+  [PASS] 5V 8/15 I: CF 0.24534642 ~ 0.24534642 (diff 5.7e-10), count 20 vs ref 20
+  [PASS] 5V 8/15 hubs: got {4: 25, 5: 6, 6: 120} vs ref {4: 25, 5: 6, 6: 120}
+-- 6V 1/2: 555 struts, 9 types, min type gap 1.27e-03
+  [PASS] 6V 1/2 A: CF 0.16256723 ~ 0.16256722 (diff 8.9e-09), count 30 vs ref 30
+  [PASS] 6V 1/2 B: CF 0.19047686 ~ 0.19047686 (diff 1.2e-09), count 30 vs ref 30
+  [PASS] 6V 1/2 C: CF 0.18190825 ~ 0.18190825 (diff 4.6e-09), count 60 vs ref 60
+  [PASS] 6V 1/2 D: CF 0.20281970 ~ 0.20281969 (diff 5.9e-09), count 90 vs ref 90
+  [PASS] 6V 1/2 E: CF 0.18738340 ~ 0.18738340 (diff 5.7e-10), count 30 vs ref 30
+  [PASS] 6V 1/2 F: CF 0.19801257 ~ 0.19801258 (diff -5.8e-09), count 60 vs ref 60
+  [PASS] 6V 1/2 G: CF 0.20590773 ~ 0.20590774 (diff -5.1e-09), count 130 vs ref 130
+  [PASS] 6V 1/2 H: CF 0.21535373 ~ 0.21535373 (diff 1.1e-10), count 65 vs ref 65
+  [PASS] 6V 1/2 I: CF 0.21662821 ~ 0.21662821 (diff 4.4e-09), count 60 vs ref 60
+  [PASS] 6V 1/2 hubs: got {4: 30, 5: 6, 6: 160} vs ref {4: 30, 5: 6, 6: 160}
+-- 7V 10/21: 700 struts, 16 types, min type gap 4.56e-05
+  [PASS] 7V 10/21 A: CF 0.13774181 ~ 0.13774000 (diff 1.8e-06), count 30 vs ref 30
+  [PASS] 7V 10/21 B: CF 0.15197418 ~ 0.15197000 (diff 4.2e-06), count 60 vs ref 60
+  [PASS] 7V 10/21 C: CF 0.15663699 ~ 0.15664000 (diff -3.0e-06), count 30 vs ref 30
+  [PASS] 7V 10/21 D: CF 0.16154074 ~ 0.16154000 (diff 7.4e-07), count 30 vs ref 30
+  [PASS] 7V 10/21 E: CF 0.16479996 ~ 0.16480000 (diff -4.0e-08), count 60 vs ref 60
+  [PASS] 7V 10/21 F: CF 0.17065586 ~ 0.17066000 (diff -4.1e-06), count 30 vs ref 30
+  [PASS] 7V 10/21 G: CF 0.17098265 ~ 0.17098000 (diff 2.7e-06), count 60 vs ref 60
+  [PASS] 7V 10/21 H: CF 0.17132466 ~ 0.17132000 (diff 4.7e-06), count 60 vs ref 60
+  [PASS] 7V 10/21 I: CF 0.17352573 ~ 0.17353000 (diff -4.3e-06), count 50 vs ref 50
+  [PASS] 7V 10/21 J: CF 0.17585131 ~ 0.17585000 (diff 1.3e-06), count 70 vs ref 70 (site merged types 0.17585131 + 0.17589689)
+  [PASS] 7V 10/21 K: CF 0.18155167 ~ 0.18155000 (diff 1.7e-06), count 50 vs ref 50
+  [PASS] 7V 10/21 L: CF 0.18160543 ~ 0.18161000 (diff -4.6e-06), count 30 vs ref 30
+  [PASS] 7V 10/21 M: CF 0.18236513 ~ 0.18237000 (diff -4.9e-06), count 50 vs ref 50
+  [PASS] 7V 10/21 N: CF 0.18547562 ~ 0.18548000 (diff -4.4e-06), count 60 vs ref 60
+  [PASS] 7V 10/21 O: CF 0.18790847 ~ 0.18790000 (diff 8.5e-06), count 30 vs ref 30
+-- 8V None: 980 struts, 20 types, min type gap 2.49e-05
+  [PASS] 8V None A: CF 0.11945859 ~ 0.11946000 (diff -1.4e-06), count 30 vs ref 30
+  [PASS] 8V None B: CF 0.13033370 ~ 0.13033000 (diff 3.7e-06), count 60 vs ref 60
+  [PASS] 8V None C: CF 0.13423504 ~ 0.13424000 (diff -5.0e-06), count 30 vs ref 30
+  [PASS] 8V None D: CF 0.14018127 ~ 0.14018000 (diff 1.3e-06), count 30 vs ref 30
+  [PASS] 8V None E: CF 0.14056203 ~ 0.14056000 (diff 2.0e-06), count 60 vs ref 60
+  [PASS] 8V None F: CF 0.14547680 ~ 0.14548000 (diff -3.2e-06), count 60 vs ref 60
+  [PASS] 8V None G: CF 0.14628157 ~ 0.14628000 (diff 1.6e-06), count 30 vs ref 30
+  [PASS] 8V None H: CF 0.14802691 ~ 0.14803000 (diff -3.1e-06), count 60 vs ref 60
+  [PASS] 8V None I: CF 0.14862439 ~ 0.14862000 (diff 4.4e-06), count 60 vs ref 60
+  [PASS] 8V None J: CF 0.15267457 ~ 0.15267000 (diff 4.6e-06), count 60 vs ref 60
+  [PASS] 8V None K: CF 0.15295698 ~ 0.15296000 (diff -3.0e-06), count 70 vs ref 70
+  [PASS] 8V None L: CF 0.15314624 ~ 0.15315000 (diff -3.8e-06), count 30 vs ref 30
+  [PASS] 8V None M: CF 0.15477304 ~ 0.15477000 (diff 3.0e-06), count 60 vs ref 60
+  [PASS] 8V None N: CF 0.15636158 ~ 0.15636000 (diff 1.6e-06), count 90 vs ref 90 (site merged types 0.15636158 + 0.15638647)
+  [PASS] 8V None O: CF 0.16032914 ~ 0.16033000 (diff -8.6e-07), count 60 vs ref 60
+  [PASS] 8V None P: CF 0.16035746 ~ 0.16036000 (diff -2.5e-06), count 30 vs ref 30
+  [PASS] 8V None Q: CF 0.16087878 ~ 0.16088000 (diff -1.2e-06), count 70 vs ref 70
+  [PASS] 8V None R: CF 0.16300211 ~ 0.16300000 (diff 2.1e-06), count 60 vs ref 60
+  [PASS] 8V None S: CF 0.16464716 ~ 0.16465000 (diff -2.8e-06), count 30 vs ref 30
+-- derived authoritative 4V 1/2 table (resolves domerama inconsistency):
+     A: CF 0.25318460  count  30  bend 7.27 deg
+     B: CF 0.29453083  count  60  bend 8.47 deg
+     C: CF 0.29524181  count  30  bend 8.49 deg
+     D: CF 0.29858813  count  30  bend 8.59 deg
+     E: CF 0.31286893  count  70  bend 9.00 deg
+     F: CF 0.32491970  count  30  bend 9.35 deg
+
+========================================================================
+KRUSCHKE (classic construction, m solved from leveling) vs domerama
+========================================================================
+-- 3V: solved m = 0.9442890009767209
+  [PASS] 3V m matches acidome magic 0.9442890204731844 (diff -1.95e-08)
+-- 3V 4/9 Kruschke: 120 struts, 4 types, min type gap 1.96e-02
+  [PASS] 3V 4/9 Kruschke A: CF 0.32970646 ~ 0.32970600 (diff 4.6e-07), count 30 vs ref 30
+  [PASS] 3V 4/9 Kruschke B: CF 0.38229019 ~ 0.38229000 (diff 1.9e-07), count 30 vs ref 30
+  [PASS] 3V 4/9 Kruschke C: CF 0.42148879 ~ 0.42148900 (diff -2.1e-07), count 50 vs ref 50
+  [PASS] 3V 4/9 Kruschke D: CF 0.44105636 ~ 0.44105600 (diff 3.6e-07), count 10 vs ref 10
+  [PASS] 3V 4/9 Kruschke base ring level (spread 1.11e-16)
+  [PASS] 3V 4/9 Kruschke height factor 0.812408 vs ref 0.81241
+  [PASS] 3V 4/9 Kruschke hubs: got {4: 15, 5: 6, 6: 25} vs ref {4: 15, 5: 6, 6: 25}
+-- 3V 5/9 Kruschke: 165 struts, 4 types, min type gap 1.96e-02
+  [PASS] 3V 5/9 Kruschke A: CF 0.32970646 ~ 0.32970600 (diff 4.6e-07), count 30 vs ref 30
+  [PASS] 3V 5/9 Kruschke B: CF 0.38229019 ~ 0.38229000 (diff 1.9e-07), count 35 vs ref 35
+  [PASS] 3V 5/9 Kruschke C: CF 0.42148879 ~ 0.42148900 (diff -2.1e-07), count 80 vs ref 80
+  [PASS] 3V 5/9 Kruschke D: CF 0.44105636 ~ 0.44105600 (diff 3.6e-07), count 20 vs ref 20
+  [PASS] 3V 5/9 Kruschke base ring level (spread 1.11e-16)
+  [PASS] 3V 5/9 Kruschke height factor 1.187592 vs ref 1.187592
+-- 4V: solved m = 0.8761509568376010
+-- 4V 5/12 Kruschke: 190 struts, 6 types, min type gap 3.81e-03
+  [PASS] 4V 5/12 Kruschke A: CF 0.22218795 ~ 0.22219000 (diff -2.1e-06), count 30 vs ref 30
+  [PASS] 4V 5/12 Kruschke B: CF 0.25958076 ~ 0.25958000 (diff 7.6e-07), count 30 vs ref 30
+  [PASS] 4V 5/12 Kruschke C: CF 0.30906270 ~ 0.30906000 (diff 2.7e-06), count 50 vs ref 50
+  [PASS] 4V 5/12 Kruschke D: CF 0.31286893 ~ 0.31287000 (diff -1.1e-06), count 40 vs ref 40
+  [PASS] 4V 5/12 Kruschke E: CF 0.32491970 ~ 0.32492000 (diff -3.0e-07), count 20 vs ref 20
+  [PASS] 4V 5/12 Kruschke F: CF 0.32941885 ~ 0.32942000 (diff -1.1e-06), count 20 vs ref 20
+  [PASS] 4V 5/12 Kruschke base ring level (spread 5.55e-17)
+  [PASS] 4V 5/12 Kruschke height factor 0.723607 vs ref 0.72361
+  [PASS] 4V 5/12 Kruschke hubs: got {4: 20, 5: 6, 6: 45} (site claims 85x6-way: known site bug, correct is 45)
+-- 4V 7/12 Kruschke: 310 struts, 6 types, min type gap 3.81e-03
+  [PASS] 4V 7/12 Kruschke A: CF 0.22218795 ~ 0.22219000 (diff -2.1e-06), count 30 vs ref 30
+  [PASS] 4V 7/12 Kruschke B: CF 0.25958076 ~ 0.25958000 (diff 7.6e-07), count 35 vs ref 35
+  [PASS] 4V 7/12 Kruschke C: CF 0.30906270 ~ 0.30906000 (diff 2.7e-06), count 80 vs ref 80
+  [PASS] 4V 7/12 Kruschke D: CF 0.31286893 ~ 0.31287000 (diff -1.1e-06), count 80 vs ref 80
+  [PASS] 4V 7/12 Kruschke E: CF 0.32491970 ~ 0.32492000 (diff -3.0e-07), count 45 vs ref 45
+  [PASS] 4V 7/12 Kruschke F: CF 0.32941885 ~ 0.32942000 (diff -1.1e-06), count 40 vs ref 40
+  [PASS] 4V 7/12 Kruschke base ring level (spread 5.55e-17)
+  [PASS] 4V 7/12 Kruschke height factor 1.276393 vs ref 1.27639
+  [PASS] 4V 7/12 Kruschke hubs: got {4: 20, 5: 6, 6: 85} vs ref {4: 20, 5: 6, 6: 85}
+-- Domerama-published vs exact-construction chord factors:
+   3V 4/9:
+     A: site 0.329706  exact 0.32970646  diff +4.6e-07  count 30
+     B: site 0.382290  exact 0.38229019  diff +1.9e-07  count 30
+     C: site 0.421489  exact 0.42148879  diff -2.1e-07  count 50
+     D: site 0.441056  exact 0.44105636  diff +3.6e-07  count 10
+   3V 5/9:
+     A: site 0.329706  exact 0.32970646  diff +4.6e-07  count 30
+     B: site 0.382290  exact 0.38229019  diff +1.9e-07  count 35
+     C: site 0.421489  exact 0.42148879  diff -2.1e-07  count 80
+     D: site 0.441056  exact 0.44105636  diff +3.6e-07  count 20
+   4V 5/12:
+     A: site 0.222190  exact 0.22218795  diff -2.1e-06  count 30
+     B: site 0.259580  exact 0.25958076  diff +7.6e-07  count 30
+     C: site 0.309060  exact 0.30906270  diff +2.7e-06  count 50
+     D: site 0.312870  exact 0.31286893  diff -1.1e-06  count 40
+     E: site 0.324920  exact 0.32491970  diff -3.0e-07  count 20
+     F: site 0.329420  exact 0.32941885  diff -1.1e-06  count 20
+   4V 7/12:
+     A: site 0.222190  exact 0.22218795  diff -2.1e-06  count 30
+     B: site 0.259580  exact 0.25958076  diff +7.6e-07  count 35
+     C: site 0.309060  exact 0.30906270  diff +2.7e-06  count 80
+     D: site 0.312870  exact 0.31286893  diff -1.1e-06  count 80
+     E: site 0.324920  exact 0.32491970  diff -3.0e-07  count 45
+     F: site 0.329420  exact 0.32941885  diff -1.1e-06  count 40
+
+========================================================================
+EXTENDED KRUSCHKE 5V/6V (our generalization; no external reference)
+========================================================================
+-- 5V extended: m = 0.803402913797
+  [PASS] 5V extended: all vertices on unit sphere (max dev 2.2e-16)
+  [PASS] 5V extended: all 60 hub spokes equal (0.15940965)
+  [PASS] 5V extended: row 6 level at z=0.326549 (spread 5.6e-17)
+  [PASS] 5V extended: row 7 level at z=0.107775 (spread 3.3e-16)
+  [PASS] 5V extended: row 8 level at z=-0.107775 (spread 1.7e-16)
+  [PASS] 5V extended: row 9 level at z=-0.326549 (spread 5.6e-17)
+   5V 6/15: 275 struts, 14 types (min gap 5.46e-05), height 0.673451, hubs {4: 25, 5: 6, 6: 70}
+      A: CF 0.15940965  count  30  bend 4.57 deg
+      B: CF 0.18680107  count  30  bend 5.36 deg
+      C: CF 0.24112559  count  10  bend 6.92 deg
+      D: CF 0.24377771  count  10  bend 7.00 deg
+      E: CF 0.24383233  count  10  bend 7.00 deg
+      F: CF 0.24396810  count  30  bend 7.01 deg
+      G: CF 0.24508578  count  30  bend 7.04 deg
+      H: CF 0.24534642  count  10  bend 7.05 deg
+      I: CF 0.24724291  count  30  bend 7.10 deg
+      J: CF 0.25169065  count  10  bend 7.23 deg
+      K: CF 0.25508216  count  10  bend 7.33 deg
+      L: CF 0.25516701  count  30  bend 7.33 deg
+      M: CF 0.26159810  count  15  bend 7.52 deg
+      N: CF 0.27018383  count  20  bend 7.76 deg
+   5V 7/15: 350 struts, 22 types (min gap 1.34e-05), height 0.892225, hubs {4: 25, 5: 6, 6: 95}
+      A: CF 0.15940965  count  30  bend 4.57 deg
+      B: CF 0.18680107  count  30  bend 5.36 deg
+      C: CF 0.24112559  count  10  bend 6.92 deg
+      D: CF 0.24377771  count  10  bend 7.00 deg
+      E: CF 0.24383233  count  10  bend 7.00 deg
+      F: CF 0.24384571  count  10  bend 7.00 deg
+      G: CF 0.24396810  count  30  bend 7.01 deg
+      H: CF 0.24504627  count  10  bend 7.04 deg
+      I: CF 0.24508578  count  30  bend 7.04 deg
+      J: CF 0.24534642  count  10  bend 7.05 deg
+      K: CF 0.24711688  count  10  bend 7.10 deg
+      L: CF 0.24724291  count  30  bend 7.10 deg
+      M: CF 0.24844631  count  10  bend 7.14 deg
+      N: CF 0.25169065  count  10  bend 7.23 deg
+      O: CF 0.25508216  count  10  bend 7.33 deg
+      P: CF 0.25516701  count  30  bend 7.33 deg
+      Q: CF 0.25809168  count  10  bend 7.41 deg
+      R: CF 0.26136451  count  10  bend 7.51 deg
+      S: CF 0.26159810  count  15  bend 7.52 deg
+      T: CF 0.26169930  count   5  bend 7.52 deg
+      U: CF 0.26616493  count  10  bend 7.65 deg
+      V: CF 0.27018383  count  20  bend 7.76 deg
+   5V 8/15: 425 struts, 25 types (min gap 1.34e-05), height 1.107775, hubs {4: 25, 5: 6, 6: 120}
+      A: CF 0.15940965  count  30  bend 4.57 deg
+      B: CF 0.18680107  count  30  bend 5.36 deg
+      C: CF 0.24112559  count  10  bend 6.92 deg
+      D: CF 0.24377771  count  10  bend 7.00 deg
+      E: CF 0.24383233  count  10  bend 7.00 deg
+      F: CF 0.24384571  count  10  bend 7.00 deg
+      G: CF 0.24396810  count  30  bend 7.01 deg
+      H: CF 0.24401627  count  20  bend 7.01 deg
+      I: CF 0.24504627  count  20  bend 7.04 deg
+      J: CF 0.24508578  count  30  bend 7.04 deg
+      K: CF 0.24534642  count  10  bend 7.05 deg
+      L: CF 0.24711688  count  20  bend 7.10 deg
+      M: CF 0.24724291  count  30  bend 7.10 deg
+      N: CF 0.24844631  count  10  bend 7.14 deg
+      O: CF 0.25169065  count  10  bend 7.23 deg
+      P: CF 0.25230578  count  20  bend 7.25 deg
+      Q: CF 0.25339416  count  10  bend 7.28 deg
+      R: CF 0.25508216  count  10  bend 7.33 deg
+      S: CF 0.25516701  count  30  bend 7.33 deg
+      T: CF 0.25809168  count  10  bend 7.41 deg
+      U: CF 0.26136451  count  10  bend 7.51 deg
+      V: CF 0.26159810  count  15  bend 7.52 deg
+      W: CF 0.26169930  count  10  bend 7.52 deg
+      X: CF 0.26616493  count  10  bend 7.65 deg
+      Y: CF 0.27018383  count  20  bend 7.76 deg
+   5V 9/15: 500 struts, 25 types (min gap 1.34e-05), height 1.326549, hubs {4: 25, 5: 6, 6: 145}
+      A: CF 0.15940965  count  30  bend 4.57 deg
+      B: CF 0.18680107  count  35  bend 5.36 deg
+      C: CF 0.24112559  count  10  bend 6.92 deg
+      D: CF 0.24377771  count  20  bend 7.00 deg
+      E: CF 0.24383233  count  10  bend 7.00 deg
+      F: CF 0.24384571  count  20  bend 7.00 deg
+      G: CF 0.24396810  count  30  bend 7.01 deg
+      H: CF 0.24401627  count  20  bend 7.01 deg
+      I: CF 0.24504627  count  20  bend 7.04 deg
+      J: CF 0.24508578  count  30  bend 7.04 deg
+      K: CF 0.24534642  count  10  bend 7.05 deg
+      L: CF 0.24711688  count  20  bend 7.10 deg
+      M: CF 0.24724291  count  30  bend 7.10 deg
+      N: CF 0.24844631  count  20  bend 7.14 deg
+      O: CF 0.25169065  count  10  bend 7.23 deg
+      P: CF 0.25230578  count  20  bend 7.25 deg
+      Q: CF 0.25339416  count  10  bend 7.28 deg
+      R: CF 0.25508216  count  20  bend 7.33 deg
+      S: CF 0.25516701  count  30  bend 7.33 deg
+      T: CF 0.25809168  count  20  bend 7.41 deg
+      U: CF 0.26136451  count  20  bend 7.51 deg
+      V: CF 0.26159810  count  15  bend 7.52 deg
+      W: CF 0.26169930  count  10  bend 7.52 deg
+      X: CF 0.26616493  count  20  bend 7.65 deg
+      Y: CF 0.27018383  count  20  bend 7.76 deg
+-- 6V extended: m = 0.728489392090
+  [PASS] 6V extended: all vertices on unit sphere (max dev 2.2e-16)
+  [PASS] 6V extended: all 60 hub spokes equal (0.11855482)
+  [PASS] 6V extended: row 7 level at z=0.358435 (spread 1.1e-16)
+  [PASS] 6V extended: row 8 level at z=0.178749 (spread 1.1e-16)
+  [PASS] 6V extended: row 9 level at z=0.000000 (spread 2.3e-17)
+  [PASS] 6V extended: row 10 level at z=-0.178749 (spread 1.4e-16)
+  [PASS] 6V extended: row 11 level at z=-0.358435 (spread 1.1e-16)
+   6V 7/18: 375 struts, 16 types (min gap 5.40e-05), height 0.641565, hubs {4: 30, 5: 6, 6: 100}
+      A: CF 0.11855482  count  30  bend 3.40 deg
+      B: CF 0.13912447  count  30  bend 3.99 deg
+      C: CF 0.19517042  count  10  bend 5.60 deg
+      D: CF 0.19726742  count  10  bend 5.66 deg
+      E: CF 0.19801257  count  30  bend 5.68 deg
+      F: CF 0.20263836  count  10  bend 5.82 deg
+      G: CF 0.20281970  count  50  bend 5.82 deg
+      H: CF 0.20314291  count  30  bend 5.83 deg
+      I: CF 0.20521227  count  10  bend 5.89 deg
+      J: CF 0.20526630  count  10  bend 5.89 deg
+      K: CF 0.20590773  count  60  bend 5.91 deg
+      L: CF 0.21338239  count  10  bend 6.12 deg
+      M: CF 0.21535373  count  30  bend 6.18 deg
+      N: CF 0.21606895  count   5  bend 6.20 deg
+      O: CF 0.21662821  count  30  bend 6.22 deg
+      P: CF 0.23126258  count  20  bend 6.64 deg
+   6V 8/18: 465 struts, 25 types (min gap 2.95e-05), height 0.821251, hubs {4: 30, 5: 6, 6: 130}
+      A: CF 0.11855482  count  30  bend 3.40 deg
+      B: CF 0.13912447  count  30  bend 3.99 deg
+      C: CF 0.19517042  count  10  bend 5.60 deg
+      D: CF 0.19726742  count  10  bend 5.66 deg
+      E: CF 0.19801257  count  30  bend 5.68 deg
+      F: CF 0.19805702  count  10  bend 5.68 deg
+      G: CF 0.19981933  count  10  bend 5.73 deg
+      H: CF 0.20215409  count  10  bend 5.80 deg
+      I: CF 0.20263836  count  10  bend 5.82 deg
+      J: CF 0.20281970  count  50  bend 5.82 deg
+      K: CF 0.20314291  count  30  bend 5.83 deg
+      L: CF 0.20521227  count  10  bend 5.89 deg
+      M: CF 0.20526630  count  10  bend 5.89 deg
+      N: CF 0.20573579  count  10  bend 5.90 deg
+      O: CF 0.20590773  count  60  bend 5.91 deg
+      P: CF 0.21192652  count  10  bend 6.08 deg
+      Q: CF 0.21338239  count  10  bend 6.12 deg
+      R: CF 0.21535373  count  30  bend 6.18 deg
+      S: CF 0.21606895  count   5  bend 6.20 deg
+      T: CF 0.21662821  count  30  bend 6.22 deg
+      U: CF 0.21685356  count  10  bend 6.22 deg
+      V: CF 0.21688307  count  10  bend 6.23 deg
+      W: CF 0.21717067  count  10  bend 6.23 deg
+      X: CF 0.22277622  count  10  bend 6.40 deg
+      Y: CF 0.23126258  count  20  bend 6.64 deg
+   6V 9/18: 555 struts, 30 types (min gap 2.95e-05), height 1.000000, hubs {4: 30, 5: 6, 6: 160}
+      A: CF 0.11855482  count  30  bend 3.40 deg
+      B: CF 0.13912447  count  30  bend 3.99 deg
+      C: CF 0.19517042  count  10  bend 5.60 deg
+      D: CF 0.19726742  count  10  bend 5.66 deg
+      E: CF 0.19801257  count  30  bend 5.68 deg
+      F: CF 0.19805702  count  10  bend 5.68 deg
+      G: CF 0.19981933  count  10  bend 5.73 deg
+      H: CF 0.20191727  count  10  bend 5.79 deg
+      I: CF 0.20212057  count  10  bend 5.80 deg
+      J: CF 0.20215409  count  10  bend 5.80 deg
+      K: CF 0.20263836  count  10  bend 5.82 deg
+      L: CF 0.20281970  count  50  bend 5.82 deg
+      M: CF 0.20314291  count  30  bend 5.83 deg
+      N: CF 0.20521227  count  10  bend 5.89 deg
+      O: CF 0.20526630  count  10  bend 5.89 deg
+      P: CF 0.20573579  count  10  bend 5.90 deg
+      Q: CF 0.20590773  count  80  bend 5.91 deg
+      R: CF 0.20892958  count  20  bend 6.00 deg
+      S: CF 0.21131535  count  10  bend 6.07 deg
+      T: CF 0.21154935  count  10  bend 6.07 deg
+      U: CF 0.21192652  count  10  bend 6.08 deg
+      V: CF 0.21338239  count  10  bend 6.12 deg
+      W: CF 0.21535373  count  40  bend 6.18 deg
+      X: CF 0.21606895  count   5  bend 6.20 deg
+      Y: CF 0.21662821  count  30  bend 6.22 deg
+      Z: CF 0.21685356  count  10  bend 6.22 deg
+      AA: CF 0.21688307  count  10  bend 6.23 deg
+      AB: CF 0.21717067  count  10  bend 6.23 deg
+      AC: CF 0.22277622  count  10  bend 6.40 deg
+      AD: CF 0.23126258  count  20  bend 6.64 deg
+   6V 10/18: 645 struts, 30 types (min gap 2.95e-05), height 1.178749, hubs {4: 30, 5: 6, 6: 190}
+      A: CF 0.11855482  count  30  bend 3.40 deg
+      B: CF 0.13912447  count  30  bend 3.99 deg
+      C: CF 0.19517042  count  10  bend 5.60 deg
+      D: CF 0.19726742  count  10  bend 5.66 deg
+      E: CF 0.19801257  count  30  bend 5.68 deg
+      F: CF 0.19805702  count  20  bend 5.68 deg
+      G: CF 0.19981933  count  10  bend 5.73 deg
+      H: CF 0.20191727  count  20  bend 5.79 deg
+      I: CF 0.20212057  count  20  bend 5.80 deg
+      J: CF 0.20215409  count  20  bend 5.80 deg
+      K: CF 0.20263836  count  10  bend 5.82 deg
+      L: CF 0.20281970  count  50  bend 5.82 deg
+      M: CF 0.20314291  count  30  bend 5.83 deg
+      N: CF 0.20521227  count  10  bend 5.89 deg
+      O: CF 0.20526630  count  10  bend 5.89 deg
+      P: CF 0.20573579  count  10  bend 5.90 deg
+      Q: CF 0.20590773  count  80  bend 5.91 deg
+      R: CF 0.20892958  count  40  bend 6.00 deg
+      S: CF 0.21131535  count  20  bend 6.07 deg
+      T: CF 0.21154935  count  20  bend 6.07 deg
+      U: CF 0.21192652  count  10  bend 6.08 deg
+      V: CF 0.21338239  count  10  bend 6.12 deg
+      W: CF 0.21535373  count  40  bend 6.18 deg
+      X: CF 0.21606895  count   5  bend 6.20 deg
+      Y: CF 0.21662821  count  30  bend 6.22 deg
+      Z: CF 0.21685356  count  20  bend 6.22 deg
+      AA: CF 0.21688307  count  10  bend 6.23 deg
+      AB: CF 0.21717067  count  10  bend 6.23 deg
+      AC: CF 0.22277622  count  10  bend 6.40 deg
+      AD: CF 0.23126258  count  20  bend 6.64 deg
+   6V 11/18: 735 struts, 30 types (min gap 2.95e-05), height 1.358435, hubs {4: 30, 5: 6, 6: 220}
+      A: CF 0.11855482  count  30  bend 3.40 deg
+      B: CF 0.13912447  count  35  bend 3.99 deg
+      C: CF 0.19517042  count  10  bend 5.60 deg
+      D: CF 0.19726742  count  10  bend 5.66 deg
+      E: CF 0.19801257  count  30  bend 5.68 deg
+      F: CF 0.19805702  count  20  bend 5.68 deg
+      G: CF 0.19981933  count  20  bend 5.73 deg
+      H: CF 0.20191727  count  20  bend 5.79 deg
+      I: CF 0.20212057  count  20  bend 5.80 deg
+      J: CF 0.20215409  count  20  bend 5.80 deg
+      K: CF 0.20263836  count  20  bend 5.82 deg
+      L: CF 0.20281970  count  50  bend 5.82 deg
+      M: CF 0.20314291  count  30  bend 5.83 deg
+      N: CF 0.20521227  count  20  bend 5.89 deg
+      O: CF 0.20526630  count  10  bend 5.89 deg
+      P: CF 0.20573579  count  20  bend 5.90 deg
+      Q: CF 0.20590773  count  80  bend 5.91 deg
+      R: CF 0.20892958  count  40  bend 6.00 deg
+      S: CF 0.21131535  count  20  bend 6.07 deg
+      T: CF 0.21154935  count  20  bend 6.07 deg
+      U: CF 0.21192652  count  20  bend 6.08 deg
+      V: CF 0.21338239  count  10  bend 6.12 deg
+      W: CF 0.21535373  count  40  bend 6.18 deg
+      X: CF 0.21606895  count  10  bend 6.20 deg
+      Y: CF 0.21662821  count  30  bend 6.22 deg
+      Z: CF 0.21685356  count  20  bend 6.22 deg
+      AA: CF 0.21688307  count  20  bend 6.23 deg
+      AB: CF 0.21717067  count  20  bend 6.23 deg
+      AC: CF 0.22277622  count  20  bend 6.40 deg
+      AD: CF 0.23126258  count  20  bend 6.64 deg
+-- wrote kruschke_extended_reference.json
+
+========================================================================
+RESULT: ALL CHECKS PASSED
