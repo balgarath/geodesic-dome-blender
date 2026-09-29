@@ -102,10 +102,7 @@ def build_dome(method, frequency, k, merge_tolerance=1e-4, custom_table=None,
     custom_residual = None
 
     if method == "CUSTOM":
-        try:
-            from .custom import solve_custom
-        except ImportError:
-            raise ValueError("Custom chord table support is not available yet.")
+        from .custom import solve_custom
         if frequency not in valid_frequencies(custom_base if custom_base != "CUSTOM" else "CLASS_I"):
             raise ValueError("Frequency %s not valid for custom base %s" % (frequency, custom_base))
         mesh = subdivide_class1(frequency)
