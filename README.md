@@ -1,4 +1,9 @@
-<p align="center"><img src="docs/logo/logo.svg" width="180" alt="Geovisual Dome Tools logo: a 3V Kruschke dome with struts colored by type"></p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/logo/geovisual-dome-tools-transparent-white.png">
+    <img src="docs/logo/geovisual-dome-tools-transparent.png" width="280" alt="Geovisual Dome Tools logo">
+  </picture>
+</p>
 
 # Geovisual Dome Tools
 
