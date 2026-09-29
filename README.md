@@ -2,7 +2,7 @@
 
 A Blender extension that generates geodesic dome frames with the chord
 factors you need to actually cut struts. I make art installations for
-events under Geovisual Creations, and a lot of that work is built on
+events under [Geovisual Creations](https://geovisual.net), and a lot of that work is built on
 geodesic domes. One of my main installations is a projection dome. I wrote
 this for my own build planning and figured other dome builders could use it.
 
