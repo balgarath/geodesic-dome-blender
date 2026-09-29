@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Ralph Ledge / Geovisual Creations
 """mesh.geodesic_dome_add operator and strut visualization helper.
 
 Design.md 10.2, 10.3, 10.4.

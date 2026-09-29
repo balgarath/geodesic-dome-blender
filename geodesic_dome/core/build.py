@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Ralph Ledge / Geovisual Creations
 """build_dome() facade: subdivide, position, truncate, classify, assemble.
 
 Design.md 9.

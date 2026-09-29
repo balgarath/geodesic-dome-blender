@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Ralph Ledge / Geovisual Creations
 """Icosahedron geometry and Class I Method 1 subdivision.
 
 Ported from reference/verify_geometry.py (the verified math oracle).

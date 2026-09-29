@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Ralph Ledge / Geovisual Creations
 """Kruschke construction (exact 3V/4V) and extended leveling (5V/6V).
 
 Design.md 5.2, 5.4. Ported from reference/verify_geometry.py.

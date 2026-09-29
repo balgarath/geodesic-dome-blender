@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 Ralph Ledge / Geovisual Creations
 """Custom chord table: parsing and constrained relaxation solve.
 
 Design.md 7.
