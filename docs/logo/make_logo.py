@@ -11,7 +11,7 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "..", "..", "geodesic_dome"))
+sys.path.insert(0, os.path.join(HERE, "..", "..", "geovisual_dome_tools"))
 
 from core.build import build_dome  # noqa: E402
 
@@ -58,7 +58,7 @@ def main():
     out = [
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" '
         'width="%d" height="%d">' % (SIZE, SIZE, SIZE, SIZE),
-        '<title>Geodesic Dome Builder</title>',
+        '<title>Geovisual Dome Tools</title>',
         '<defs><filter id="glow" x="-20%" y="-20%" width="140%" height="140%">'
         '<feGaussianBlur stdDeviation="4" result="b"/>'
         '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>'

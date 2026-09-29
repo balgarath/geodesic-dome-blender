@@ -6,7 +6,7 @@ from core.kruschke import kruschke_positions
 from core.truncate import dome_edges, base_ring, base_level_info
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.join(HERE, "..", "geodesic_dome", "core", "data")
+DATA = os.path.join(HERE, "..", "geovisual_dome_tools", "core", "data")
 
 with open(os.path.join(DATA, "domerama_kruschke_chord_factors.json"), encoding="utf8") as f:
     KRU_REF = json.load(f)

@@ -3,7 +3,7 @@ import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 REFERENCE_DIR = os.path.join(ROOT, "reference")
-DATA_DIR = os.path.join(ROOT, "geodesic_dome", "core", "data")
+DATA_DIR = os.path.join(ROOT, "geovisual_dome_tools", "core", "data")
 
 FILENAMES = [
     "domerama_chord_factors.json",

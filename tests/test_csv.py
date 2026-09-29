@@ -10,7 +10,7 @@ def test_csv_3v_kruschke_5_9():
     lines = csv_lines(report_dict, radius=3.0, version="0.1.0")
 
     header = lines[0]
-    assert header.startswith("# Geodesic Dome Builder")
+    assert header.startswith("# Geovisual Dome Tools")
     assert any(l.startswith("# method,") for l in lines)
     assert any(l.startswith("# frequency,3V") for l in lines)
     assert any(l.startswith("# fraction,5/9") for l in lines)

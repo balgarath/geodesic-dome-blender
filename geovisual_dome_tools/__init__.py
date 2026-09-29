@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Ralph Edge / Geovisual Creations
-"""Geodesic Dome Builder, Blender extension entry point."""
+"""Geovisual Dome Tools, Blender extension entry point."""
 from . import operators
 from . import panel
 

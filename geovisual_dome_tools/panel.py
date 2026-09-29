@@ -12,7 +12,7 @@ from .operators import PLUGIN_VERSION
 
 
 def _get_report(obj):
-    raw = obj.get("geodome_report")
+    raw = obj.get("geovisual_dome_report")
     if not raw:
         return None
     try:
@@ -21,17 +21,17 @@ def _get_report(obj):
         return None
 
 
-class VIEW3D_PT_geodome_report(Panel):
-    bl_label = "Geodome Report"
-    bl_idname = "VIEW3D_PT_geodome_report"
+class VIEW3D_PT_geovisual_dome_report(Panel):
+    bl_label = "Dome Report"
+    bl_idname = "VIEW3D_PT_geovisual_dome_report"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'
-    bl_category = "Geodome"
+    bl_category = "Geovisual Dome"
 
     @classmethod
     def poll(cls, context):
         obj = context.active_object
-        return obj is not None and obj.get("geodome_report") is not None
+        return obj is not None and obj.get("geovisual_dome_report") is not None
 
     def draw(self, context):
         layout = self.layout
@@ -90,13 +90,13 @@ class VIEW3D_PT_geodome_report(Panel):
                 notes_box.label(text=note)
 
         row = layout.row(align=True)
-        row.operator("geodome.export_csv", text="Export CSV")
-        row.operator("geodome.copy_table", text="Copy Table")
+        row.operator("geovisual_dome.export_csv", text="Export CSV")
+        row.operator("geovisual_dome.copy_table", text="Copy Table")
 
 
-class GEODOME_OT_export_csv(Operator):
+class GEOVISUAL_DOME_OT_export_csv(Operator):
     """Write the dome report to a CSV file"""
-    bl_idname = "geodome.export_csv"
+    bl_idname = "geovisual_dome.export_csv"
     bl_label = "Export Dome CSV"
 
     filepath: StringProperty(subtype='FILE_PATH')
@@ -125,9 +125,9 @@ class GEODOME_OT_export_csv(Operator):
         return {'FINISHED'}
 
 
-class GEODOME_OT_copy_table(Operator):
+class GEOVISUAL_DOME_OT_copy_table(Operator):
     """Copy the strut table to the clipboard, tab separated"""
-    bl_idname = "geodome.copy_table"
+    bl_idname = "geovisual_dome.copy_table"
     bl_label = "Copy Dome Table"
 
     def execute(self, context):
@@ -151,7 +151,7 @@ class GEODOME_OT_copy_table(Operator):
         return {'FINISHED'}
 
 
-_CLASSES = (VIEW3D_PT_geodome_report, GEODOME_OT_export_csv, GEODOME_OT_copy_table)
+_CLASSES = (VIEW3D_PT_geovisual_dome_report, GEOVISUAL_DOME_OT_export_csv, GEOVISUAL_DOME_OT_copy_table)
 
 
 def register():

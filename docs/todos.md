@@ -4,6 +4,7 @@
 (none blocking; see backlog for deferred ideas)
 
 ## Backlog / future ideas
+- [ ] Custom menu icon from Ralph's new logo (currently built-in MOD_TRIANGULATE).
 - [ ] "Leveled Class I" method: slide only the base row of a Class I dome
       to a plane (fewer new strut types than extended Kruschke).
 - [ ] Hub connector visualization (spheres or plates at hubs).

@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2026 Ralph Edge / Geovisual Creations
-"""mesh.geodesic_dome_add operator and strut visualization helper.
+"""mesh.geovisual_dome_add operator and strut visualization helper.
 
 Design.md 10.2, 10.3, 10.4.
 """
@@ -19,7 +19,7 @@ from mathutils import Vector
 from .core.build import build_dome, valid_frequencies, valid_fractions
 from .core.custom import parse_table, expected_class_count
 
-PLUGIN_VERSION = "0.1.3"
+PLUGIN_VERSION = "0.2.0"
 
 METHOD_ITEMS = [
     ("KRUSCHKE", "Kruschke", "The 1972 Kruschke flat base construction, 3V and 4V. The report shows domerama's published chord factor next to ours for the fractions domerama documents"),
@@ -133,10 +133,10 @@ def _hsv_color(i):
     return (r, g, b, 1.0)
 
 
-class MESH_OT_geodesic_dome_add(Operator):
+class MESH_OT_geovisual_dome_add(Operator):
     """Add a geodesic dome frame mesh"""
-    bl_idname = "mesh.geodesic_dome_add"
-    bl_label = "Geodesic Dome"
+    bl_idname = "mesh.geovisual_dome_add"
+    bl_label = "Geovisual Dome"
     bl_options = {'REGISTER', 'UNDO'}
 
     method: EnumProperty(
@@ -308,7 +308,7 @@ class MESH_OT_geodesic_dome_add(Operator):
         elif self.add_base_face and not geometry.report.base_is_level:
             self.report({'WARNING'}, "Base is not level; skipped Add Base Face.")
 
-        mesh = bpy.data.meshes.new("Geodesic Dome")
+        mesh = bpy.data.meshes.new("Geovisual Dome")
         mesh.from_pydata(verts, geometry.edges, faces)
         mesh.validate()
         mesh.update()
@@ -358,13 +358,13 @@ class MESH_OT_geodesic_dome_add(Operator):
         row_attr = mesh.attributes.new("row", 'INT', 'POINT')
         row_attr.data.foreach_set("value", geometry.vert_row)
 
-        obj = bpy.data.objects.new("Geodesic Dome", mesh)
+        obj = bpy.data.objects.new("Geovisual Dome", mesh)
         context.collection.objects.link(obj)
 
         report_dict = dataclasses.asdict(geometry.report)
         report_dict["radius"] = radius
         report_dict["version"] = PLUGIN_VERSION
-        obj["geodome_report"] = json.dumps(report_dict)
+        obj["geovisual_dome_report"] = json.dumps(report_dict)
 
         if self.create_strut_object:
             create_strut_object(context, obj, geometry, radius, self.strut_thickness, colors)
@@ -446,10 +446,10 @@ def create_strut_object(context, frame_obj, geometry, radius, thickness, colors)
 
 
 def menu_func(self, context):
-    self.layout.operator(MESH_OT_geodesic_dome_add.bl_idname, text="Geodesic Dome", icon='MESH_ICOSPHERE')
+    self.layout.operator(MESH_OT_geovisual_dome_add.bl_idname, text="Geovisual Dome", icon='MOD_TRIANGULATE')
 
 
-_CLASSES = (MESH_OT_geodesic_dome_add,)
+_CLASSES = (MESH_OT_geovisual_dome_add,)
 
 
 def register():

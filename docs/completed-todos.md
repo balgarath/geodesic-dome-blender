@@ -22,3 +22,6 @@
       comparing production defaults against the reference JSONs with
       nearest-match pairing. Full list in docs/todos.md's "Fixed in v0.1.1"
       section.
+
+## v0.2.0 rename (2026-09-29)
+- [x] Renamed Geodesic Dome Builder to Geovisual Dome Tools (new extension ID, menu label, icon, N-panel tab) so it no longer looks identical to Blender's bundled Geodesic Domes add-on.

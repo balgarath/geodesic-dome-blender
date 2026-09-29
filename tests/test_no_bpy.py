@@ -2,7 +2,7 @@ import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-CORE_DIR = os.path.join(ROOT, "geodesic_dome", "core")
+CORE_DIR = os.path.join(ROOT, "geovisual_dome_tools", "core")
 
 
 def _iter_py_files(base):

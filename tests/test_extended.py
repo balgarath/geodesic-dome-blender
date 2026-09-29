@@ -6,7 +6,7 @@ from core.kruschke import kruschke_positions
 from core.truncate import dome_edges
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.join(HERE, "..", "geodesic_dome", "core", "data")
+DATA = os.path.join(HERE, "..", "geovisual_dome_tools", "core", "data")
 
 with open(os.path.join(DATA, "kruschke_extended_reference.json"), encoding="utf8") as f:
     EXT_REF = json.load(f)

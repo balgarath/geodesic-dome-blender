@@ -1,4 +1,4 @@
-# Geodesic Dome Builder, Blender extension. Design and math spec
+# Geovisual Dome Tools, Blender extension. Design and math spec
 
 Status: verified design. Every number in this spec was checked numerically by
 `reference\verify_geometry.py` (run it: `python reference\verify_geometry.py`,
@@ -12,7 +12,7 @@ Geometry core is pure Python (no bpy), unit-testable with plain pytest.
 
 ## 1. What it does
 
-Add > Mesh > Geodesic Dome. Generates an icosahedron-based geodesic dome
+Add > Mesh > Geovisual Dome. Generates an icosahedron-based geodesic dome
 frame (verts, edges, faces) with a selectable calculation method, frequency,
 truncation fraction and radius. Tags every edge with its strut type (A, B,
 C...), reports chord factors, strut lengths, counts and hub valences in an
@@ -361,10 +361,10 @@ per-row vertex coordinates (nobody has those).
 
 ```
 E:\claude\geodesic-dome-blender\
-  geodesic_dome\                  <- the extension (zip root)
+  geovisual_dome_tools\                  <- the extension (zip root)
     blender_manifest.toml
     __init__.py                   register/unregister only
-    operators.py                  mesh.geodesic_dome_add
+    operators.py                  mesh.geovisual_dome_add
     panel.py                      N-panel + CSV export operator
     core\                         PURE PYTHON, never imports bpy
       __init__.py                 re-exports build_dome, valid_fractions
@@ -384,12 +384,12 @@ E:\claude\geodesic-dome-blender\
     test_no_bpy.py test_data_sync.py
   reference\                      scrape data + verify_geometry.py (not shipped)
   docs\ design.md plan.md todos.md completed-todos.md
-  build.py                        builds dist\geodesic_dome_builder-<ver>.zip
+  build.py                        builds dist\geovisual_dome_tools-<ver>.zip
   README.md
   .gitignore
 ```
 
-Canonical JSONs live in `reference\`; `geodesic_dome\core\data\` holds
+Canonical JSONs live in `reference\`; `geovisual_dome_tools\core\data\` holds
 byte-identical copies (test_data_sync.py asserts equality).
 
 ## 9. Core API
@@ -454,22 +454,22 @@ extension dependency-free and the wheels list empty).
 
 ```toml
 schema_version = "1.0.0"
-id = "geodesic_dome_builder"
-version = "0.1.0"
-name = "Geodesic Dome Builder"
+id = "geovisual_dome_tools"
+version = "0.2.0"
+name = "Geovisual Dome Tools"
 tagline = "Geodesic dome frames with Class I and Kruschke chord factors"
 maintainer = "Ralph Edge <rledge21@gmail.com>"
 type = "add-on"
-website = "https://geovisualcreations.com"
+website = "https://geovisual.net"
 tags = ["Add Mesh"]
 blender_version_min = "4.2.0"
 license = ["SPDX:GPL-3.0-or-later"]
 ```
 
-### 10.2 Operator `mesh.geodesic_dome_add`
+### 10.2 Operator `mesh.geovisual_dome_add`
 
 `bl_options = {'REGISTER', 'UNDO'}`; appended to `VIEW3D_MT_mesh_add` with
-icon 'MESH_ICOSPHERE'. Redo-panel properties (order as listed):
+icon 'MOD_TRIANGULATE'. Redo-panel properties (order as listed):
 
 - `method`: EnumProperty, default `'KRUSCHKE'`.
 - `frequency`: EnumProperty built per method (Class I/Custom: 1-8;
@@ -508,7 +508,7 @@ On the frame mesh object:
 - Edge attribute `strut_color` (FLOAT_COLOR, EDGE domain) = the type color.
 - Face attribute `panel_type` (INT, FACE domain).
 - Vertex attribute `row` (INT, POINT domain).
-- Object custom property `geodome_report` = JSON dump of DomeReport
+- Object custom property `geovisual_dome_report` = JSON dump of DomeReport
   (via dataclasses.asdict), plus `radius`, plugin version. The N-panel and
   CSV exporter read only this property, so reports survive file reload and
   work on linked/duplicated objects.
@@ -529,8 +529,8 @@ edges = ~23k tris; fine.
 
 ### 10.5 N-panel
 
-3D Viewport sidebar, category "Geodome" (panel `VIEW3D_PT_geodome_report`),
-visible when the active object has `geodome_report`:
+3D Viewport sidebar, category "Geovisual Dome" (panel `VIEW3D_PT_geovisual_dome_report`),
+visible when the active object has `geovisual_dome_report`:
 
 - Summary box: method, frequency, fraction (+alias), radius, height,
   base diameter, level-base status (with mismatch in mm when not level).
@@ -538,14 +538,14 @@ visible when the active object has `geodome_report`:
   count, bend angle (2 dp); domerama columns when present; merged-type note.
 - Hub box: `6-way: x  5-way: y  4-way: z`.
 - Notes box: honesty strings.
-- Buttons: `Export CSV` (`geodome.export_csv`, invoke file browser, default
+- Buttons: `Export CSV` (`geovisual_dome.export_csv`, invoke file browser, default
   name `dome_<method>_<freq>V_<k>-<denom>.csv`) and `Copy table` (clipboard,
   tab-separated).
 
 ### 10.6 CSV format
 
 ```
-# Geodesic Dome Builder 0.1.0
+# Geovisual Dome Tools 0.2.0
 # method,Kruschke (traditional)
 # frequency,3V
 # fraction,5/9,alias,5/8
@@ -567,7 +567,7 @@ lines, UTF-8 no BOM, CRLF acceptable.
 
 ## 11. Tests (pytest, no Blender)
 
-`tests\conftest.py` inserts `geodesic_dome` dir into sys.path; every test
+`tests\conftest.py` inserts `geovisual_dome_tools` dir into sys.path; every test
 imports `core.*` only. `test_no_bpy.py` walks core modules and asserts
 `"import bpy"` never appears (guards the purity requirement).
 
@@ -596,20 +596,20 @@ independent oracle):
 
 ## 12. Build and install
 
-- `python build.py` -> `dist\geodesic_dome_builder-0.1.0.zip` containing the
-  CONTENTS of `geodesic_dome\` at the zip root (manifest at top level).
+- `python build.py` -> `dist\geovisual_dome_tools-0.2.0.zip` containing the
+  CONTENTS of `geovisual_dome_tools\` at the zip root (manifest at top level).
   Version read from the manifest. Excludes `__pycache__`.
 - Install: Blender > Edit > Preferences > Get Extensions > top-right arrow
   menu > Install from Disk > pick the zip. (Or drag the zip into Blender.)
-- Result appears under Add > Mesh > Geodesic Dome.
+- Result appears under Add > Mesh > Geovisual Dome.
 - Optional check if Blender is on PATH:
-  `blender --command extension validate geodesic_dome`.
+  `blender --command extension validate geovisual_dome_tools`.
 
 ## 13. Copy rules for all UI strings
 
 No em-dashes or double hyphens anywhere in UI text, tooltips, reports, CSV.
 Grounded and direct tone; no filler intensifiers. Icon: the stock Blender
-'MESH_ICOSPHERE' (triangles; no custom icon in v1).
+'MOD_TRIANGULATE' (triangles; custom icon planned).
 
 ## 14. Open questions for Ralph (defaults chosen, all changeable)
 

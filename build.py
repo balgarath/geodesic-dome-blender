@@ -3,9 +3,9 @@
 # Copyright (C) 2026 Ralph Edge / Geovisual Creations
 """Build the installable extension zip.
 
-Reads the version from geodesic_dome/blender_manifest.toml and zips the
-CONTENTS of geodesic_dome/ (manifest at the zip root) plus the repo-root
-LICENSE file to dist/geodesic_dome_builder-<version>.zip. Excludes
+Reads the version from geovisual_dome_tools/blender_manifest.toml and zips the
+CONTENTS of geovisual_dome_tools/ (manifest at the zip root) plus the repo-root
+LICENSE file to dist/geovisual_dome_tools-<version>.zip. Excludes
 __pycache__.
 """
 import os
@@ -14,7 +14,7 @@ import sys
 import zipfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, "geodesic_dome")
+SRC = os.path.join(HERE, "geovisual_dome_tools")
 DIST = os.path.join(HERE, "dist")
 MANIFEST = os.path.join(SRC, "blender_manifest.toml")
 LICENSE = os.path.join(HERE, "LICENSE")
@@ -32,7 +32,7 @@ def read_version():
 def build():
     version = read_version()
     os.makedirs(DIST, exist_ok=True)
-    out_path = os.path.join(DIST, "geodesic_dome_builder-%s.zip" % version)
+    out_path = os.path.join(DIST, "geovisual_dome_tools-%s.zip" % version)
 
     with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED) as zf:
         for dirpath, dirnames, filenames in os.walk(SRC):

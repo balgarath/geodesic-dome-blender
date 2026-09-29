@@ -16,7 +16,7 @@ def _fmt(value, decimals):
 def csv_lines(report_dict, radius, version):
     """Build CSV lines (no trailing newline) for a DomeReport dict."""
     lines = []
-    lines.append("# Geodesic Dome Builder %s" % version)
+    lines.append("# Geovisual Dome Tools %s" % version)
     method_name = _METHOD_NAMES.get(report_dict["method"], report_dict["method"])
     lines.append("# method,%s" % method_name)
     lines.append("# frequency,%dV" % report_dict["frequency"])

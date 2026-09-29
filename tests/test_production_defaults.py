@@ -11,7 +11,7 @@ from core.build import build_dome
 from _helpers import nearest_match_pairs
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.join(HERE, "..", "geodesic_dome", "core", "data")
+DATA = os.path.join(HERE, "..", "geovisual_dome_tools", "core", "data")
 
 with open(os.path.join(DATA, "domerama_chord_factors.json"), encoding="utf8") as f:
     CLASSI_REF = json.load(f)

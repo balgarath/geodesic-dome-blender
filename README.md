@@ -1,6 +1,6 @@
-<p align="center"><img src="docs/logo/logo.svg" width="180" alt="Geodesic Dome Builder logo: a 3V Kruschke dome with struts colored by type"></p>
+<p align="center"><img src="docs/logo/logo.svg" width="180" alt="Geovisual Dome Tools logo: a 3V Kruschke dome with struts colored by type"></p>
 
-# Geodesic Dome Builder
+# Geovisual Dome Tools
 
 A Blender extension that generates geodesic dome frames with the chord
 factors you need to actually cut struts. I make art installations for
@@ -8,23 +8,31 @@ events under [Geovisual Creations](https://geovisual.net), and a lot of that wor
 geodesic domes. One of my main installations is a projection dome. I wrote
 this for my own build planning and figured other dome builders could use it.
 
-![A row of Kruschke domes in Blender, with a 4V dome at 4 m radius in front, struts colored by type, and the Geodesic Dome redo panel open](docs/screenshot.png)
+![A row of Kruschke domes in Blender, with a 4V dome at 4 m radius in front, struts colored by type, and the Geovisual Dome redo panel open](docs/screenshot.png)
 
 Requires Blender 4.2 or newer (tested in Blender 5.2). Current version
-0.1.3. License: GPL-3.0-or-later.
+0.2.0. License: GPL-3.0-or-later.
 
 ## Install
 
-1. Download `geodesic_dome_builder-0.1.3.zip` from the
-   [Releases](https://github.com/balgarath/geodesic-dome-blender/releases)
+1. Download `geovisual_dome_tools-0.2.0.zip` from the
+   [Releases](https://github.com/balgarath/geovisual-dome-tools/releases)
    page.
 2. In Blender, go to Edit > Preferences > Get Extensions, open the
    dropdown menu at the top right, choose Install from Disk, and pick the
    zip.
 
+This is separate from Blender's bundled "Geodesic Domes" add-on, and
+both can be installed side by side.
+
+### Upgrading from 0.1.x
+
+The extension ID changed in 0.2.0, so uninstall "Geodesic Dome Builder"
+first, then install Geovisual Dome Tools.
+
 ## Use
 
-Add > Mesh > Geodesic Dome. The redo panel sets method, frequency,
+Add > Mesh > Geovisual Dome. The redo panel sets method, frequency,
 truncation fraction and radius. Defaults are Kruschke, 3V, 5/9, radius
 3 m, because that's what I usually build.
 
@@ -50,7 +58,8 @@ so plainly instead of letting you find out at the build site.
   strut visualization object. Struts are colored shortest to longest in the
   order I paint them: red, blue, green, yellow, purple, black. Domes with
   more than six strut types get generated colors after that.
-- An N-panel report listing chord factor, length at your radius, count
+- An N-panel report (sidebar tab "Geovisual Dome") listing chord factor,
+  length at your radius, count
   per strut type, and hub counts by valence. When the dome matches a
   published domerama variant, the report adds a Domerama column with
   their published values next to ours.
