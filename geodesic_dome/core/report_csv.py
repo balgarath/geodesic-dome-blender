@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Ralph Ledge / Geovisual Creations
+# Copyright (C) 2026 Ralph Edge / Geovisual Creations
 """Pure CSV row assembly for the dome report. Design.md 10.6."""
 
 _METHOD_NAMES = {

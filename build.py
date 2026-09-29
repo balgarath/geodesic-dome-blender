@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Ralph Ledge / Geovisual Creations
+# Copyright (C) 2026 Ralph Edge / Geovisual Creations
 """Build the installable extension zip.
 
 Reads the version from geodesic_dome/blender_manifest.toml and zips the

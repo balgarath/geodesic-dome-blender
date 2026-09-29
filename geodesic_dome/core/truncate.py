@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Ralph Ledge / Geovisual Creations
+# Copyright (C) 2026 Ralph Edge / Geovisual Creations
 """Truncation, fractions, aliases, dome extraction.
 
 Design.md 4.3.

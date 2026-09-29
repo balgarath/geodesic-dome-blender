@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Ralph Ledge / Geovisual Creations
+# Copyright (C) 2026 Ralph Edge / Geovisual Creations
 """Strut grouping, labeling, hub census, and report dataclasses.
 
 Design.md 4.4, 4.5, 9.

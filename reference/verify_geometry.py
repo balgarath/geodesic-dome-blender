@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: GPL-3.0-or-later
-# Copyright (C) 2026 Ralph Ledge / Geovisual Creations
+# Copyright (C) 2026 Ralph Edge / Geovisual Creations
 """Numerical verification of the geodesic math for the Blender extension.
 
 Verifies, against reference/domerama_chord_factors.json and

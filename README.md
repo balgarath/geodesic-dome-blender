@@ -1,78 +1,93 @@
 # Geodesic Dome Builder
 
-A Blender 4.2+ extension that adds geodesic dome mesh frames: Add > Mesh >
-Geodesic Dome. Supports Class I Method 1 subdivision (1V to 8V), the 1972
-Kruschke flat base construction (3V and 4V), a Kruschke variant restricted
-to the four domes domerama.com publishes, and a custom chord factor table
-solved by relaxation. Every strut is tagged with its type, and an N-panel
-reports chord factors, lengths, counts, hub valences, and can export a CSV.
+A Blender extension that generates geodesic dome frames with the chord
+factors you need to actually cut struts. I make art installations for
+events under Geovisual Creations, and a lot of that work is built on
+geodesic domes. One of my main installations is a projection dome. I wrote
+this for my own build planning and figured other dome builders could use it.
 
-The math is pure Python (no bpy, no numpy) and is checked against
-domerama.com's published chord charts. See `docs/design.md` for the full
-spec and provenance, and `reference/verify_geometry.py` for the independent
-numerical oracle every value is checked against.
+Requires Blender 4.2 or newer (tested in Blender 5.2). Current version
+0.1.2. License: GPL-3.0-or-later.
 
 ## Install
 
-1. Build the zip (see below), or use a prebuilt one from `dist/`.
-2. In Blender: Edit > Preferences > Get Extensions > the arrow menu in the
-   top right corner > Install from Disk. Pick the zip.
-3. The operator appears under Add > Mesh > Geodesic Dome.
+1. Download `geodesic_dome_builder-0.1.2.zip` from the
+   [Releases](https://github.com/balgarath/geodesic-dome-blender/releases)
+   page.
+2. In Blender, go to Edit > Preferences > Get Extensions, open the
+   dropdown menu at the top right, choose Install from Disk, and pick the
+   zip.
 
-## Methods
+## Use
 
-| Name in the UI | Frequencies | What it is |
-|---|---|---|
-| Kruschke | 3V, 4V, level-base fractions only | The 1972 Kruschke flat base construction. The report shows domerama.com's published chord factor next to ours for the four fractions domerama documents (3V 4/9, 3V 5/9, 4V 5/12, 4V 7/12); blank for the rest |
-| Icosa Class I Method 1 | 1V to 8V | Standard equal chord subdivision projected to the sphere |
-| Custom chord table | 1V to 8V (or 3V to 6V on the Kruschke base) | Builds a dome from chord factors you supply |
+Add > Mesh > Geodesic Dome. The redo panel sets method, frequency,
+truncation fraction and radius. Defaults are Kruschke, 3V, 5/9, radius
+3 m, because that's what I usually build.
 
-The 5V and 6V extension of the Kruschke construction exists in the pure
-Python core (with its own tests) but is not reachable from the Blender UI.
-There is no published 5V/6V Kruschke reference to check it against; see
-`docs/design.md` section 5.4 and 14 for the reasoning.
+### Methods
 
-Defaults: Kruschke, 3V, fraction 5/9, radius 3 m.
+- **Kruschke** (3V and 4V). Gives a level base at odd truncations, which
+  plain Class I can't do. Chord factors match domerama.com's Kruschke
+  calculators (3V 4/9 and 5/9, 4V 5/12 and 7/12).
+- **Icosahedron Class I Method 1** (1V to 8V). The standard subdivision.
+- **Custom chord table**. Type in your own chord factors and the tool
+  relaxes a mesh to fit them. If the table can't form a consistent dome
+  it warns you and reports the error in mm at your chosen radius.
 
-## Running the tests
+### Truncation
 
-Pure Python, no Blender required:
+Fractions are per frequency. 4/9 is what domerama calls "3/8", and 5/9 is
+their "5/8". When a Class I odd-frequency base isn't level, the tool says
+so plainly instead of letting you find out at the build site.
+
+## What you get
+
+- A mesh with a per-edge strut type attribute and color, plus an optional
+  strut visualization object.
+- An N-panel report listing chord factor, length at your radius, count
+  per strut type, and hub counts by valence. When the dome matches a
+  published domerama variant, the report adds a Domerama column with
+  their published values next to ours.
+- CSV export.
+
+## The Kruschke construction
+
+Start from a Class I dome, then slide the five points around each
+pentagon hub along the icosahedron edge, by a ratio chosen so the base
+rows land level. True Kruschke leveling only works at 3V and 4V, so 5V
+and 6V aren't offered.
+
+## Verification
+
+The geometry core is pure Python with no Blender imports, tested with
+pytest against domerama's published numbers: Class I 1V to 8V and all
+four Kruschke variants, matching counts and chord factors. A separate
+verification script checks the math independently.
+
+The tests turned up a couple of issues in domerama's own tables, now
+documented here: their 4V 5/12 Kruschke page lists 85 six-way hubs where
+the correct number is 45, and their 7V and 8V tables each merge two strut
+types that differ by a few hundred-thousandths.
+
+## Known limits
+
+- No automated in-Blender tests yet. The core math is tested; the Blender
+  layer is checked by hand.
+- Switching method in the redo panel hasn't been exercised through the
+  interactive UI yet.
+- A custom table on a small dome gives a general error warning rather
+  than a per-length count.
+
+## Developer notes
 
 ```
-python -m pip install pytest
-python -m pytest tests -q
+python -m pytest tests -q               # run the test suite
+python reference/verify_geometry.py     # independent math check
+python build.py                         # build the extension zip
 ```
 
-`tests/test_no_bpy.py` guards the purity rule: nothing under
-`geodesic_dome/core/` may import bpy. `tests/test_oracle_script.py` runs
-the independent reference oracle (`reference/verify_geometry.py`) as part
-of the suite.
+## Credits
 
-## Building the zip
-
-```
-python build.py
-```
-
-Writes `dist/geodesic_dome_builder-<version>.zip`, contents of
-`geodesic_dome/` at the zip root, `__pycache__` excluded.
-
-## Smoke test
-
-Manual checklist (needs Blender 4.2+; see docs/todos.md for automating
-this):
-
-1. Install the zip in Blender 4.2+.
-2. Add > Mesh > Geodesic Dome. Default creates Kruschke 3V 5/9, radius 3 m,
-   with colored strut prisms.
-3. In the redo panel, switch method to Icosa Class I Method 1, frequency
-   5V, fraction 7/15: a not-level-base warning note appears and the mesh
-   rebuilds.
-4. The N-panel Geodome tab shows 9 strut rows for Class I 5V 7/15. Export
-   CSV writes a file that opens cleanly in a spreadsheet.
-5. Kruschke, 4V, fraction 5/12 shows domerama's published column values
-   next to ours in the report.
-6. Custom chord table: 3V k=4 with table "0.36 0.41 0.42" builds and
-   reports a residual; feeding two values instead of three errors cleanly.
-
-More detail: `docs/design.md`, `docs/plan.md`.
+Chord factor references and prior art: domerama.com, David Kruschke
+(Dome Cookbook of Geodesic Geometry, 1972), acidome.com, and the
+geodesichelp group (Gerry Toomey). Details in [CREDITS.md](CREDITS.md).
