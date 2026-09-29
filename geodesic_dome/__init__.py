@@ -1,9 +1,10 @@
 """Geodesic Dome Builder, Blender extension entry point."""
+from . import operators
 
 
 def register():
-    pass
+    operators.register()
 
 
 def unregister():
-    pass
+    operators.unregister()
