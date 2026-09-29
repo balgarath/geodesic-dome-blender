@@ -9,8 +9,9 @@
 - [ ] Hub connector visualization (spheres or plates at hubs).
 - [ ] Cut-list CSV variant (one row per physical strut).
 - [ ] Automated Blender-side tests (`blender --background --python`) as a
-      real CI step; a manual headless smoke run was done for this build
-      (see the session report) but nothing runs it automatically yet.
+      real CI step; manual headless smoke runs were done for this build on
+      both Blender 4.0.1 and 5.2.0 (see the v0.1.1 session report) but
+      nothing runs it automatically yet.
 - [ ] If a scan of Kruschke's Dome Cookbook pages 18-23 turns up, check the
       book's 2V treatment and published tables against our construction.
 - [ ] Custom chord table relaxation solver has no explicit symmetry
@@ -19,18 +20,54 @@
       defaults, the solver converges to a "best fit" that is only
       approximately symmetric, so the reported strut table can show many
       more near-duplicate types than the topology's true symmetry class
-      count (verified during the T11 smoke test with table "0.36 0.41
-      0.42" on 3V k=4: 50 reported types at merge_tolerance 1e-4 instead of
-      3). This matches the design's "no symmetry enforcement" note, but a
-      future pass could explicitly average each edge class to its
-      symmetry-orbit mean every few iterations to keep the report readable
-      for larger deviations.
+      count (verified with table "0.36 0.41 0.42" on 3V k=4: 119 reported
+      types instead of 3, at the v0.1.1 production default merge tolerance
+      1e-6). v0.1.1 added an explicit warning for this case ("Your table is
+      not geometrically consistent for this dome..."), but the underlying
+      solver still has no symmetry enforcement; a future pass could
+      explicitly average each edge class to its symmetry-orbit mean every
+      few iterations to keep the report readable for larger deviations.
 - [ ] Dynamic fraction EnumProperty does not re-validate its stored value
       when the user switches `method` in the redo panel; if the previously
       selected fraction key does not exist in the new method's item list,
       Blender's own enum handling resets it silently. Not observed to
       crash in the headless smoke test, but worth an explicit interactive
       check in Blender's UI (not just via `bpy.ops` calls).
+
+## Fixed in v0.1.1 (two-review fix round)
+- [x] N-panel was missing the domerama column; now shown per strut row.
+- [x] Edge/face mesh attributes (strut_type, strut_color, panel_type) were
+      assigned by list position, which Blender can reorder inside
+      from_pydata (measured: only 1/310 edges kept their input index for
+      Kruschke 4V 7/12 in Blender 4.0.1). Fixed by mapping attributes by
+      sorted vertex-index pair (edges) / vertex-index set (faces) instead
+      of position. Verified correct in headless Blender 4.0.1 AND 5.2.0;
+      Blender 4.2-5.1 is covered by the same vertex-index mapping (it does
+      not depend on which specific version reorders edges), so this is no
+      longer a version-specific risk.
+- [x] Merge tolerance could chain past its own limit (compared each
+      candidate to the previous group's mean instead of the group's min);
+      fixed, with a regression test. Default lowered to 1e-6, UI max
+      lowered to 1e-3, and merged sub-types now report their spread in mm
+      at the actual radius with a warning above 0.5 mm.
+- [x] Custom solver messages hard-coded "at radius 1.000 m"; now scaled to
+      the actual radius. Added a warning when the custom table is not
+      geometrically consistent (actual strut-type count vs table row
+      count).
+- [x] Base-level check used an absolute 1e-9 tolerance regardless of
+      radius, so a Custom dome fed domerama's own rounded Kruschke factors
+      was reported "not level". Now uses a tolerance in real length (0.1 mm)
+      at the chosen radius.
+- [x] API bug: build_dome with custom_table=None combined class1_defaults
+      (Class I only, one tolerance) with solve_custom (any base, a
+      different tolerance), raising ValueError for some base/frequency
+      combinations. Fixed with core/custom.py:base_defaults, which uses
+      the correct base topology and the same tolerance solve_custom uses.
+- [x] Added tests comparing the shipped build_dome() at its PRODUCTION
+      default tolerance against the reference JSONs for every Class I
+      1V-8V variant and all 4 Kruschke variants, using nearest-match
+      pairing; fixed the older sequential first-within-tolerance test the
+      same way; added a synthetic regression test for the chaining fix.
 
 ## Design decisions recorded this session (see docs/design.md for detail)
 - 5V/6V extended Kruschke: stays in the pure core with tests, hidden from

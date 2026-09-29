@@ -12,3 +12,13 @@
 - [x] Ralph's mid-build correction: merged the Kruschke (Domerama) and
       Kruschke (Traditional) UI entries into one `KRUSCHKE` method with the
       domerama cross-check as a report column.
+
+## v0.1.1 fix round (2026-09-28): two independent reviews
+- [x] N-panel domerama column, edge/face attribute vertex-pair mapping
+      (fixes a real Blender edge-reorder bug), merge-tolerance chaining
+      fix, radius-aware residual/spread messages, custom solver
+      type-count-mismatch warning, radius-aware base-level tolerance, a
+      real build_dome API bug for custom_table=None, and new tests
+      comparing production defaults against the reference JSONs with
+      nearest-match pairing. Full list in docs/todos.md's "Fixed in v0.1.1"
+      section.
