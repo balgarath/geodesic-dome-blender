@@ -1,6 +1,6 @@
 schema_version = "1.0.0"
 id = "geodesic_dome_builder"
-version = "0.1.1"
+version = "0.1.2"
 name = "Geodesic Dome Builder"
 tagline = "Geodesic dome frames with Class I and Kruschke chord factors"
 maintainer = "Ralph Ledge <rledge21@gmail.com>"

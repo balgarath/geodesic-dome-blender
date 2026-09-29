@@ -17,7 +17,7 @@ from mathutils import Vector
 from .core.build import build_dome, valid_frequencies, valid_fractions
 from .core.custom import parse_table, expected_class_count
 
-PLUGIN_VERSION = "0.1.1"
+PLUGIN_VERSION = "0.1.2"
 
 METHOD_ITEMS = [
     ("KRUSCHKE", "Kruschke", "The 1972 Kruschke flat base construction, 3V and 4V. The report shows domerama's published chord factor next to ours for the fractions domerama documents"),

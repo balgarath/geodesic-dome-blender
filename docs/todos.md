@@ -34,6 +34,33 @@
       crash in the headless smoke test, but worth an explicit interactive
       check in Blender's UI (not just via `bpy.ops` calls).
 
+## Fixed in v0.1.2 (reviewer follow-up on v0.1.1)
+- [x] N1: the custom-table "N strut lengths instead of M" warning false-
+      positived on genuinely consistent tables (domerama's own rounded
+      Kruschke CFs at residual 5e-6 reported 23 instead of 6; a
+      self-consistent default table at a coarse merge_tolerance reported
+      14 instead of 16). Now counts at max(merge_tolerance, 3x residual)
+      and only warns when that count still exceeds M and residual exceeds
+      the 1e-4 gate. Note: on small, closely-spaced topologies (e.g. Class
+      I 3V, only 3 classes within ~0.06 of each other), a single-class
+      perturbation large enough to be genuinely inconsistent also makes
+      3x residual comparable to the inter-class gaps, so this specific
+      count warning does not fire for that shape of bad table; the general
+      "not self-consistent" residual warning still does. Documented in the
+      test (test_inconsistent_table_still_warns).
+- [x] N2: the base-level tolerance was a fixed 0.1 mm regardless of
+      radius, letting tiny Class I odd-frequency domes (5V under 1.45 cm)
+      report "level". Now relative: max(1e-9 x radius, min(0.1 mm,
+      1e-5 x radius)).
+- [x] N3: suppressed the "Base spread: 0.0000 mm... within tolerance" note
+      when it rounds to zero at display precision or the base is a single
+      vertex (full sphere).
+- [x] N4: test_class1_against_domerama silently skipped any out-of-
+      tolerance nearest match; now asserts the skip is limited to the two
+      documented site-merged rows (7V J, 8V N). Added a test verifying the
+      _KNOWN_SPLITS pair counts actually sum to domerama's published
+      merged counts (70, 90) instead of assuming it.
+
 ## Fixed in v0.1.1 (two-review fix round)
 - [x] N-panel was missing the domerama column; now shown per strut row.
 - [x] Edge/face mesh attributes (strut_type, strut_color, panel_type) were
