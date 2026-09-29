@@ -7,11 +7,11 @@ geodesic domes. One of my main installations is a projection dome. I wrote
 this for my own build planning and figured other dome builders could use it.
 
 Requires Blender 4.2 or newer (tested in Blender 5.2). Current version
-0.1.2. License: GPL-3.0-or-later.
+0.1.3. License: GPL-3.0-or-later.
 
 ## Install
 
-1. Download `geodesic_dome_builder-0.1.2.zip` from the
+1. Download `geodesic_dome_builder-0.1.3.zip` from the
    [Releases](https://github.com/balgarath/geodesic-dome-blender/releases)
    page.
 2. In Blender, go to Edit > Preferences > Get Extensions, open the
@@ -43,7 +43,9 @@ so plainly instead of letting you find out at the build site.
 ## What you get
 
 - A mesh with a per-edge strut type attribute and color, plus an optional
-  strut visualization object.
+  strut visualization object. Struts are colored shortest to longest in the
+  order I paint them: red, blue, green, yellow, purple, black. Domes with
+  more than six strut types get generated colors after that.
 - An N-panel report listing chord factor, length at your radius, count
   per strut type, and hub counts by valence. When the dome matches a
   published domerama variant, the report adds a Domerama column with

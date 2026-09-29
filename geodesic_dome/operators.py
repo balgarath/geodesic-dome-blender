@@ -19,7 +19,7 @@ from mathutils import Vector
 from .core.build import build_dome, valid_frequencies, valid_fractions
 from .core.custom import parse_table, expected_class_count
 
-PLUGIN_VERSION = "0.1.2"
+PLUGIN_VERSION = "0.1.3"
 
 METHOD_ITEMS = [
     ("KRUSCHKE", "Kruschke", "The 1972 Kruschke flat base construction, 3V and 4V. The report shows domerama's published chord factor next to ours for the fractions domerama documents"),
@@ -112,7 +112,22 @@ def _default_fraction_key(method, frequency):
     return "%d_%d" % (chosen.k, chosen.denom)
 
 
+# Shop strut colors, shortest to longest (A, B, C, ...). Matches the paint
+# code on Ralph's 4V Kruschke build.
+STRUT_PALETTE = (
+    (1.0, 0.0, 0.0, 1.0),     # red
+    (0.0, 0.2, 1.0, 1.0),     # blue
+    (0.0, 0.8, 0.1, 1.0),     # green
+    (1.0, 0.85, 0.0, 1.0),    # yellow
+    (0.55, 0.1, 0.9, 1.0),    # purple
+    (0.02, 0.02, 0.02, 1.0),  # black
+)
+
+
 def _hsv_color(i):
+    """Strut type color: shop palette first, generated hues past it."""
+    if i < len(STRUT_PALETTE):
+        return STRUT_PALETTE[i]
     hue = (0.48 + 0.618033988749895 * i) % 1.0
     r, g, b = colorsys.hsv_to_rgb(hue, 0.75, 0.9)
     return (r, g, b, 1.0)
