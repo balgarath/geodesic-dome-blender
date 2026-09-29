@@ -7,8 +7,8 @@
 
 # Geovisual Dome Tools
 
-A Blender extension that generates geodesic dome frames with the chord
-factors you need to actually cut struts. I make art installations for
+A Blender extension that generates geodesic dome frames based on Icosa
+Class I Method 1 & Kruschke flat-base formulas. I make art installations for
 events under [Geovisual Creations](https://geovisual.net), and a lot of that work is built on
 geodesic domes. One of my main installations is a projection dome. I wrote
 this for my own build planning and figured other dome builders could use it.
@@ -29,11 +29,6 @@ Requires Blender 4.2 or newer (tested in Blender 5.2). Current version
 
 This is separate from Blender's bundled "Geodesic Domes" add-on, and
 both can be installed side by side.
-
-### Upgrading from 0.1.x
-
-The extension ID changed in 0.2.0, so uninstall "Geodesic Dome Builder"
-first, then install Geovisual Dome Tools.
 
 ## Use
 
